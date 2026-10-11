@@ -189,6 +189,30 @@ footer .wrap { padding-block: 24px; font-size: .82rem; color: var(--muted); disp
   main > * { animation: rise .35s ease-out both; }
   @keyframes rise { from { transform: translateY(6px); } to { transform: none; } }
 }
+
+/* ---------- additions ---------- */
+.kind { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kind .status { color: var(--accent); }
+.tdot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
+.topics a > span:first-child { min-width: 0; }
+.narrative { border-left: 3px solid var(--tc, var(--accent)); }
+.paper .kind { margin-top: 20px; }
+.paper h1 { margin-top: 8px; }
+.art-grid { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px 24px; }
+.art-item a { color: inherit; text-decoration: none; display: block; }
+.art-item a:hover .art-title { color: var(--accent); text-decoration: underline; }
+.art-thumb {
+  aspect-ratio: 16 / 9; max-width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid var(--line);
+  background: var(--accent-soft); display: grid; place-items: center;
+  color: var(--muted); font-family: var(--mono); font-size: .75rem; letter-spacing: .04em;
+  background-image: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--accent) 7%, transparent) 14px 15px);
+}
+.art-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.art-body { display: grid; gap: 4px; margin-top: 12px; justify-items: start; }
+.art-title { font-family: var(--display); font-weight: 700; font-size: 1.08rem; line-height: 1.35; }
+@media (max-width: 860px) { .paper .back { display: none; } }
+.proj > *, .about > * { min-width: 0; }
+.entry .title, .paper h1 { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
@@ -198,7 +222,8 @@ footer .wrap { padding-block: 24px; font-size: .82rem; color: var(--muted); disp
     <a class="brand" href="#about">Soonho Kwon<small>권순호</small></a>
     <nav class="main" aria-label="Main">
       <a href="#about" data-nav="about">About</a>
-      <a href="#projects" data-nav="projects">Projects</a>
+      <a href="#publications" data-nav="publications">Publications</a>
+      <a href="#artwork" data-nav="artwork">Artwork</a>
       <a id="cv-link" href="#" target="_blank" rel="noopener">CV</a>
     </nav>
   </div>
@@ -216,7 +241,8 @@ footer .wrap { padding-block: 24px; font-size: .82rem; color: var(--muted); disp
 const SITE = {
   name: "Soonho Kwon",
   nameKo: "권순호",
-  photo: "",   // e.g. "images/profile.jpg" — leave "" to show initials
+  // Profile photo. To use your own file, upload it to the repo (e.g. images/profile.jpg) and put that path here.
+  photo: "https://lh7-us.googleusercontent.com/sitesv-images-rt/AMxu72vygaNIPjwtAA954IMT8AxVOdzF-bCaailMDMY15KywAhq2_5oAJxq9i2Bzph1y2A3arAdicyyRwISZIHeLnQRf5avMOetncnflpyknmi8a4wZwoEOfcyrYlUcfb3EHLm4YLPwX4cwFfRAg0TFWsA7XS8s8saW1gKpAXfiGwA8qibaD8ev508TEgSXC9qkiQmXfF-aNdV2l0AEyW-j76rYB-GZJ-AG5d-VWq_3k=w1280",
   email: "soonho [at] gatech [dot] edu",
   cv: "/cv/",
   links: [
@@ -226,7 +252,7 @@ const SITE = {
   ],
   lede: `I am a Human-Computer Interaction (HCI) and design researcher and a Ph.D. student in
     <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank" rel="noopener">Human-Centered Computing</a>
-    at the Georgia Institute of Technology. I am a member of the ESC Lab, advised by
+    at the Georgia Institute of Technology. I am a member of the <a href="http://esc-lab.org" target="_blank" rel="noopener">ESC Lab</a>, advised by
     <a href="https://shaowenbardzell.com" target="_blank" rel="noopener">Shaowen Bardzell</a>.`,
   stance: `I do not approach technology as a means of “solving problems.” I treat technology as a way
     of allowing people to carve out authentic ways of being within systems that are difficult to
@@ -237,135 +263,201 @@ const SITE = {
 };
 
 /* Topics: `blurb` appears on the About page; `narrative` is the box at the top of each topic page.
-   Use blank lines between paragraphs in `narrative`. */
+   Use a blank line (\n\n) between paragraphs in `narrative`. */
 const TOPICS = [
   {
     id: "korean-queer",
     name: "Korean Queer Community",
     color: "--t2",
-    blurb: "With Korean LGBTQ+ organizations, I study how queer stakeholders “make do” under hostile socio-technical conditions, and envision technologies that support that endurance.",
-    narrative: "Write 2–3 sentences on how the papers in this topic connect: the question that started it, how each study built on the last, and where it is heading."
+    blurb: "With Korean LGBTQ+ organizations, I study how queer people and those around them “make do” under hostile socio-technical conditions, and envision technologies that support that endurance.",
+    narrative: "This work starts from the hostile socio-technical conditions that Korean queer people live with, in their families, in public discourse, and online. Working alongside Korean LGBTQ+ organizations, I look at how queer people and the people around them make do within systems they cannot easily leave or change.\n\nOur CSCW 2026 paper follows parents of LGBTQ+ children through trauma and healing, and shows how their identities and their ways of handling (mis)information change along the way. Ongoing work with queer youth looks at technology as a temporary refuge and at virtual world-building as a feminist utopian practice."
   },
   {
     id: "spiritual-ai",
     name: "Human-AI Relationship through Spirituality",
     color: "--t1",
     blurb: "By placing AI in domains where efficiency and accuracy are less central, I examine how human agency and authenticity can be sustained in human-AI interaction.",
-    narrative: "Write 2–3 sentences on how the papers in this topic connect."
+    narrative: "Most AI is designed around productivity. I ask what happens when AI enters practices that resist that framing, such as prayer. A diary study of people's prayer practices led to four speculative AI systems, first presented as a design workbook at CHI 2024.\n\nOur DIS 2026 paper used those systems as provocations and found that authenticity, a genuine connection to the divine, mattered most, and that AI taking too much agency eroded it. The video work AI Fortuneteller (Honorary Mention, Prix Ars Electronica 2024) explores the same tension through art."
   },
   {
     id: "beyond-western",
     name: "Beyond-Western Epistemologies in HCI",
     color: "--t3",
-    blurb: "Add one sentence describing this line of work.",
-    narrative: "Write 2–3 sentences on how the papers in this topic connect."
+    blurb: "I draw on Korean and other non-Western ways of knowing to question the assumptions built into HCI theory and design.",
+    narrative: "Much of HCI's theory comes from Western philosophical traditions. As a scholar raised in Korea, I bring other ways of knowing into design research, from spiritual practice to the relational worldviews of East Asian philosophy.\n\nAt DIS 2026, I co-organized a workshop on pluriversal pathways for more-than-human design, which engages Indigenous ecological knowledge and philosophies such as Daoism. This thread also runs through my work on spirituality and on Korean queer communities."
   },
   {
     id: "death",
     name: "Death and Commemoration",
     color: "--t4",
     blurb: "I study and design for non-normative experiences of death, such as dying young or without family support, with a focus on digital legacy and end-of-life preparation.",
-    narrative: "Write 2–3 sentences on how the papers in this topic connect."
+    narrative: "Death-related technologies usually assume an older person with family to inherit what they leave. My work looks at deaths that do not fit that picture. At INTERACT 2021, we re-imagined social media as a commemorative space for remembrance and recovery.\n\nAt CHI 2025, we designed digital legacy systems for young adults, who tend to prepare legacies around their relationships and value physical artifacts. Current work extends this to Korean LGBTQ+ people, who may face death without family support."
   },
   {
     id: "policy",
     name: "Policy and Civic Engagement",
     color: "--t5",
     blurb: "I examine how people navigate data- and technology-driven policies and civic processes to maintain and protect their ways of being.",
-    narrative: "Write 2–3 sentences on how the papers in this topic connect."
+    narrative: "Policies increasingly arrive as data requirements, and they reshape people's work and lives. Our CSCW 2026 paper analyzes public comments on the FDA's Food Traceability Rule and shows how it turns farmers, fishers, and retail workers into unpaid data workers.\n\nA TOCHI paper looks at the other side of civic life: how people in South Korea used information and communication technologies to stay connected as the martial law crisis unfolded."
   }
 ];
 
-/* Papers / projects. One object per item. Newest first is not required; the page sorts by year.
-   - id: short, lowercase, hyphens only (becomes the page link)
-   - authors: write your own name exactly as `me` below so it is bolded
-   - topics: one or more topic ids from above
-   - image: "images/xyz.jpg" (leave "" for a placeholder)
-   - summary: short intro shown on the paper page; blank line = new paragraph
-   - links: any of pdf, doi, project, video, slides                                */
-const ME = "Kwon, S.";
+/* Publications. The page sorts by year (newest first).
+   - id: short, lowercase, hyphens only (becomes the page link, e.g. #paper-dis26-prayer)
+   - type: "Conference", "Journal", "Workshop", or "Extended Abstract"
+   - topics: zero or more topic ids from above
+   - image: a URL or a file path such as "images/dis26.jpg"; leave "" for none
+   - summary: short intro on the paper page; \n\n starts a new paragraph
+   - links: any of pdf, doi, arxiv, project, video, slides                           */
+const ME = "Soonho Kwon";
 const PAPERS = [
   {
-    id: "sample-queer-2026",
-    title: "Sample Paper Title About Korean Queer Community Infrastructures",
-    authors: ["Kwon, S.", "Coauthor, A.", "Bardzell, S."],
-    venue: "Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems",
-    short: "CHI 2026",
-    year: 2026,
-    topics: ["korean-queer", "death"],
-    award: "Best Paper Honorable Mention",
-    image: "",
-    caption: "Figure caption for the key image.",
-    summary: "This is sample text. Replace it with a short, plain-language introduction to the project: who it is with, what you did, and what you found.\n\nA second paragraph can say what the work contributes to HCI.",
-    links: { pdf: "#", doi: "#" }
+    id: "dis26-prayer",
+    title: "Value-Sensitive AI for Prayer: Balancing the Agencies Between Human and AI Agents in Spiritual Context",
+    authors: ["Soonho Kwon", "Dong Whi Yoo", "Shaowen Bardzell", "Younah Kang"],
+    venue: "Proceedings of the 2026 ACM Designing Interactive Systems Conference",
+    short: "DIS 2026", type: "Conference", year: 2026,
+    topics: ["spiritual-ai"],
+    image: "https://dl.acm.org/cms/10.1145/3800645.3812920/asset/a9e93288-972e-4d2a-88fc-13b59bdb6969/assets/images/medium/dis26-104-fig1.jpg",
+    caption: "Overview of the study process. Figure from the paper (CC BY 4.0).",
+    summary: "How could AI enter something as value-laden as prayer? Building on a diary study of prayer practices, we showed participants four speculative AI systems meant to “assist” prayer and used them as provocations for co-reflection.\n\nParticipants cared most about authenticity, a genuine connection to the divine, and often felt that the mere presence of AI diminished it, especially when AI took too much agency in guiding prayer. We argue for AI designs that leave room for users' own agency: interpretive openness, AI's inexplicability as a resource for personal meaning-making, and non-use as a legitimate design choice.",
+    links: { doi: "https://doi.org/10.1145/3800645.3812920" }
   },
   {
-    id: "sample-spiritual-2026",
-    title: "Sample Paper Title on Spiritual Practice and AI Companions",
-    authors: ["Kwon, S.", "Coauthor, B."],
+    id: "cscw26-parents",
+    title: "Journeys of Parents with LGBTQ+ Children: How Trauma and Healing Reshape Identity and (Mis)Informating Practices",
+    authors: ["Soonho Kwon", "Dong Whi Yoo", "Koustuv Saha", "Shaowen Bardzell", "Younah Kang"],
     venue: "Proceedings of the ACM on Human-Computer Interaction",
-    short: "CSCW 2026",
-    year: 2026,
-    topics: ["spiritual-ai", "beyond-western"],
-    award: "",
-    image: "",
-    caption: "",
-    summary: "Sample summary. Replace with your own.",
-    links: { pdf: "#" }
+    short: "CSCW 2026", type: "Journal", year: 2026,
+    topics: ["korean-queer"],
+    image: "", caption: "",
+    summary: "When parents in South Korea learn that their child is queer, many experience fear, isolation, and disorientation, and some turn to queer-related misinformation to cope. Through their relationships with their children, they gradually come to understand queer lives, become more critical readers of information, and push back against misinformation to help other parents.\n\nThe paper brings parents into Queer HCI as an under-studied stakeholder, shows how trauma and healing reshape information practices, and argues that misinformation has to be addressed through its relational, cultural, and emotional dimensions, not fact-checking alone.",
+    links: { arxiv: "https://arxiv.org/abs/2605.20024" }
   },
   {
-    id: "sample-death-2025",
-    title: "Sample Paper Title on Digital Legacy Planning",
-    authors: ["Coauthor, C.", "Kwon, S."],
-    venue: "Proceedings of the 2025 Designing Interactive Systems Conference",
-    short: "DIS 2025",
-    year: 2025,
-    topics: ["death"],
-    award: "",
-    image: "",
-    caption: "",
-    summary: "Sample summary. Replace with your own.",
-    links: { pdf: "#", project: "#" }
-  },
-  {
-    id: "sample-policy-2025",
-    title: "Sample Paper Title on Data-Driven Civic Processes",
-    authors: ["Kwon, S.", "Coauthor, D.", "Coauthor, E."],
+    id: "cscw26-fda",
+    title: "“The New Era of Tech-Enabled Traceability”: Tensions between the FDA's Data Governance Vision and the Lived Realities of Food Producers",
+    authors: ["Soonho Kwon", "Catherine Wieczorek", "Heidi Biggs", "Shellye Suttles", "Tammi Etheridge", "Annabel Rothschild", "Shaowen Bardzell"],
     venue: "Proceedings of the ACM on Human-Computer Interaction",
-    short: "CSCW 2025",
-    year: 2025,
+    short: "CSCW 2026", type: "Journal", year: 2026,
     topics: ["policy"],
-    award: "",
-    image: "",
-    caption: "",
-    summary: "Sample summary. Replace with your own.",
-    links: { doi: "#" }
+    image: "", caption: "",
+    summary: "From January 2026, the U.S. FDA's Food Traceability Rule requires farmers, fishers, and retail workers to keep detailed tracking records. The FDA frames this as a new era of tech-enabled traceability; we argue it turns these stakeholders into unpaid data workers.\n\nDrawing on Data Feminism, we analyzed 1,198 public comments on the proposed Rule and identified three tensions: the labor, financial, and educational burdens of becoming data workers; cases where tracking is infeasible because of infrastructure, culture, or production practices; and cases where the Rule's intended flexibility creates confusion and extra work.",
+    links: { arxiv: "https://arxiv.org/abs/2606.18593" }
   },
   {
-    id: "sample-artwork-2024",
-    title: "Sample Artwork or Exhibition Title",
-    authors: ["Kwon, S.", "Collaborator, F."],
-    venue: "Ars Electronica Festival",
-    short: "Ars Electronica 2024",
-    year: 2024,
-    topics: ["korean-queer", "beyond-western"],
-    award: "",
-    image: "",
-    caption: "",
-    summary: "Sample summary for a non-paper project, such as an exhibited artwork.",
-    links: { project: "#", video: "#" }
+    id: "tochi-martial-law",
+    title: "Leaderless but Connected: Role of ICT During the Unfolding of Martial Law Crisis in South Korea",
+    authors: ["Hayoun Noh", "Soonho Kwon", "Max Van Kleek", "Shaowen Bardzell", "Younah Kang"],
+    venue: "ACM Transactions on Computer-Human Interaction",
+    short: "TOCHI", type: "Journal", year: 2026, status: "Accepted",
+    topics: ["policy"],
+    image: "", caption: "",
+    summary: "This paper examines the role that information and communication technologies played as the martial law crisis unfolded in South Korea, and how people stayed connected and acted together without central leadership.",
+    links: {}
+  },
+  {
+    id: "dis26-workshop-mth",
+    title: "Relating Otherwise: Pluriversal Pathways for Reworlding More-than-Human Design",
+    authors: ["Sylvia Janicki", "Heidi Biggs", "Soonho Kwon", "Kristina Mah", "Cayla Key", "Yu-Ting Cheng", "Catherine Wieczorek", "Moeiini Reilly", "Josiah Hester", "Shaowen Bardzell"],
+    venue: "Companion Publication of the 2026 ACM Designing Interactive Systems Conference",
+    short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
+    topics: ["beyond-western"],
+    image: "", caption: "",
+    summary: "More-than-human design has gained traction in HCI as a way to attend to our entanglements with the wider ecological world, but it draws mostly on Western philosophy. This workshop looks beyond Western ontologies, engaging Indigenous Traditional Ecological Knowledge and Eastern philosophies such as Daoism.\n\nParticipants share stories of multispecies entanglement, discuss the ethics of drawing on these knowledge systems in HCI, and imagine how situated understandings can make more-than-human design more pluralistic and culturally grounded.",
+    links: { doi: "https://doi.org/10.1145/3802974.3808002" }
+  },
+  {
+    id: "chi25-digital-legacy",
+    title: "Digital Legacy Systems for Young Adults: Emphasizing Relationship-Oriented Perspectives and Physical Artifacts in Death Preparation",
+    authors: ["Soonho Kwon", "Hyunah Jo", "Sohee Ryu", "Jihwan Do", "HwaJung Lee", "Keeheon Lee", "JooHyun Lee", "Younah Kang"],
+    venue: "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
+    short: "CHI 2025", type: "Conference", year: 2025,
+    topics: ["death"],
+    image: "https://dl.acm.org/cms/10.1145/3706598.3713764/asset/ca30a75c-e8e5-4f78-b603-afad53df6a36/assets/images/medium/chi25-678-fig1.jpg",
+    caption: "Postcards from the cultural probe kit, one mission per day. Figure from the paper (CC BY-NC 4.0).",
+    summary: "The death of a young person leaves a profound impact on the bereaved, and their legacies are often digital rather than traditional. This design study envisions digital legacy curation systems for young adults (ages 19–34), using cultural probes, design workbooks, and prototype testing.\n\nYoung adults favored relationship-oriented legacies that ease the emotional burden on the people left behind, and saw value in physical artifacts. We call for recognizing specific user groups in death-related technologies, extend post-userist ideas to “use” after death, and point to the space between physical and digital legacies as worth exploring.",
+    links: { doi: "https://doi.org/10.1145/3706598.3713764" }
+  },
+  {
+    id: "chi24-spiritual-ai",
+    title: "Spiritual AI: Exploring the Possibilities of a Human-AI Interaction Beyond Productive Goals",
+    authors: ["Soonho Kwon", "Dong Whi Yoo", "Younah Kang"],
+    venue: "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
+    short: "CHI 2024", type: "Extended Abstract", year: 2024,
+    topics: ["spiritual-ai", "beyond-western"],
+    image: "", caption: "",
+    summary: "HCI has long discussed technologies that go beyond productivity. We extend this to human-AI interaction through prayer, a practice with few productivity goals. A diary study identified the goals and behaviors that make prayer satisfying, and we conceptualized four AI systems that celebrate them, presented as a design workbook.\n\nThe findings point to new roles AI could play in people's lives, such as provoking deep reflection or creating indirect communities.",
+    links: { doi: "https://doi.org/10.1145/3613905.3650743" }
+  },
+  {
+    id: "bit23-speech",
+    title: "‘Um, so like, is this how I speak?’: Design Implications for Automated Visual Feedback Systems on Speech",
+    authors: ["Soonho Kwon", "Hyojin Lee", "Soojeong Park", "Yerin Heo", "Keeheon Lee", "Younah Kang"],
+    venue: "Behaviour & Information Technology, Taylor & Francis",
+    short: "BIT", type: "Journal", year: 2023,
+    topics: [],
+    image: "", caption: "",
+    summary: "We built a Wizard-of-Oz prototype that detects filler words while someone speaks and gives real-time feedback through a flickering screen, followed by a report with charts. After 27 participants used it, interviews and thematic analysis produced eight design implications for automated visual feedback on speech, along with links to personal informatics and self-determination theory.",
+    links: { doi: "https://doi.org/10.1080/0144929X.2023.2271997" }
+  },
+  {
+    id: "jhcik23-ai-recsys",
+    title: "The Effects of Self-Efficacy and Risk Perception on the User Experience of Artificial Intelligence Recommendation System",
+    authors: ["Juho Lee", "Soonho Kwon", "Sehee Shim", "Younah Kang"],
+    venue: "Journal of the HCI Society of Korea",
+    short: "JHCIK", type: "Journal", year: 2023,
+    topics: [],
+    image: "", caption: "",
+    summary: "This study examines how users' self-efficacy and risk perception shape their experience of AI recommendation systems.",
+    links: { project: "https://scholar.kyobobook.co.kr/article/detail/4040049689415" }
+  },
+  {
+    id: "interact21-instagram",
+    title: "What Happens to My Instagram Account After I Die? Re-imagining Social Media as a Commemorative Space for Remembrance and Recovery",
+    authors: ["Soonho Kwon", "Eunsol Choi", "Minseok Kim", "Sunah Hwang", "Dongwoo Kim", "Younah Kang"],
+    venue: "Human-Computer Interaction – INTERACT 2021",
+    short: "INTERACT 2021", type: "Conference", year: 2021,
+    topics: ["death"],
+    image: "", caption: "",
+    summary: "Social media can be a thanatosensitive technology that supports death preparation and commemoration. Using Value-Sensitive Design, we identified three main stakeholders in online commemoration and ran interviews and observations with nine people about their online and offline commemoration practices.\n\nWe turned the findings into design requirements, a conceptual commemorative system, and a working prototype. In an informal test, six participants saw it as a way to reflect on their own existence, prepare for death, and join a community that remembers the deceased and copes with grief together.",
+    links: { doi: "https://doi.org/10.1007/978-3-030-85616-8_26" }
   }
 ];
+
+/* Artwork. `youtube` is the video id (the part after watch?v=); its thumbnail is shown automatically. */
+const ARTWORKS = [
+  { title: "AI Fortuneteller", medium: "Video Art", year: 2024, award: "Honorary Mention, Prix Ars Electronica 2024", youtube: "Y21DGAZQWMU" },
+  { title: "Existence Effacement Service", medium: "Interactive Art", year: 2023 },
+  { title: "The Great Primitive Thinker", medium: "Speculative Novel & Media Installation", year: 2023 },
+  { title: "Purple Night", medium: "Short Documentary Film", year: 2020, youtube: "L7FiZeaj5Xc" },
+  { title: "The Aristocrats", medium: "Printed Artwork", year: 2019 },
+  { title: "Himmel and Blair", medium: "Printed Artwork", year: 2018 },
+  { title: "Pinocchio", medium: "Photograph", year: 2017 }
+];
+
+/* Analytics: paste your Google Analytics measurement ID (starts with "G-") to start counting visits. */
+const GA_ID = "";
 
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
    ===================================================================== */
 
+if (GA_ID) {
+  const s = document.createElement("script");
+  s.async = true; s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag("js", new Date()); gtag("config", GA_ID);
+}
+
 const $view = document.getElementById("view");
 const topicById = Object.fromEntries(TOPICS.map(t => [t.id, t]));
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const paras = s => String(s || "").split(/\n\s*\n/).map(p => `<p>${esc(p.trim())}</p>`).join("");
-const linkLabels = { pdf: "PDF", doi: "DOI", project: "Project page", video: "Video", slides: "Slides" };
+const linkLabels = { pdf: "PDF", doi: "DOI", arxiv: "arXiv", project: "Link", video: "Video", slides: "Slides" };
+const ext = `target="_blank" rel="noopener"`;
 
 document.getElementById("cv-link").href = SITE.cv;
 document.getElementById("foot-name").textContent = `© ${new Date().getFullYear()} ${SITE.name}`;
@@ -379,13 +471,17 @@ function chips(ids) {
     return `<a class="chip" href="#topic-${t.id}"><i style="background:var(${t.color})"></i>${esc(t.name)}</a>`;
   }).join("");
 }
+function venueHTML(p) {
+  return `${esc(p.venue)}${p.short ? ` · <span class="short">${esc(p.short)}</span>` : ""}`;
+}
 function entryHTML(p) {
-  const quick = ["pdf", "doi"].filter(k => p.links && p.links[k])
-    .map(k => `<a href="${esc(p.links[k])}" target="_blank" rel="noopener">${linkLabels[k]}</a>`).join("");
+  const quick = Object.entries(p.links || {}).filter(([, v]) => v).slice(0, 2)
+    .map(([k, v]) => `<a href="${esc(v)}" ${ext}>${linkLabels[k] || esc(k)}</a>`).join("");
   return `<li class="entry">
+    <div class="kind">${esc(p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>
     <a class="title" href="#paper-${p.id}">${esc(p.title)}</a>
     <div class="authors">${authorsHTML(p.authors)}</div>
-    <div class="venue">${esc(p.venue)}${p.short ? ` · <span class="short">${esc(p.short)}</span>` : ""}</div>
+    <div class="venue">${venueHTML(p)}</div>
     <div class="meta">
       ${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}
       ${chips(p.topics)}
@@ -393,16 +489,26 @@ function entryHTML(p) {
     </div>
   </li>`;
 }
+function figureHTML(src, alt, caption) {
+  if (!src) return "";
+  return `<figure>
+    <div class="fig"><img src="${esc(src)}" alt="${esc(alt)}" referrerpolicy="no-referrer" loading="lazy"
+      onerror="this.closest('figure').remove()"></div>
+    ${caption ? `<figcaption>${esc(caption)}</figcaption>` : ""}
+  </figure>`;
+}
 
 function renderAbout() {
   const initials = SITE.name.split(" ").map(w => w[0]).join("");
   $view.innerHTML = `<div class="about">
     <div>
-      <div class="portrait">${SITE.photo ? `<img src="${esc(SITE.photo)}" alt="Portrait of ${esc(SITE.name)}">` : initials}</div>
+      <div class="portrait">${SITE.photo
+        ? `<img src="${esc(SITE.photo)}" alt="Portrait of ${esc(SITE.name)}" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('${initials}'))">`
+        : initials}</div>
       <div class="contact">
         <span class="email">${esc(SITE.email)}</span>
-        <span class="links">${SITE.links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}
-          <a href="${esc(SITE.cv)}" target="_blank" rel="noopener">CV</a></span>
+        <span class="links">${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
+          <a href="${esc(SITE.cv)}" ${ext}>CV</a></span>
       </div>
     </div>
     <div class="about-text">
@@ -415,68 +521,94 @@ function renderAbout() {
       </ul>
       <p class="stance">${SITE.stance}</p>
       <p>${SITE.closing}</p>
-      <p><a href="#projects">See all projects →</a></p>
+      <p><a href="#publications">See all publications →</a></p>
     </div>
   </div>`;
 }
 
-function renderProjects(topicId) {
+function railHTML(activeId) {
+  const count = id => PAPERS.filter(p => p.topics.includes(id)).length;
+  return `<aside class="rail">
+    <h2>By Topic</h2>
+    <ul class="topics">
+      <li><a href="#publications" aria-current="${!activeId}"><span>All publications</span><span class="n">${PAPERS.length}</span></a></li>
+      ${TOPICS.map(t => `<li><a href="#topic-${t.id}" aria-current="${activeId === t.id}">
+        <span><i class="tdot" style="background:var(${t.color})"></i>${esc(t.name)}</span><span class="n">${count(t.id)}</span></a></li>`).join("")}
+    </ul>
+  </aside>`;
+}
+
+function renderPublications(topicId) {
   const topic = topicId ? topicById[topicId] : null;
   const list = PAPERS.filter(p => !topic || p.topics.includes(topic.id)).sort((a, b) => b.year - a.year);
   const years = [...new Set(list.map(p => p.year))];
-  const count = id => PAPERS.filter(p => p.topics.includes(id)).length;
-
   $view.innerHTML = `<div class="proj">
-    <aside class="rail">
-      <h2>By Topic</h2>
-      <ul class="topics">
-        <li><a href="#projects" aria-current="${!topic}"><span>All projects</span><span class="n">${PAPERS.length}</span></a></li>
-        ${TOPICS.map(t => `<li><a href="#topic-${t.id}" aria-current="${topic?.id === t.id}">
-          <span>${esc(t.name)}</span><span class="n">${count(t.id)}</span></a></li>`).join("")}
-      </ul>
-    </aside>
+    ${railHTML(topic?.id)}
     <section>
       <div class="proj-head">
-        <div class="eyebrow">${topic ? "Topic" : "Projects"}</div>
-        <h1>${topic ? esc(topic.name) : "All Projects"}</h1>
-        ${topic ? "" : `<p class="sub">Papers, artworks, and projects, newest first.</p>`}
+        <div class="eyebrow">${topic ? "Topic" : "Publications"}</div>
+        <h1>${topic ? esc(topic.name) : "All Publications"}</h1>
+        ${topic ? "" : `<p class="sub">Papers, newest first. Choose a topic to see how each line of work connects.</p>`}
       </div>
-      ${topic ? `<div class="narrative"><div class="eyebrow">How this work connects</div>${paras(topic.narrative)}</div>` : ""}
+      ${topic ? `<div class="narrative" style="--tc:var(${topic.color})"><div class="eyebrow">How this work connects</div>${paras(topic.narrative)}</div>` : ""}
       ${list.length ? years.map(y => `<div class="year"><h2>${y}</h2>
         <ul class="entries">${list.filter(p => p.year === y).map(entryHTML).join("")}</ul></div>`).join("")
-        : `<p class="empty">No projects in this topic yet.</p>`}
+        : `<p class="empty">No publications in this topic yet.</p>`}
     </section>
   </div>`;
 }
 
 function renderPaper(id) {
   const p = PAPERS.find(x => x.id === id);
-  if (!p) return renderProjects();
+  if (!p) return renderPublications();
   const related = PAPERS.filter(x => x.id !== p.id && x.topics.some(t => p.topics.includes(t)));
   const btns = Object.entries(p.links || {}).filter(([, v]) => v)
-    .map(([k, v], i) => `<a class="btn${i === 0 ? " primary" : ""}" href="${esc(v)}" target="_blank" rel="noopener">${linkLabels[k] || esc(k)}</a>`).join("");
-  $view.innerHTML = `<article class="paper">
-    <a class="back" href="#projects">← All projects</a>
-    <h1>${esc(p.title)}</h1>
-    <div class="authors">${authorsHTML(p.authors)}</div>
-    <div class="venue">${esc(p.venue)}${p.short ? ` · <span class="short">${esc(p.short)}</span>` : ""}</div>
-    <div class="meta">${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}${chips(p.topics)}</div>
-    <figure>
-      <div class="fig">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.caption || p.title)}">` : "Project image"}</div>
-      ${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ""}
-    </figure>
-    <div class="summary">${paras(p.summary)}</div>
-    ${btns ? `<div class="btns">${btns}</div>` : ""}
-    ${related.length ? `<div class="related"><h2>Related work</h2><ul class="entries">${related.map(entryHTML).join("")}</ul></div>` : ""}
-  </article>`;
+    .map(([k, v], i) => `<a class="btn${i === 0 ? " primary" : ""}" href="${esc(v)}" ${ext}>${linkLabels[k] || esc(k)}</a>`).join("");
+  $view.innerHTML = `<div class="proj">
+    ${railHTML(p.topics[0])}
+    <article class="paper">
+      <a class="back" href="#publications">← All publications</a>
+      <div class="kind">${esc(p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>
+      <h1>${esc(p.title)}</h1>
+      <div class="authors">${authorsHTML(p.authors)}</div>
+      <div class="venue">${venueHTML(p)}</div>
+      <div class="meta">${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}${chips(p.topics)}</div>
+      ${figureHTML(p.image, p.caption || p.title, p.caption)}
+      <div class="summary">${paras(p.summary)}</div>
+      ${btns ? `<div class="btns">${btns}</div>` : ""}
+      ${related.length ? `<div class="related"><h2>Related work</h2><ul class="entries">${related.map(entryHTML).join("")}</ul></div>` : ""}
+    </article>
+  </div>`;
+}
+
+function renderArtwork() {
+  $view.innerHTML = `<section class="art">
+    <div class="proj-head">
+      <div class="eyebrow">Artwork</div>
+      <h1>Artwork</h1>
+      <p class="sub">Video, installation, film, print, and photography.</p>
+    </div>
+    <ul class="art-grid">
+      ${ARTWORKS.map(a => {
+        const url = a.url || (a.youtube ? `https://www.youtube.com/watch?v=${a.youtube}` : "");
+        const thumb = a.image || (a.youtube ? `https://i.ytimg.com/vi/${a.youtube}/hqdefault.jpg` : "");
+        const inner = `<div class="art-thumb">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<span>${esc(a.medium)}</span>`}</div>
+          <div class="art-body"><div class="art-title">${esc(a.title)}</div>
+          <div class="venue">${esc(a.medium)} · <span class="short">${a.year}</span></div>
+          ${a.award ? `<span class="award">${esc(a.award)}</span>` : ""}</div>`;
+        return `<li class="art-item">${url ? `<a href="${esc(url)}" ${ext}>${inner}</a>` : inner}</li>`;
+      }).join("")}
+    </ul>
+  </section>`;
 }
 
 function route() {
   const h = location.hash.replace(/^#/, "");
   let section = "about";
-  if (h.startsWith("paper-")) { renderPaper(h.slice(6)); section = "projects"; }
-  else if (h.startsWith("topic-")) { renderProjects(h.slice(6)); section = "projects"; }
-  else if (h === "projects") { renderProjects(); section = "projects"; }
+  if (h.startsWith("paper-")) { renderPaper(h.slice(6)); section = "publications"; }
+  else if (h.startsWith("topic-")) { renderPublications(h.slice(6)); section = "publications"; }
+  else if (h === "publications" || h === "projects") { renderPublications(); section = "publications"; }
+  else if (h === "artwork") { renderArtwork(); section = "artwork"; }
   else renderAbout();
   document.querySelectorAll("[data-nav]").forEach(a => {
     if (a.dataset.nav === section) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
