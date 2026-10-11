@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Visitors · Soonho Kwon</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Public+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root { --bg:#f6f7f5; --surface:#fff; --fg:#1b2322; --muted:#5d6a67; --line:#dbe1de; --accent:#2f6f64;
+  --display:"Gowun Batang",Georgia,serif; --body:"Public Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace; }
+@media (prefers-color-scheme: dark) { :root { --bg:#131817; --surface:#1a201f; --fg:#e6ebe9; --muted:#9aa8a4; --line:#2c3533; --accent:#7cc3b4; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--body); font-size:16px; line-height:1.6; }
+.wrap { max-width:1180px; margin:0 auto; padding-inline:24px; padding-block:40px 64px; }
+a { color:var(--accent); }
+.eyebrow { font-family:var(--mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+h1 { font-family:var(--display); font-size:clamp(1.8rem,4vw,2.4rem); margin:6px 0 0; }
+p.sub { color:var(--muted); margin:8px 0 0; max-width:70ch; }
+.frame { margin-top:28px; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--surface); }
+.frame iframe { display:block; width:100%; height:min(1400px, 160vh); border:0; }
+.empty { padding:48px 24px; text-align:center; color:var(--muted); }
+.top { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="/">← Soonho Kwon</a><a id="open" href="#" target="_blank" rel="noopener" hidden>Open dashboard in a new tab</a></div>
+  <div class="eyebrow" style="margin-top:28px">Analytics</div>
+  <h1>Who's visiting</h1>
+  <p class="sub">Visits by country, pages viewed, and where visitors come from. Updated daily; the last 24–48 hours may still change. Numbers are aggregated, and no individual visitor is identified.</p>
+  <div class="frame" id="frame"></div>
+</div>
+<script>
+/* Paste the Looker Studio embed URL here (File → Embed report → Embed URL). */
+const DASHBOARD_URL = "";
+
+const frame = document.getElementById("frame");
+if (DASHBOARD_URL) {
+  frame.innerHTML = `<iframe src="${DASHBOARD_URL}" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>`;
+  const open = document.getElementById("open"); open.href = DASHBOARD_URL; open.hidden = false;
+} else {
+  frame.innerHTML = `<div class="empty">The dashboard isn't connected yet.</div>`;
+}
+</script>
+</body>
+</html>
