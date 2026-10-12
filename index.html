@@ -28,7 +28,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=22"></script>
+<script src="content.js?v=23"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -51,7 +51,7 @@ const $view = document.getElementById("view");
 const topicById = Object.fromEntries(TOPICS.map(t => [t.id, t]));
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const paras = s => String(s || "").split(/\n\s*\n/).map(p => p.trim().startsWith("## ") ? `<h3>${esc(p.trim().slice(3))}</h3>` : `<p>${esc(p.trim())}</p>`).join("");
-const linkLabels = { paper: "Full Paper", pdf: "PDF", doi: "Full Paper", arxiv: "arXiv", project: "Link", video: "Video", ars: "Ars Electronica", slides: "Slides", news: "News" };
+const linkLabels = { paper: "Full Paper", pdf: "PDF", doi: "Full Paper", arxiv: "arXiv", project: "Link", video: "Video", ars: "Ars Electronica", slides: "Slides", news: "News", poster: "Poster (PDF)" };
 const ext = `target="_blank" rel="noopener"`;
 const hrefOf = p => `#${p.kind}-${p.id}`;
 
