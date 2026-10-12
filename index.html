@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=25">
+<link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
 
@@ -127,6 +127,7 @@ function renderAbout() {
       <span class="card-blurb">${esc(t.blurb)}</span>
       <span class="card-foot">${count(t.id)} works <span aria-hidden="true">→</span></span>
     </a></li>`).join("");
+  const news = cls => NEWS.length ? `<div class="${cls}"><h2>Recent News</h2>${newsList(NEWS.slice(0, 4))}<a class="more" href="#news">All news →</a></div>` : "";
   $view.innerHTML = `<div class="about">
     <div class="side">
       <div class="portrait">${SITE.photo
@@ -137,7 +138,7 @@ function renderAbout() {
         ${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
         <a href="${esc(SITE.cv)}" ${ext}>CV</a>
       </div>
-      ${NEWS.length ? `<div class="side-news"><h2>Recent News</h2>${newsList(NEWS.slice(0, 4))}<a class="more" href="#news">All news →</a></div>` : ""}
+      ${news("side-news desk")}
     </div>
     <div class="about-text">
       <h1>${esc(SITE.name)}</h1>
@@ -148,6 +149,7 @@ function renderAbout() {
       </div>
       <h2 class="cards-head">Research Areas</h2>
       <ul class="cards">${cards}</ul>
+      ${news("side-news mob")}
     </div>
   </div>`;
 }

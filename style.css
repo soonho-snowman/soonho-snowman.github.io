@@ -78,6 +78,12 @@ main { padding-block: 48px 96px; }
 .about-text p { margin: 0 0 1.1em; }
 .about-text .prose { margin-top: 28px; }
 .side { max-width: 240px; }
+.side-news.mob { display: none; }
+@media (max-width: 760px) {
+  .side { max-width: none; }
+  .side-news.desk { display: none; }
+  .side-news.mob { display: block; margin-top: 40px; }
+}
 .contact { margin-top: 18px; font-size: .9rem; display: grid; gap: 4px; justify-items: start; }
 @media (max-width: 760px) { .contact { display: flex; flex-wrap: wrap; gap: 6px 16px; } }
 .contact .email { color: var(--muted); text-decoration: none; }
