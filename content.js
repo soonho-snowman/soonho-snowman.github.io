@@ -38,8 +38,8 @@ const TOPICS = [
     id: "korean-queer", name: "Korean Queer Community", short: "Korean Queer", color: "--t2",
     blurb: "I collaborate with Korean LGBTQ+ organizations to explore how queer stakeholders “make do” under hostile socio-technical conditions through and alongside technology, while also envisioning technologies that support such endurance.",
     narrative: [
-      `As a queer person myself, I know how deeply technology shapes queer lives. Yet many of the technologies that shape the lives of queer people in Korea are designed, and analyzed, in Western contexts. My work asks how Korean queer people, and the people connected to them, become entangled with these technologies.`,
-      `I collaborate with Korean LGBTQ+ organizations, including <a href="https://www.pflagkorea.org" target="_blank" rel="noopener">PFLAG Korea</a> (성소수자부모모임) and <a href="https://www.ddingdong.kr" target="_blank" rel="noopener">DDing Dong</a> (띵동), a support center for LGBTQ+ youth. As a scholar, I see it as my mission to carry the stories that Korean queer people and those around them want to tell the world.`,
+      `Growing up as a queer person in Korea, I vividly remember how deeply various social technologies shaped my queer identity and my social realities. Yet many of the technologies that shape the lives of queer people in Korea are designed and analyzed in Western contexts.`,
+      `My work asks how Korean queer people, and the people connected to them, become entangled with these technologies. I collaborate with Korean LGBTQ+ organizations, including <a href="https://www.pflagkorea.org" target="_blank" rel="noopener">PFLAG Korea</a>, a support group for parents of queer children, and <a href="https://www.ddingdong.kr" target="_blank" rel="noopener">DDing Dong</a>, a support center for LGBTQ+ youth. As a scholar, I see it as my mission to carry the stories that Korean queer people and those around them want to tell the world.`,
       `Through this work, I have asked <a href="#paper-cscw26-parents">how parents of LGBTQ+ children navigate online misinformation</a>; <a href="#project-tethered-beings">how queer youths, tethered to situations they cannot escape, find breathing holes</a>; <a href="#project-rainbow-school">what futures we can imagine when a utopian school, dreamed up with queer youth, is built in a virtual world</a>; and <a href="#project-queer-legacy">what a platform for death and commemoration could look like for queer people who cannot form a “normative” family</a>.`
     ]
   },
@@ -118,7 +118,7 @@ const PROJECTS = [
    - image: a file in this repo (e.g. "dis26.webp") or a URL; leave "" for none
    - summary: \n\n starts a new paragraph
    - related: ids of other papers to list under "Related work" on this paper's page (optional)
-   - links: any of pdf, doi, arxiv, project, video, ars, slides */
+   - links: paper (full paper page), pdf (direct download), arxiv, video, ars, slides, project */
 const ME = "Soonho Kwon";
 const PAPERS = [
   {
@@ -132,7 +132,7 @@ const PAPERS = [
     caption: "Overview of the study process. Figure from the paper (CC BY 4.0).",
     summary: "How could AI enter something as value-laden as prayer? Building on a diary study of prayer practices, we showed participants four speculative AI systems meant to “assist” prayer and used them as provocations for co-reflection.\n\nParticipants cared most about authenticity, a genuine connection to the divine, and often felt that the mere presence of AI diminished it, especially when AI took too much agency in guiding prayer. We argue for AI designs that leave room for users' own agency: interpretive openness, AI's inexplicability as a resource for personal meaning-making, and non-use as a legitimate design choice.",
     related: ["chi24-spiritual-ai"],
-    links: { doi: "https://doi.org/10.1145/3800645.3812920" }
+    links: { paper: "https://doi.org/10.1145/3800645.3812920", pdf: "https://dl.acm.org/doi/pdf/10.1145/3800645.3812920" }
   },
   {
     id: "cscw26-parents",
@@ -142,7 +142,7 @@ const PAPERS = [
     short: "CSCW 2026", type: "Journal", year: 2026,
     topics: ["korean-queer"],
     summary: "When parents in South Korea learn that their child is queer, many experience fear, isolation, and disorientation, and some turn to queer-related misinformation to cope. Through their relationships with their children, they gradually come to understand queer lives, become more critical readers of information, and push back against misinformation to help other parents.\n\nThe paper brings parents into Queer HCI as an under-studied stakeholder, shows how trauma and healing reshape information practices, and argues that misinformation has to be addressed through its relational, cultural, and emotional dimensions, not fact-checking alone.",
-    links: { doi: "https://doi.org/10.1145/3816958", arxiv: "https://arxiv.org/abs/2605.20024" }
+    links: { paper: "https://doi.org/10.1145/3816958", pdf: "https://dl.acm.org/doi/pdf/10.1145/3816958" }
   },
   {
     id: "cscw26-fda",
@@ -152,7 +152,7 @@ const PAPERS = [
     short: "CSCW 2026", type: "Journal", year: 2026,
     topics: ["policy"],
     summary: "From January 2026, the U.S. FDA's Food Traceability Rule requires farmers, fishers, and retail workers to keep detailed tracking records. The FDA frames this as a new era of tech-enabled traceability; we argue it turns these stakeholders into unpaid data workers.\n\nDrawing on Data Feminism, we analyzed 1,198 public comments on the proposed Rule and identified three tensions: the labor, financial, and educational burdens of becoming data workers; cases where tracking is infeasible because of infrastructure, culture, or production practices; and cases where the Rule's intended flexibility creates confusion and extra work.",
-    links: { arxiv: "https://arxiv.org/abs/2606.18593" }
+    links: { paper: "https://doi.org/10.1145/3817012", pdf: "https://dl.acm.org/doi/pdf/10.1145/3817012" }
   },
   {
     id: "tochi-martial-law",
@@ -172,7 +172,7 @@ const PAPERS = [
     short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
     topics: ["beyond-western"],
     summary: "More-than-human design has gained traction in HCI as a way to attend to our entanglements with the wider ecological world, but it draws mostly on Western philosophy. This workshop looks beyond Western ontologies, engaging Indigenous Traditional Ecological Knowledge and Eastern philosophies such as Daoism.\n\nParticipants share stories of multispecies entanglement, discuss the ethics of drawing on these knowledge systems in HCI, and imagine how situated understandings can make more-than-human design more pluralistic and culturally grounded.",
-    links: { doi: "https://doi.org/10.1145/3802974.3808002" }
+    links: { paper: "https://doi.org/10.1145/3802974.3808002", pdf: "https://dl.acm.org/doi/pdf/10.1145/3802974.3808002" }
   },
   {
     id: "chi25-digital-legacy",
@@ -184,7 +184,7 @@ const PAPERS = [
     image: "https://dl.acm.org/cms/10.1145/3706598.3713764/asset/ca30a75c-e8e5-4f78-b603-afad53df6a36/assets/images/medium/chi25-678-fig1.jpg",
     caption: "Postcards from the cultural probe kit, one mission per day. Figure from the paper (CC BY-NC 4.0).",
     summary: "The death of a young person leaves a profound impact on the bereaved, and their legacies are often digital rather than traditional. This design study envisions digital legacy curation systems for young adults (ages 19–34), using cultural probes, design workbooks, and prototype testing.\n\nYoung adults favored relationship-oriented legacies that ease the emotional burden on the people left behind, and saw value in physical artifacts. We call for recognizing specific user groups in death-related technologies, extend post-userist ideas to “use” after death, and point to the space between physical and digital legacies as worth exploring.",
-    links: { doi: "https://doi.org/10.1145/3706598.3713764" }
+    links: { paper: "https://doi.org/10.1145/3706598.3713764", pdf: "https://dl.acm.org/doi/pdf/10.1145/3706598.3713764" }
   },
   {
     id: "chi24-spiritual-ai",
@@ -195,7 +195,7 @@ const PAPERS = [
     topics: ["spiritual-ai"],
     summary: "HCI has long discussed technologies that go beyond productivity. We extend this to human-AI interaction through prayer, a practice with few productivity goals. A diary study identified the goals and behaviors that make prayer satisfying, and we conceptualized four AI systems that celebrate them, presented as a design workbook.\n\nThe findings point to new roles AI could play in people's lives, such as provoking deep reflection or creating indirect communities.",
     related: ["dis26-prayer"],
-    links: { doi: "https://doi.org/10.1145/3613905.3650743" }
+    links: { paper: "https://doi.org/10.1145/3613905.3650743", pdf: "https://dl.acm.org/doi/pdf/10.1145/3613905.3650743" }
   },
   {
     id: "ai-fortuneteller",
@@ -218,7 +218,7 @@ const PAPERS = [
     short: "BIT", type: "Journal", year: 2023,
     topics: [],
     summary: "We built a Wizard-of-Oz prototype that detects filler words while someone speaks and gives real-time feedback through a flickering screen, followed by a report with charts. After 27 participants used it, interviews and thematic analysis produced eight design implications for automated visual feedback on speech, along with links to personal informatics and self-determination theory.",
-    links: { doi: "https://doi.org/10.1080/0144929X.2023.2271997" }
+    links: { paper: "https://doi.org/10.1080/0144929X.2023.2271997" }
   },
   {
     id: "jhcik23-ai-recsys",
@@ -228,7 +228,7 @@ const PAPERS = [
     short: "JHCIK", type: "Journal", year: 2023,
     topics: [],
     summary: "This study examines how users' self-efficacy and risk perception shape their experience of AI recommendation systems.",
-    links: { project: "https://scholar.kyobobook.co.kr/article/detail/4040049689415" }
+    links: { paper: "https://scholar.kyobobook.co.kr/article/detail/4040049689415" }
   },
   {
     id: "interact21-instagram",
@@ -238,7 +238,7 @@ const PAPERS = [
     short: "INTERACT 2021", type: "Conference", year: 2021,
     topics: ["death"],
     summary: "Social media can be a thanatosensitive technology that supports death preparation and commemoration. Using Value-Sensitive Design, we identified three main stakeholders in online commemoration and ran interviews and observations with nine people about their online and offline commemoration practices.\n\nWe turned the findings into design requirements, a conceptual commemorative system, and a working prototype. In an informal test, six participants saw it as a way to reflect on their own existence, prepare for death, and join a community that remembers the deceased and copes with grief together.",
-    links: { doi: "https://doi.org/10.1007/978-3-030-85616-8_26" }
+    links: { paper: "https://doi.org/10.1007/978-3-030-85616-8_26" }
   }
 ];
 
