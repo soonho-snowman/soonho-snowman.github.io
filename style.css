@@ -196,14 +196,14 @@ footer .wrap { padding-block: 24px; font-size: .8rem; color: var(--muted); displ
 .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
 .card {
   display: flex; flex-direction: column; gap: 6px; height: 100%; padding: 18px 18px 16px;
-  border: 1px solid var(--line); border-top: 3px solid var(--tc, var(--accent)); border-radius: 10px;
+  border: 1px solid var(--line); border-radius: 10px;
   background: var(--surface); color: var(--fg); text-decoration: none; transition: border-color .15s, transform .15s;
 }
-.card:hover { border-color: var(--tc); transform: translateY(-2px); }
+.card:hover { border-color: var(--muted); }
 .card-kw { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--tc); }
 .card-name { font-family: var(--display); font-weight: 600; font-size: 1.02rem; line-height: 1.35; }
 .card-blurb { font-size: .88rem; color: var(--muted); line-height: 1.55; flex: 1; }
-.card-foot { font-size: .8rem; color: var(--tc); font-weight: 500; margin-top: 4px; }
+.card-foot { font-size: .8rem; color: var(--muted); font-weight: 500; margin-top: 4px; }
 
 /* artwork detail */
 .art-page { max-width: 880px; margin-inline: auto; }

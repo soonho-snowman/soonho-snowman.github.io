@@ -337,8 +337,9 @@ const ARTWORKS = [
 
 /* News on the About page, newest first. `date` is free text; HTML links are allowed in `text`. */
 const NEWS = [
+  { date: "Oct 2026", text: `Presenting two papers at CSCW 2026: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
+  { date: "Sep 2026", text: `Named a finalist for the GVU Foley Scholar Award at Georgia Tech.` },
   { date: "2026", text: `Our TOCHI paper on how South Korean citizens navigated the 2024 martial law crisis was accepted. <a href="#paper-tochi-martial-law">Read the abstract</a>.` },
-  { date: "2026", text: `Two papers published at CSCW 2026: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
   { date: "2026", text: `Presented <a href="#paper-dis26-prayer">Value-Sensitive AI for Prayer</a> and co-organized <a href="#paper-dis26-workshop-mth">a workshop on pluriversal more-than-human design</a> at DIS 2026.` },
   { date: "Jan 2025", text: `Our paper on <a href="#paper-chi25-digital-legacy">digital legacy systems for young adults</a> was accepted to CHI 2025. My first CHI paper!` },
   { date: "Aug 2024", text: `Started my Ph.D. in Human-Centered Computing at Georgia Tech.` },
