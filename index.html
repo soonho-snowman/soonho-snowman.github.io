@@ -7,8 +7,8 @@
 <title>Soonho Kwon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Carlito:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=11">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
@@ -103,9 +103,16 @@ function renderAbout() {
   const areas = TOPICS.map((t, i) =>
     `<p>(${i + 1}) <a href="#topic-${t.id}">${esc(t.name)}</a>: ${esc(t.blurb)}</p>`).join("");
   $view.innerHTML = `<div class="about">
-    <div class="portrait">${SITE.photo
-      ? `<img src="${esc(SITE.photo)}" alt="Portrait of ${esc(SITE.name)}" onerror="this.replaceWith(document.createTextNode('${initials}'))">`
-      : initials}</div>
+    <div class="side">
+      <div class="portrait">${SITE.photo
+        ? `<img src="${esc(SITE.photo)}" alt="Portrait of ${esc(SITE.name)}" onerror="this.replaceWith(document.createTextNode('${initials}'))">`
+        : initials}</div>
+      <div class="contact">
+        <span class="email">${esc(SITE.email)}</span>
+        ${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
+        <a href="${esc(SITE.cv)}" ${ext}>CV</a>
+      </div>
+    </div>
     <div class="about-text">
       <h1>${esc(SITE.name)}</h1>
       <div class="names">${esc(SITE.names)}</div>
@@ -113,11 +120,6 @@ function renderAbout() {
         <p>${SITE.intro}</p>
         ${areas}
         ${SITE.outro.map(p => `<p>${p}</p>`).join("")}
-      </div>
-      <div class="contact">
-        <span class="email">${esc(SITE.email)}</span>
-        ${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
-        <a href="${esc(SITE.cv)}" ${ext}>CV</a>
       </div>
     </div>
   </div>`;
