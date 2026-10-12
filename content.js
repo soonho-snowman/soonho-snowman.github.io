@@ -23,7 +23,7 @@ const SITE = {
      as a means for people to carve out authentic ways of being within systems that are difficult to
      escape or transform (be they social structures or technical systems), while critically attending to how
      technologies may, at times, exacerbate existing issues.`,
-    `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented and recognized at
+    `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented at
      venues such as ACM CHI, CSCW, and DIS, recognized at Prix Ars Electronica, and supported by the NSF and the Beyond the Rainbow Foundation.`
   ]
 };
@@ -335,15 +335,29 @@ const ARTWORKS = [
   }
 ];
 
-/* News on the About page, newest first. `date` is free text; HTML links are allowed in `text`. */
+/* News, newest first. `date` is "YYYY-MM". HTML links are allowed in `text`.
+   The home page shows the latest four under the photo; the News tab shows everything. */
 const NEWS = [
-  { date: "Oct 2026", text: `Presenting two papers at CSCW 2026: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
-  { date: "Sep 2026", text: `Named a finalist for the GVU Foley Scholar Award at Georgia Tech.` },
-  { date: "2026", text: `Our TOCHI paper on how South Korean citizens navigated the 2024 martial law crisis was accepted. <a href="#paper-tochi-martial-law">Read the abstract</a>.` },
-  { date: "2026", text: `Presented <a href="#paper-dis26-prayer">Value-Sensitive AI for Prayer</a> and co-organized <a href="#paper-dis26-workshop-mth">a workshop on pluriversal more-than-human design</a> at DIS 2026.` },
-  { date: "Jan 2025", text: `Our paper on <a href="#paper-chi25-digital-legacy">digital legacy systems for young adults</a> was accepted to CHI 2025. My first CHI paper!` },
-  { date: "Aug 2024", text: `Started my Ph.D. in Human-Centered Computing at Georgia Tech.` },
-  { date: "Jun 2024", text: `<a href="#paper-ai-fortuneteller">AI Fortune-Teller</a> received an Honorary Mention at Prix Ars Electronica 2024 (Interactive Art+), one of 15 awarded works out of 1,428 submissions.` }
+  { date: "2026-10", text: `Presenting two papers at CSCW 2026: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
+  { date: "2026-09", text: `Named a finalist for the GVU Foley Scholar Award at Georgia Tech.` },
+  { date: "2026-04", text: `Passed my doctoral qualifying exam!` },
+  { date: "2026-04", text: `Invited as a speaker for the GT × Emory × UGA Korean Graduate Student Symposium.` },
+  { date: "2026-03", text: `<a href="#paper-dis26-workshop-mth">A workshop I co-authored</a> was accepted for DIS 2026. My first DIS workshop!` },
+  { date: "2026-03", text: `<a href="#paper-dis26-prayer">A first-author paper</a> was conditionally accepted for DIS 2026. My first DIS paper!` },
+  { date: "2026-03", text: `Two first-author papers (<a href="#paper-cscw26-parents">1</a>, <a href="#paper-cscw26-fda">2</a>) were conditionally accepted for CSCW 2026. My first CSCW papers!` },
+  { date: "2026-02", text: `Received two Special Recognitions for Outstanding Reviews for DIS 2026 and one for CHI 2026 Posters.` },
+  { date: "2025-11", text: `Received two Special Recognitions for Outstanding Reviews for CHI 2026 and one for CSCW 2026.` },
+  { date: "2025-07", text: `Invited as a panelist on trans-disciplinary queer methods and methodologies at the Korean Association for LGBTQ+ and Queer Studies Conference 2025.` },
+  { date: "2025-07", text: `Presented research on how parents of LGBTQ+ children navigate misinformation at the Korean Association for LGBTQ+ and Queer Studies Conference 2025.` },
+  { date: "2025-05", text: `Invited as a speaker and guest lecturer for the <a href="https://youtu.be/Nq3WsMzqW94" target="_blank" rel="noopener">Tech for Impact</a>, <a href="https://youtu.be/3kbBQ7Ogu4U" target="_blank" rel="noopener">Interaction Design</a>, and <a href="https://youtu.be/8AW5nPfgQmY" target="_blank" rel="noopener">Senior Project</a> courses at Yonsei University.` },
+  { date: "2025-05", text: `Invited as a distinguished alumni panelist for Yonsei University's Information and Interaction Design major.` },
+  { date: "2025-05", text: `Presented <a href="#paper-chi25-digital-legacy">Digital Legacy Systems for Young Adults</a> at CHI 2025. [<a href="https://youtu.be/OJDGo4T_noI" target="_blank" rel="noopener">Video</a>] [<a href="https://www.cc.gatech.edu/news/commemoration-platform-lets-you-determine-how-youre-remembered-online" target="_blank" rel="noopener">Article</a>]` },
+  { date: "2025-04", text: `Received a Special Recognition for Outstanding Review for DIS 2025.` },
+  { date: "2025-02", text: `Joined the steering committee for the Korean Association for LGBTQ+ and Queer Studies Conference 2025.` },
+  { date: "2025-02", text: `<a href="#paper-chi25-digital-legacy">Digital Legacy Systems for Young Adults</a> was accepted for CHI 2025. My first CHI paper!` },
+  { date: "2025-02", text: `Received two Special Recognitions for Outstanding Reviews for CHI 2025.` },
+  { date: "2024-09", text: `<a href="https://calls.ars.electronica.art/2024/prix/winners/10750/" target="_blank" rel="noopener">AI Fortune-Teller</a> received an Honorary Mention in the <a href="https://ars.electronica.art/prix/en/winners/#interactiveart" target="_blank" rel="noopener">Interactive Art+</a> category of the 2024 Prix Ars Electronica (58 awarded out of 2,950 submissions).` },
+  { date: "2024-08", text: `Started my Ph.D. in Human-Centered Computing at Georgia Tech.` }
 ];
 
 /* Google Analytics measurement ID (starts with "G-"). Leave "" to turn analytics off. */

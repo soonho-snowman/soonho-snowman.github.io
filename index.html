@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=23">
+<link rel="stylesheet" href="style.css?v=24">
 </head>
 <body>
 
@@ -26,6 +26,7 @@
       <a href="#about" data-nav="about">About</a>
       <a href="#publications" data-nav="publications">Publications</a>
       <a href="#artwork" data-nav="artwork">Artwork</a>
+      <a href="#news" data-nav="news">News</a>
       <a id="cv-link" href="#" target="_blank" rel="noopener">CV</a>
     </nav>
   </div>
@@ -35,7 +36,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=24"></script>
+<script src="content.js?v=25"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -105,6 +106,18 @@ function figureHTML(src, alt, caption) {
   </figure>`;
 }
 
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const fmtDate = d => { const [y, m] = String(d).split("-"); return m ? `${MONTHS[+m - 1]} ${y}` : y; };
+const newsList = items => `<ul class="news">${items.map(n => `<li><span class="news-date">${esc(fmtDate(n.date))}</span><span>${n.text}</span></li>`).join("")}</ul>`;
+
+function renderNews() {
+  const years = [...new Set(NEWS.map(n => String(n.date).slice(0, 4)))];
+  $view.innerHTML = `<section class="news-page">
+    <div class="proj-head"><div class="eyebrow">News</div><h1>News</h1></div>
+    ${years.map(y => `<div class="group"><h2>${y}</h2>${newsList(NEWS.filter(n => String(n.date).startsWith(y)))}</div>`).join("")}
+  </section>`;
+}
+
 function renderAbout() {
   const initials = SITE.name.split(" ").map(w => w[0]).join("");
   const count = id => ALL.filter(p => p.topics.includes(id)).length;
@@ -123,6 +136,7 @@ function renderAbout() {
         ${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
         <a href="${esc(SITE.cv)}" ${ext}>CV</a>
       </div>
+      ${NEWS.length ? `<div class="side-news"><h2>Recent News</h2>${newsList(NEWS.slice(0, 4))}<a class="more" href="#news">All news →</a></div>` : ""}
     </div>
     <div class="about-text">
       <h1>${esc(SITE.name)}</h1>
@@ -133,7 +147,6 @@ function renderAbout() {
       </div>
       <h2 class="cards-head">Research Areas</h2>
       <ul class="cards">${cards}</ul>
-      ${typeof NEWS !== "undefined" && NEWS.length ? `<h2 class="cards-head">News</h2><ul class="news">${NEWS.map(n => `<li><span class="news-date">${esc(n.date)}</span><span>${n.text}</span></li>`).join("")}</ul>` : ""}
     </div>
   </div>`;
 }
@@ -256,6 +269,7 @@ function route() {
   else if (h.startsWith("topic-")) { renderPublications(h.slice(6)); section = "publications"; }
   else if (h === "publications" || h === "projects") { renderPublications(); section = "publications"; }
   else if (h === "artwork") { renderArtwork(); section = "artwork"; }
+  else if (h === "news") { renderNews(); section = "news"; }
   else if (h.startsWith("art-")) { renderArt(h.slice(4)); section = "artwork"; }
   else renderAbout();
   document.querySelectorAll("[data-nav]").forEach(a => {
