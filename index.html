@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
 
@@ -139,6 +139,10 @@ function railHTML(activeId) {
       ${TOPICS.map(t => `<li><a href="#topic-${t.id}" aria-current="${activeId === t.id}">
         <span><i class="tdot" style="background:var(${t.color})"></i>${esc(t.name)}</span><span class="n">${count(t.id)}</span></a></li>`).join("")}
     </ul>
+    <select class="rail-select" aria-label="Choose a topic" onchange="location.hash = this.value">
+      <option value="publications"${activeId ? "" : " selected"}>All work (${ALL.length})</option>
+      ${TOPICS.map(t => `<option value="topic-${t.id}"${activeId === t.id ? " selected" : ""}>${esc(t.name)} (${count(t.id)})</option>`).join("")}
+    </select>
   </aside>`;
 }
 
@@ -154,7 +158,7 @@ function renderPublications(topicId) {
       <div class="proj-head">
         <div class="eyebrow">${topic ? "Topic" : "Publications"}</div>
         <h1>${topic ? esc(topic.name) : "Publications and Projects"}</h1>
-        ${topic ? "" : `<p class="sub">Papers by year, followed by ongoing projects. Choose a topic to see how each line of work connects.</p>`}
+        ${topic ? "" : `<p class="sub">To see work grouped by topic, select a category.</p>`}
       </div>
       ${topic ? `<div class="narrative">${topic.narrative.map(p => `<p>${p}</p>`).join("")}</div>` : ""}
       ${years.map(y => `<div class="group"><h2>${y}</h2>
