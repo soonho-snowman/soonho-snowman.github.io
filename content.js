@@ -23,7 +23,7 @@ const SITE = {
      as a means for people to carve out authentic ways of being within systems that are difficult to
      escape or transform (be they social structures or technical systems), while critically attending to how
      technologies may, at times, exacerbate existing issues.`,
-    `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented at
+    `Grounded in critical, feminist, design, and queer approaches, my work has been presented at
      venues such as ACM CHI, CSCW, and DIS, recognized at Prix Ars Electronica, and supported by the NSF and the Beyond the Rainbow Foundation.`
   ]
 };
@@ -338,8 +338,13 @@ const ARTWORKS = [
 /* News, newest first. `date` is "YYYY-MM". HTML links are allowed in `text`.
    The home page shows the latest four under the photo; the News tab shows everything. */
 const NEWS = [
-  { date: "2026-10", text: `Presenting two papers at CSCW 2026: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
+  { date: "2026-10", text: `At CSCW 2026 in Salt Lake City, presenting two papers: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
   { date: "2026-09", text: `Named a finalist for the GVU Foley Scholar Award at Georgia Tech.` },
+  { date: "2026-08", text: `Selected for the Lee Chang-guk Queer Research Support Program by the Beyond the Rainbow Foundation.` },
+  { date: "2026-08", text: `Gave invited talks, "Remaining Human in the Age of AI: Juxtaposing Spiritual Experience and AI Interaction," at Seoul National University (HCI+d Lab), Keio University (Graduate School of Media Design), and Georgia Tech (OMSCS).` },
+  { date: "2026-07", text: `Gave an invited talk, "Researcher's Worldview in HCI," at Yonsei University's Graduate School of Innovation.` },
+  { date: "2026-06", text: `Presented <a href="#paper-dis26-prayer">Value-Sensitive AI for Prayer</a> at DIS 2026 in Singapore.` },
+  { date: "2026-04", text: `Attended CHI 2026 in Barcelona.` },
   { date: "2026-04", text: `Passed my doctoral qualifying exam!` },
   { date: "2026-04", text: `Invited as a speaker for the GT × Emory × UGA Korean Graduate Student Symposium.` },
   { date: "2026-03", text: `<a href="#paper-dis26-workshop-mth">A workshop I co-authored</a> was accepted for DIS 2026. My first DIS workshop!` },
@@ -352,10 +357,10 @@ const NEWS = [
   { date: "2025-05", text: `Invited as a speaker and guest lecturer for the <a href="https://youtu.be/Nq3WsMzqW94" target="_blank" rel="noopener">Tech for Impact</a>, <a href="https://youtu.be/3kbBQ7Ogu4U" target="_blank" rel="noopener">Interaction Design</a>, and <a href="https://youtu.be/8AW5nPfgQmY" target="_blank" rel="noopener">Senior Project</a> courses at Yonsei University.` },
   { date: "2025-05", text: `Invited as a distinguished alumni panelist for Yonsei University's Information and Interaction Design major.` },
   { date: "2025-05", text: `Presented <a href="#paper-chi25-digital-legacy">Digital Legacy Systems for Young Adults</a> at CHI 2025. [<a href="https://youtu.be/OJDGo4T_noI" target="_blank" rel="noopener">Video</a>] [<a href="https://www.cc.gatech.edu/news/commemoration-platform-lets-you-determine-how-youre-remembered-online" target="_blank" rel="noopener">Article</a>]` },
-  { date: "2025-04", text: `Received a Special Recognition for Outstanding Review for DIS 2025.` },
   { date: "2025-02", text: `Joined the steering committee for the Korean Association for LGBTQ+ and Queer Studies Conference 2025.` },
   { date: "2025-02", text: `<a href="#paper-chi25-digital-legacy">Digital Legacy Systems for Young Adults</a> was accepted for CHI 2025. My first CHI paper!` },
-  { date: "2025-02", text: `Received two Special Recognitions for Outstanding Reviews for CHI 2025.` },
+  { date: "2025-02", text: `Received a Special Recognition for Outstanding Review for DIS 2025.` },
+  { date: "2024-11", text: `Received two Special Recognitions for Outstanding Reviews for CHI 2025.` },
   { date: "2024-09", text: `<a href="https://calls.ars.electronica.art/2024/prix/winners/10750/" target="_blank" rel="noopener">AI Fortune-Teller</a> received an Honorary Mention in the <a href="https://ars.electronica.art/prix/en/winners/#interactiveart" target="_blank" rel="noopener">Interactive Art+</a> category of the 2024 Prix Ars Electronica (58 awarded out of 2,950 submissions).` },
   { date: "2024-08", text: `Started my Ph.D. in Human-Centered Computing at Georgia Tech.` }
 ];
