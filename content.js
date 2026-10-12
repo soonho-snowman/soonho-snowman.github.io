@@ -75,8 +75,9 @@ const TOPICS = [
     id: "policy", name: "Policy and Civic Engagement", short: "Policy and Civic Engagement", color: "--t5",
     blurb: "I examine how people navigate data- and technology-driven policies and civic processes to maintain and protect their ways of being.",
     narrative: [
-      `Policies increasingly arrive as data requirements, and they reshape people's work and lives. Our CSCW 2026 paper analyzes public comments on the FDA's Food Traceability Rule and shows how it turns farmers, fishers, and retail workers into unpaid data workers.`,
-      `A TOCHI paper looks at the other side of civic life: how people in South Korea used information and communication technologies to stay connected as the martial law crisis unfolded.`
+      `In all honesty, I did not start this line of work myself; these projects began as research assistantships and collaborations. Yet as I worked on them, a theme emerged. I came to feel that, as an HCI researcher, I have a responsibility to understand the realities in which technology is inevitably entangled with policy and civic participation. Along the way, I found myself resisting techno-solutionist narratives and bringing erased realities to the center.`,
+      `In <a href="#paper-cscw26-fda">our CSCW 2026 paper</a>, we respected what the FDA hopes to achieve through data-driven governance, while asking who does the data work it requires, whose realities are erased in the process, and what practical limits stand in the way.`,
+      `In <a href="#paper-tochi-martial-law">our TOCHI paper on the 2024 martial law crisis in South Korea</a>, we describe how important technology was to civic engagement in resisting martial law, but also that technology was not everything. It worked alongside Korean citizens' everyday digital literacy, their critical engagement with technical infrastructure, and their past experiences of democratization.`
     ]
   }
 ];
