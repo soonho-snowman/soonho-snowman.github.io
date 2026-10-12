@@ -255,4 +255,4 @@ const ARTWORKS = [
 ];
 
 /* Google Analytics measurement ID (starts with "G-"). Leave "" to turn analytics off. */
-const GA_ID = "";
+const GA_ID = "G-6J1EXTPBT3";
