@@ -104,14 +104,9 @@ aside.rail h2 { font-family: var(--sans); font-size: .72rem; font-weight: 500; l
 
 .proj-head h1 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); margin-top: 4px; }
 .proj-head .sub { color: var(--muted); margin: 8px 0 0; }
-.narrative {
-  margin-top: 24px; padding: 22px 26px; background: transparent;
-  border: 1px solid var(--line); border-radius: 8px;
-}
-.narrative .eyebrow { margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.narrative .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--tc, var(--accent)); }
+.narrative { margin-top: 20px; }
 .narrative p { margin: 0; }
-.narrative p + p { margin-top: 12px; }
+.narrative p + p { margin-top: 14px; }
 
 .group { margin-top: 44px; }
 .group h2 { font-family: var(--sans); font-size: .9rem; font-weight: 500; color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }

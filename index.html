@@ -68,11 +68,11 @@ function chips(ids) {
   }).join("");
 }
 function venueHTML(p) {
-  if (!p.venue && !p.short) return "";
-  return `<div class="venue">${esc(p.venue)}${p.short ? `${p.venue ? " · " : ""}<span class="short">${esc(p.short)}</span>` : ""}</div>`;
+  if (!p.venue) return "";
+  return `<div class="venue">${esc(p.venue)}</div>`;
 }
 function kindHTML(p) {
-  return `<div class="kind">${esc(p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>`;
+  return `<div class="kind">${esc(p.short || p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>`;
 }
 function entryHTML(p) {
   const quick = Object.entries(p.links || {}).filter(([, v]) => v).slice(0, 2)
@@ -149,7 +149,7 @@ function renderPublications(topicId) {
         <h1>${topic ? esc(topic.name) : "Publications and Projects"}</h1>
         ${topic ? "" : `<p class="sub">Papers by year, followed by ongoing projects. Choose a topic to see how each line of work connects.</p>`}
       </div>
-      ${topic ? `<div class="narrative" style="--tc:var(${topic.color})"><div class="eyebrow">How this work connects</div>${topic.narrative.map(p => `<p>${p}</p>`).join("")}</div>` : ""}
+      ${topic ? `<div class="narrative">${topic.narrative.map(p => `<p>${p}</p>`).join("")}</div>` : ""}
       ${years.map(y => `<div class="group"><h2>${y}</h2>
         <ul class="entries">${papers.filter(p => p.year === y).map(entryHTML).join("")}</ul></div>`).join("")}
       ${projects.length ? `<div class="group"><h2>Ongoing</h2><ul class="entries">${projects.map(entryHTML).join("")}</ul></div>` : ""}
