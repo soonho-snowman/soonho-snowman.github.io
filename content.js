@@ -57,8 +57,9 @@ const TOPICS = [
     id: "beyond-western", name: "Beyond-Western Epistemologies in HCI", short: "Beyond-Western", color: "--t3",
     blurb: "I draw on Korean and other non-Western ways of knowing to question the assumptions built into HCI theory and design.",
     narrative: [
-      `Much of HCI's theory comes from Western philosophical traditions. As a scholar raised in Korea, I bring other ways of knowing into design research, from spiritual practice to the relational worldviews of East Asian philosophy.`,
-      `At DIS 2026, I co-organized a workshop on pluriversal pathways for more-than-human design, which engages Indigenous ecological knowledge and philosophies such as Daoism. This thread also runs through my work on spirituality and on Korean queer communities.`
+      `When I came to the U.S. and began working in queer HCI, I found queer theory surprisingly hard. It was supposed to be about people who share my identity, yet it felt difficult to grasp and far removed from my own life. That made me wonder: was it because these theories came out of America?`,
+      `Thinking this way, I began to notice how many of HCI's defaults run on Western standards that are rationalist, pragmatic, and binary. To question these defaults critically, I have been drawing new queer theory from Korean field sites rather than from Western theory (<a href="#project-tethered-beings">tethered beings</a>, <a href="#project-queer-legacy">queer death</a>); <a href="#paper-dis26-workshop-mth">revisiting what more-than-human HCI calls the post-human or the relational through Daoist and Indigenous thought</a>; <a href="#paper-ai-fortuneteller">imagining AI through Korean traditional faith</a>; and <a href="#project-daoist-death">redesigning death and commemorative technologies around how Daoism and Buddhism understand death</a>.`,
+      `Ultimately, through this work, I hope to add to the growing body of post-colonial and beyond-Western approaches in HCI.`
     ]
   },
   {
@@ -109,6 +110,15 @@ const PROJECTS = [
     topics: ["korean-queer", "death", "beyond-western"],
     award: "Funded by the Lee Chang-guk Queer Research Support Program, Beyond the Rainbow Foundation",
     summary: "Services that help people prepare for death, such as legacy contacts and memorial accounts, mostly assume a spouse or children. In Korea, many platforms let only a pre-designated proxy, or family members who can prove the relationship with official records, manage a deceased user's account. For queer people who cannot legally marry or adopt, and who may be distant from their families of origin, the questions of whom to leave things to, and what to leave, can look very different.\n\nThis project begins with an anonymous survey of Korean LGBTQ+ adults about how they imagine and prepare for their deaths and legacies, including digital ones. From their responses, I will design a death-preparation platform, or a critical design that makes their exclusion visible, and then invite Korean queer people to try it and reflect on it in interviews.",
+    links: {}
+  },
+  {
+    id: "daoist-death",
+    title: "Death as Transformation: Reimagining Death-Related Technologies through Daoist Understandings of Death",
+    authors: ["Soonho Kwon", "Janghee Cho", "Shaowen Bardzell"],
+    venue: "Learning with Daoist priests in Singapore",
+    topics: ["death", "beyond-western"],
+    summary: "HCI's death-related technologies, from digital legacies and memorial accounts to AI-mediated resurrection, tend to treat death as a clear boundary: life and then death, presence and then absence, everyday life, mourning, and a return to everyday life. Daoist thought sees it differently. Life and death are the gathering and dispersing of qi, part of an ongoing transformation that all beings undergo, much as Zhuangzi drummed on a tub and sang when his wife died.\n\nWorking with Daoist priests in Singapore, we attend funerals and memorial rituals and interview priests about the meanings and values behind these practices. From these engagements we draw out qualities of Daoist understandings of death, commemoration, and ritual, and use them to speculate on what memorial accounts, will-writing platforms, commemorative platforms, and AI resurrection might become when life and death are no longer taken as discrete, clearly bounded states.",
     links: {}
   }
 ];
