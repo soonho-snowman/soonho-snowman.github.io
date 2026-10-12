@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=18"></script>
+<script src="content.js?v=19"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -102,7 +102,6 @@ function renderAbout() {
   const initials = SITE.name.split(" ").map(w => w[0]).join("");
   const count = id => ALL.filter(p => p.topics.includes(id)).length;
   const cards = TOPICS.map(t => `<li><a class="card" href="#topic-${t.id}" style="--tc:var(${t.color})">
-      <span class="card-kw">${esc(t.short || t.name)}</span>
       <span class="card-name">${esc(t.name)}</span>
       <span class="card-blurb">${esc(t.blurb)}</span>
       <span class="card-foot">${count(t.id)} works <span aria-hidden="true">→</span></span>
@@ -214,7 +213,7 @@ function renderArtwork() {
   </section>`;
 }
 
-const imgPair = list => (list && list.length) ? `<div class="gallery">${list.map(src =>
+const imgPair = list => (list && list.length) ? `<div class="gallery${list.length === 1 ? " one" : list.length === 2 ? " two" : ""}">${list.map(src =>
   `<a href="${esc(src)}" ${ext}><img src="${esc(src)}" alt="" loading="lazy"></a>`).join("")}</div>` : "";
 
 function renderArt(id) {

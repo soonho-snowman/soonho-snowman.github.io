@@ -209,3 +209,6 @@ footer .wrap { padding-block: 24px; font-size: .8rem; color: var(--muted); displ
 .credits dd { margin: 0; }
 @media (max-width: 600px) { .credits { grid-template-columns: 1fr; gap: 2px; } .credits dd { margin-bottom: 8px; } }
 figure.stack { display: grid; gap: 10px; }
+.gallery.one { grid-template-columns: 1fr; }
+.gallery.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 600px) { .gallery.two { grid-template-columns: 1fr; } }
