@@ -20,11 +20,11 @@ const SITE = {
     <a href="https://shaowenbardzell.com" target="_blank" rel="noopener">Shaowen Bardzell</a>.`,
   outro: [
     `In conducting my research, I do not approach technology as a means of “solving problems.” My work treats technology
-     as a way of allowing people the possibility to carve out authentic ways of being within systems that are difficult to
-     escape or transform (be it a social structure, technical systems, etc.), while critically attending to how
-     technologies may exacerbate existing issues at times.`,
+     as a means for people to carve out authentic ways of being within systems that are difficult to
+     escape or transform (be they social structures or technical systems), while critically attending to how
+     technologies may, at times, exacerbate existing issues.`,
     `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented and recognized at
-     venues such as ACM CHI, CSCW, and DIS, awarded at Prix Ars Electronica, and supported by the NSF and the Beyond the Rainbow Foundation.`
+     venues such as ACM CHI, CSCW, and DIS, recognized at Prix Ars Electronica, and supported by the NSF and the Beyond the Rainbow Foundation.`
   ]
 };
 
@@ -57,8 +57,8 @@ const TOPICS = [
     id: "beyond-western", name: "Beyond-Western Epistemologies in HCI", short: "Beyond-Western", color: "--t3",
     blurb: "I draw on Korean and other non-Western ways of knowing to question the assumptions built into HCI theory and design.",
     narrative: [
-      `When I came to the U.S. and began working in queer HCI, I found queer theory surprisingly hard. It was supposed to be about people who share my identity, yet it felt difficult to grasp and far removed from my own life. That made me wonder: was it because these theories came out of America?`,
-      `Thinking this way, I began to notice how many of HCI's defaults run on Western standards that are often rationalist, pragmatic, and binary. To question these defaults critically, I have been <a href="#project-tethered-beings">drawing new queer theory from Korean field sites rather than from Western theory</a>; <a href="#paper-dis26-workshop-mth">revisiting what more-than-human HCI calls the post-human or the relational through Daoist and Indigenous thought</a>; <a href="#paper-ai-fortuneteller">imagining AI through Korean traditional faith</a>; and <a href="#project-daoist-death">redesigning death and commemorative technologies around how Daoism and Buddhism understand death</a>.`,
+      `When I came to the U.S. and began working in queer HCI, I found queer theory surprisingly hard. It was supposed to be about people who share my identity, yet it felt difficult to grasp and far removed from my own life. That made me wonder: was it because these theories came out of the U.S.?`,
+      `Thinking this way, I began to notice how many of HCI's defaults run on Western standards that are often rationalist, pragmatic, and binary. To question these defaults critically, I have been <a href="#project-tethered-beings">drawing new queer theory from Korean field sites rather than from Western theory</a>; <a href="#paper-dis26-workshop-mth">revisiting what more-than-human HCI calls the post-human or the relational through Daoist and Indigenous thought</a>; <a href="#paper-ai-fortuneteller">imagining AI through Korean traditional faith</a>; and <a href="#project-daoist-death">redesigning death and commemorative technologies around how Daoist thought understands death</a>.`,
       `Ultimately, through this work, I hope to add to the growing body of post-colonial and beyond-Western approaches in HCI.`
     ]
   },
@@ -68,7 +68,7 @@ const TOPICS = [
     narrative: [
       `I first became interested in death and technology during the COVID-19 pandemic. As funerals moved online, I came across a memorial website that displayed a portrait of the deceased with an interface for dragging and dropping chrysanthemums in front of it. It felt deeply wrong to me, and that made me curious: why did it feel so wrong?`,
       `My <a href="#paper-interact21-instagram">first project, presented at INTERACT 2021</a>, explored this question. Why do we commemorate someone? What is the essence of commemoration, and what would it take to realize that essence online? Building on these questions, we designed what social media might look like as a space for commemoration.`,
-      `Along the way, I realized that technologies for death preparation and commemoration tend to assume a single “normative death”: someone with a heteronormative family who dies of old age or illness. In <a href="#paper-chi25-digital-legacy">my CHI 2025 paper</a>, I designed a death-preparation platform for untimely death at a young age. Now I am designing <a href="#project-queer-legacy">a death-preparation platform for Korean LGBTQ+ people who cannot form a heteronormative family</a>, as well as <a href="#project-daoist-death">death-preparation and commemoration platforms grounded in Daoist and Buddhist thought, which treat death as part of life</a>.`
+      `Along the way, I realized that technologies for death preparation and commemoration tend to assume a single “normative death”: someone with a heteronormative family who dies of old age or illness. In <a href="#paper-chi25-digital-legacy">my CHI 2025 paper</a>, I designed death-preparation tools for young adults facing the possibility of an untimely death. Now I am designing <a href="#project-queer-legacy">a death-preparation platform for Korean LGBTQ+ people who cannot form a heteronormative family</a>, as well as <a href="#project-daoist-death">death-preparation and commemoration platforms grounded in Daoist thought, which treats death as part of life</a>.`
     ]
   },
   {
@@ -76,7 +76,7 @@ const TOPICS = [
     blurb: "I examine how people navigate data- and technology-driven policies and civic processes to maintain and protect their ways of being.",
     narrative: [
       `In all honesty, I did not start this line of work myself; these projects began as research assistantships and collaborations. Yet as I worked on them, a theme emerged. I came to feel that, as an HCI researcher, I have a responsibility to understand the realities in which technology is inevitably entangled with policy and civic participation. Along the way, I found myself resisting techno-solutionist narratives and bringing erased realities to the center.`,
-      `In <a href="#paper-cscw26-fda">our CSCW 2026 paper</a>, we respected what the FDA hopes to achieve through data-driven governance, while asking who does the data work it requires, whose realities are erased in the process, and what practical limits stand in the way.`,
+      `In <a href="#paper-cscw26-fda">our CSCW 2026 paper</a>, we acknowledged what the FDA hopes to achieve through data-driven governance, while asking who does the data work it requires, whose realities are erased in the process, and what practical limits stand in the way.`,
       `In <a href="#paper-tochi-martial-law">our TOCHI paper on the 2024 martial law crisis in South Korea</a>, we describe how important technology was to civic engagement in resisting martial law, but also that technology was not everything. It worked alongside Korean citizens' everyday digital literacy, their critical engagement with technical infrastructure, and their past experiences of democratization.`
     ]
   }
@@ -208,7 +208,7 @@ const PAPERS = [
     title: "Spiritual AI: Exploring the Possibilities of a Human-AI Interaction Beyond Productive Goals",
     authors: ["Soonho Kwon", "Dong Whi Yoo", "Younah Kang"],
     venue: "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
-    short: "CHI 2024 Poster", type: "Poster", year: 2024,
+    short: "CHI 2024 Late-Breaking Work", type: "Poster", year: 2024,
     topics: ["spiritual-ai"],
     images: ["figures/chi24-poster.webp"],
     caption: "Late-Breaking Work poster, CHI 2024.",
@@ -314,7 +314,7 @@ const ARTWORKS = [
     thumb: "art/himmel-and-blair/thumb.webp",
     summary: "In loving memory of Blair.\n\nSexual identity is one of many aspects that can define a person. By capturing queer people in their most comfortable, everyday situations, I wanted to break stereotypes about queer people while still showing the unique concerns and styles of the models.",
     sections: [
-      { heading: "Mask, Blair", text: "A photo becomes permanent evidence of your queer identity. Taking pictures while holding hands with a same-sex partner, or while attending pride events, is a fear for all queers in the digital age. For this reason, the Seoul Pride Festival still does not allow photography during the event.", images: ["art/himmel-and-blair/01.webp", "art/himmel-and-blair/02.webp"] },
+      { heading: "Mask, Blair", text: "A photo becomes permanent evidence of your queer identity. Taking pictures while holding hands with a same-sex partner, or while attending pride events, is a fear for all queers in the digital age. For this reason, the Seoul Pride Festival did not allow photography during the event at the time.", images: ["art/himmel-and-blair/01.webp", "art/himmel-and-blair/02.webp"] },
       { heading: "Mask, Himmel", text: "Itaewon is one of the few places where queer people can openly show themselves. Here, in one of the gay clubs, is where Himmel first gladly accepted his queer identity. He no longer had to hide who he was.", images: ["art/himmel-and-blair/03.webp", "art/himmel-and-blair/04.webp"] },
       { heading: "God", text: "Many religions doubt our existence in the name of love; yet people of faith around me tell me their god taught them to love everyone and help those in need.\n\n“I know that there is a reason why God created me gay. If I had been born a straight man, I never would have understood what it means to be a minority. Because God made me gay, I had the chance to be more sympathetic and perhaps change people's hatred to love. For that, I thank God.”", images: ["art/himmel-and-blair/05.webp", "art/himmel-and-blair/06.webp"] },
       { heading: "Solidarity", text: "Queer friendship is something else. While I was blessed with friends and family who love me for who I am, there is something non-queer folks cannot understand. The life of a queer person is not something you can express through words; you have to live it. Talking about discrimination or teenage years in the closet is merely a story to someone who is not queer.\n\nTo have someone who shares that experience, someone I can rely on through this journey, warms my heart.", images: ["art/himmel-and-blair/07.webp", "art/himmel-and-blair/08.webp"] },
@@ -333,6 +333,16 @@ const ARTWORKS = [
     credits: [["A project by", "Soonho Kwon"], ["Advised by", "Kiho Park"],
       ["Context", "IID2002 Photography Workshop, Yonsei University (Fall 2017)"]]
   }
+];
+
+/* News on the About page, newest first. `date` is free text; HTML links are allowed in `text`. */
+const NEWS = [
+  { date: "2026", text: `Our TOCHI paper on how South Korean citizens navigated the 2024 martial law crisis was accepted. <a href="#paper-tochi-martial-law">Read the abstract</a>.` },
+  { date: "2026", text: `Two papers published at CSCW 2026: one on <a href="#paper-cscw26-parents">parents of LGBTQ+ children</a> and one on <a href="#paper-cscw26-fda">the FDA's Food Traceability Rule</a>.` },
+  { date: "2026", text: `Presented <a href="#paper-dis26-prayer">Value-Sensitive AI for Prayer</a> and co-organized <a href="#paper-dis26-workshop-mth">a workshop on pluriversal more-than-human design</a> at DIS 2026.` },
+  { date: "Jan 2025", text: `Our paper on <a href="#paper-chi25-digital-legacy">digital legacy systems for young adults</a> was accepted to CHI 2025. My first CHI paper!` },
+  { date: "Aug 2024", text: `Started my Ph.D. in Human-Centered Computing at Georgia Tech.` },
+  { date: "Jun 2024", text: `<a href="#paper-ai-fortuneteller">AI Fortune-Teller</a> received an Honorary Mention at Prix Ars Electronica 2024 (Interactive Art+), one of 15 awarded works out of 1,428 submissions.` }
 ];
 
 /* Google Analytics measurement ID (starts with "G-"). Leave "" to turn analytics off. */
