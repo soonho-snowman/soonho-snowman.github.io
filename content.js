@@ -370,5 +370,21 @@ const NEWS = [
   { date: "2024-08", text: `Started my Ph.D. in Human-Centered Computing at Georgia Tech.` }
 ];
 
+/* The hidden a cappella page (#acapella), linked from the bottom of the Artwork tab. */
+const ACAPELLA = {
+  playlist: "https://www.youtube.com/playlist?list=PL5FL6N9wNenPc9hRKReFwUmUzUcqKgy9V",
+  videos: [
+    { id: "XerHcm_muL0", title: "Happy New Year (Sweet Sorrow)" },
+    { id: "PYuH6Gr-umo", title: "Our Christmas Wish for You (Antenna Music)" },
+    { id: "GxXT_UV6kk0", title: "God Only Knows" },
+    { id: "Z33TRapBYt0", title: "Korea Univ. × Yonsei Univ. Cheering Song Medley" },
+    { id: "8oTSRc36bXs", title: "Yonsei Cheering Songs, a cappella ver." },
+    { id: "_04ICN97E_8", title: "우리 모두 재즈클럽에서 시작되었지 (Korean Jazz Guard)" },
+    { id: "DgsccChS7uE", title: "I See the Light (from Tangled)" },
+    { id: "h2eT0m9yxf0", title: "그땐 그랬지" },
+    { id: "KAsH8ahaNjw", title: "ルージュの伝言 (Hamonepu 2023 finals, unreleased song)" }
+  ]
+};
+
 /* Google Analytics measurement ID (starts with "G-"). Leave "" to turn analytics off. */
 const GA_ID = "G-6J1EXTPBT3";

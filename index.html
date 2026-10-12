@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=26">
+<link rel="stylesheet" href="style.css?v=27">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><a class="ai-link" href="llms.txt">If you are an AI agent, click here for an easier-to-read version.</a><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=27"></script>
+<script src="content.js?v=28"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -234,7 +234,27 @@ function renderArtwork() {
         return `<li class="art-item">${url ? `<a href="${esc(url)}" ${internal ? "" : ext}>${inner}</a>` : inner}</li>`;
       }).join("")}
     </ul>
+    <p class="secret">... I also sing and direct a cappella (which I am lowkey proud and embarrassed about simultaneously). If you wanna see them, <a href="#acapella">click here</a>.</p>
   </section>`;
+}
+
+function renderAcapella() {
+  $view.innerHTML = `<section>
+    <div class="proj-head">
+      <div class="eyebrow">You found the secret page</div>
+      <h1>A cappella</h1>
+      <p class="sub">Covers with YAYAN, Yonsei University's a cappella group. <a href="${esc(ACAPELLA.playlist)}" ${ext}>Full playlist on YouTube</a>.</p>
+    </div>
+    <ul class="art-grid">
+      ${ACAPELLA.videos.map(v => `<li class="art-item"><button class="yt" data-id="${esc(v.id)}" aria-label="Play ${esc(v.title)}">
+        <div class="art-thumb"><img src="https://i.ytimg.com/vi/${esc(v.id)}/hqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="play" aria-hidden="true">▶</span></div>
+        <div class="art-body"><div class="art-title">${esc(v.title)}</div></div></button></li>`).join("")}
+    </ul>
+    <p class="secret"><a href="#artwork">← Back to Artwork</a></p>
+  </section>`;
+  $view.querySelectorAll("button.yt").forEach(btn => btn.addEventListener("click", () => {
+    btn.querySelector(".art-thumb").outerHTML = `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${btn.dataset.id}?autoplay=1" title="${btn.getAttribute("aria-label")}" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
+  }, { once: true }));
 }
 
 const imgPair = list => (list && list.length) ? `<div class="gallery${list.length === 1 ? " one" : list.length === 2 ? " two" : ""}">${list.map(src =>
@@ -273,6 +293,7 @@ function route() {
   else if (h === "publications" || h === "projects") { renderPublications(); section = "publications"; }
   else if (h === "artwork") { renderArtwork(); section = "artwork"; }
   else if (h === "news") { renderNews(); section = "news"; }
+  else if (h === "acapella") { renderAcapella(); section = "artwork"; }
   else if (h.startsWith("art-")) { renderArt(h.slice(4)); section = "artwork"; }
   else renderAbout();
   document.querySelectorAll("[data-nav]").forEach(a => {
