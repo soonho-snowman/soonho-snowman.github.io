@@ -28,7 +28,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=19"></script>
+<script src="content.js?v=21"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -237,7 +237,7 @@ function renderArt(id) {
     ${a.award ? `<div class="meta"><span class="award">${esc(a.award)}</span></div>` : ""}
     <div class="summary">${paras(a.summary)}</div>
     ${vids ? `<div class="videos">${vids}</div>` : ""}
-    ${imgPair(a.images)}
+    ${a.layout === "stack" && a.images ? `<div class="gallery one">${a.images.map(src => `<img src="${esc(src)}" alt="" loading="lazy">`).join("")}</div>` : imgPair(a.images)}
     ${sections}
     ${btns ? `<div class="btns">${btns}</div>` : ""}
     ${a.credits ? `<dl class="credits">${a.credits.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
