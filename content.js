@@ -47,8 +47,9 @@ const TOPICS = [
     id: "spiritual-ai", name: "Human-AI Relationship through Spirituality", short: "Spiritual AI", color: "--t1",
     blurb: "By situating AI in domains where conventional metrics such as efficiency and accuracy are less central, I critically examine and design for how human agency and authenticity can be sustained in human-AI interaction.",
     narrative: [
-      `These projects began with a sense that the way people treat AI agents resembles the way we treat religion or fortunetelling. To make sense of an uncertain present and future, and to find peace, we rely on beings we cannot fully comprehend. Through this juxtaposition, I ask critical questions: what kind of relationship do we form with AI? And what is good AI? Can we really say that fast, accurate, and efficient AI is good AI?`,
-      `In our spiritual AI projects, a <a href="#paper-chi24-spiritual-ai">CHI 2024 poster</a> and a <a href="#paper-dis26-prayer">DIS 2026 full paper</a>, we deliberately designed AI that “helps” people pray in provocative, uncomfortable forms, so that people would ask why it feels uncomfortable. Through that question, we argue that some experiences are meaningful only when we live them authentically ourselves, rather than having AI live them for us.`,
+      `Have you ever noticed that the way people treat AI agents resembles the way we treat religion or fortunetelling? To make sense of an uncertain present and future, and to find peace, we rely on beings we cannot fully comprehend.`,
+      `By juxtaposing human-AI interaction with spiritual practices, I critically ask: what kind of relationship do we form with AI? And what is good AI? Can we really say that fast, accurate, and efficient AI is “better” AI?`,
+      `In our <a href="#paper-chi24-spiritual-ai">CHI 2024 poster</a> and <a href="#paper-dis26-prayer">DIS 2026 full paper</a>, we deliberately designed AI that “helps” people pray in provocative, uncomfortable forms, so that people could reflect on <em>why</em> it feels uncomfortable. Through that question, we argue that some experiences are meaningful only when we live them authentically ourselves, rather than having AI live them on our behalf.`,
       `Similarly, <a href="#paper-ai-fortuneteller">AI Fortuneteller</a>, which received an Honorary Mention at Prix Ars Electronica 2024, shows a mudang, a Korean shaman, giving advice while posing as an AI. Whether the source of advice is scientific or not, the agency and responsibility to make the decision remain ours.`
     ]
   },
@@ -203,7 +204,7 @@ const PAPERS = [
     authors: ["Soonho Kwon", "Dong Whi Yoo", "Younah Kang"],
     venue: "Prix Ars Electronica 2024, Interactive Art",
     short: "Video Art", type: "Artwork", year: 2024,
-    topics: ["spiritual-ai"],
+    topics: ["spiritual-ai", "beyond-western"],
     award: "Honorary Mention, Prix Ars Electronica 2024",
     image: "https://i.ytimg.com/vi/Y21DGAZQWMU/hqdefault.jpg",
     caption: "Still from AI Fortuneteller (video).",
