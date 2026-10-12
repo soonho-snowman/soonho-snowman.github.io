@@ -3,43 +3,38 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Soonho Kwon — HCI and design researcher, Ph.D. student in Human-Centered Computing at Georgia Tech.">
+<meta name="description" content="Soonho Kwon (권순호) — HCI and design researcher, Ph.D. student in Human-Centered Computing at Georgia Tech.">
 <title>Soonho Kwon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+KR:wght@400;500&display=swap">
 <style>
-/* Layout: quiet academic site. Top bar + single reading column on About;
-   Projects = left topic rail + year-grouped list; paper pages = one column with figure. */
+/* Layout: quiet academic site in one sans family. About = photo + plain prose;
+   Publications = left topic rail + year-grouped list; detail pages = one column with figure. */
 :root {
-  --bg: #f6f7f5;          /* paper with a faint celadon cast */
+  --bg: #f7f8f6;
   --surface: #ffffff;
-  --fg: #1b2322;          /* ink */
-  --muted: #5d6a67;
-  --line: #dbe1de;
-  --accent: #2f6f64;      /* celadon green, deepened for contrast */
-  --accent-soft: #e3eeeb;
-  --award: #8a5a12;
-  --award-soft: #f5ecdc;
-
-  --t1: #3c6e8f; --t2: #7a5a9b; --t3: #9a6a2e; --t4: #5d6a67; --t5: #2f6f64;
-
-  --display: "Gowun Batang", "Noto Serif KR", Georgia, serif;
-  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-
-  --measure: 64ch;
+  --fg: #1c2423;
+  --muted: #5f6b68;
+  --line: #dde3e0;
+  --accent: #2f6f64;
+  --accent-soft: #e4efec;
+  --award: #85570f;
+  --award-soft: #f6eddc;
+  --t1: #3c6e8f; --t2: #7a5a9b; --t3: #9a6a2e; --t4: #5f6b68; --t5: #2f6f64;
+  --sans: "Poppins", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --measure: 66ch;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #131817; --surface: #1a201f; --fg: #e6ebe9; --muted: #9aa8a4; --line: #2c3533;
+    --bg: #131817; --surface: #1a201f; --fg: #e6ebe9; --muted: #9ba8a5; --line: #2c3533;
     --accent: #7cc3b4; --accent-soft: #1f302c; --award: #e0b46a; --award-soft: #2e271a;
     --t1: #8ab8d6; --t2: #bca1db; --t3: #d9aa6e; --t4: #a5b1ae; --t5: #7cc3b4;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #131817; --surface: #1a201f; --fg: #e6ebe9; --muted: #9aa8a4; --line: #2c3533;
+  --bg: #131817; --surface: #1a201f; --fg: #e6ebe9; --muted: #9ba8a5; --line: #2c3533;
   --accent: #7cc3b4; --accent-soft: #1f302c; --award: #e0b46a; --award-soft: #2e271a;
   --t1: #8ab8d6; --t2: #bca1db; --t3: #d9aa6e; --t4: #a5b1ae; --t5: #7cc3b4;
   color-scheme: dark;
@@ -47,179 +42,157 @@
 
 * { box-sizing: border-box; }
 body {
-  background: var(--bg); color: var(--fg);
-  font-family: var(--body); font-size: 17px; line-height: 1.65;
+  margin: 0; background: var(--bg); color: var(--fg);
+  font-family: var(--sans); font-size: 16px; font-weight: 400; line-height: 1.75;
   -webkit-font-smoothing: antialiased;
-  margin: 0;
 }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
-h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.25; text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-weight: 600; line-height: 1.3; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+b, strong { font-weight: 600; }
 
 .wrap { max-width: 1080px; margin: 0 auto; padding-inline: 24px; }
-@media (max-width: 600px) { .wrap { padding-inline: 18px; } body { font-size: 16px; } }
+@media (max-width: 600px) { .wrap { padding-inline: 18px; } body { font-size: 15px; } }
 
-/* ---------- top bar ---------- */
+/* top bar */
 header.bar {
   position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
 }
-.bar .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-block: 16px; flex-wrap: wrap; }
-.brand { font-family: var(--display); font-size: 1.25rem; font-weight: 700; color: var(--fg); text-decoration: none; }
-.brand small { font-family: var(--body); font-weight: 400; color: var(--muted); font-size: .85rem; margin-left: 8px; }
-nav.main { display: flex; gap: 22px; font-size: .95rem; }
+.bar .wrap { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 16px; padding-block: 16px; flex-wrap: wrap; }
+.brand { font-size: 1.1rem; font-weight: 600; color: var(--fg); text-decoration: none; }
+.brand small { font-weight: 400; color: var(--muted); font-size: .85rem; margin-left: 8px; }
+nav.main { display: flex; gap: 22px; font-size: .92rem; }
 nav.main a { color: var(--muted); text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 nav.main a:hover { color: var(--fg); }
 nav.main a[aria-current="page"] { color: var(--fg); border-bottom-color: var(--accent); }
 
 main { padding-block: 48px 96px; }
-.eyebrow { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.eyebrow { font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 
-/* ---------- about ---------- */
-.about { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; align-items: start; }
+/* about */
+.about { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; align-items: start; }
 @media (max-width: 760px) { .about { grid-template-columns: 1fr; gap: 28px; } }
 .portrait {
-  width: 100%; max-width: 220px; aspect-ratio: 4 / 5; border-radius: 4px;
+  width: 100%; max-width: 240px; aspect-ratio: 4 / 5; border-radius: 4px;
   background: var(--accent-soft); display: grid; place-items: center;
-  font-family: var(--display); font-size: 3.4rem; color: var(--accent); overflow: hidden;
+  font-size: 3rem; font-weight: 500; color: var(--accent); overflow: hidden;
 }
-.portrait img { width: 100%; height: 100%; object-fit: cover; }
-.contact { margin-top: 18px; display: grid; gap: 6px; font-size: .92rem; }
-.contact .email { font-family: var(--mono); font-size: .85rem; color: var(--muted); user-select: all; }
-.contact .links { display: flex; flex-wrap: wrap; gap: 6px 14px; }
-
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .about-text { max-width: var(--measure); }
-.about-text h1 { font-size: clamp(2.2rem, 5vw, 3rem); }
-.about-text .ko { font-family: var(--display); color: var(--muted); font-size: 1.1rem; margin-top: 4px; }
-.lede { font-size: 1.14rem; margin: 28px 0 0; }
-.about-text p { margin: 18px 0 0; }
-.areas { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
-.areas li { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 12px minmax(0,1fr); gap: 14px; }
-.areas .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 10px; }
-.areas a.t { font-family: var(--display); font-weight: 700; font-size: 1.08rem; color: var(--fg); text-decoration: none; }
-.areas a.t:hover { color: var(--accent); }
-.areas p { margin: 4px 0 0; color: var(--muted); font-size: .96rem; }
-.stance { margin-top: 36px; padding-left: 18px; border-left: 2px solid var(--accent); font-family: var(--display); font-size: 1.08rem; line-height: 1.7; }
+.about-text h1 { font-size: clamp(2rem, 4.5vw, 2.6rem); }
+.about-text .names { color: var(--muted); font-size: 1.05rem; margin-top: 2px; letter-spacing: .02em; }
+.about-text p { margin: 0 0 1.1em; }
+.about-text .prose { margin-top: 28px; }
+.contact { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); font-size: .92rem; display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; }
+.contact .email { color: var(--muted); user-select: all; }
 
-/* ---------- projects ---------- */
-.proj { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; align-items: start; }
+/* publications */
+.proj { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; align-items: start; }
 @media (max-width: 860px) { .proj { grid-template-columns: 1fr; gap: 24px; } }
+.proj > *, .about > * { min-width: 0; }
 aside.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); }
-aside.rail h2 { font-family: var(--mono); font-weight: 500; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+aside.rail h2 { font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
 .topics { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
 .topics a {
   display: flex; justify-content: space-between; gap: 10px; align-items: baseline;
-  padding: 8px 10px; border-radius: 4px; color: var(--fg); text-decoration: none; font-size: .93rem; line-height: 1.35;
+  padding: 8px 10px; border-radius: 4px; color: var(--fg); text-decoration: none; font-size: .88rem; line-height: 1.4;
 }
+.topics a > span:first-child { min-width: 0; }
 .topics a:hover { background: var(--accent-soft); }
-.topics a[aria-current="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
-.topics .n { font-family: var(--mono); font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.topics a[aria-current="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+.topics .n { font-size: .75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tdot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
 @media (max-width: 860px) {
   aside.rail { position: static; }
   .topics { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 6px; scrollbar-width: thin; }
   .topics a { white-space: nowrap; border: 1px solid var(--line); }
 }
 
-.proj-head h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.proj-head h1 { font-size: clamp(1.6rem, 3.6vw, 2.1rem); margin-top: 4px; }
 .proj-head .sub { color: var(--muted); margin: 8px 0 0; }
 .narrative {
   margin-top: 24px; padding: 22px 24px; background: var(--surface);
-  border: 1px solid var(--line); border-radius: 6px; max-width: 72ch;
+  border: 1px solid var(--line); border-left: 3px solid var(--tc, var(--accent)); border-radius: 6px; max-width: 74ch;
 }
 .narrative .eyebrow { margin-bottom: 8px; }
 .narrative p { margin: 0; }
 .narrative p + p { margin-top: 12px; }
 
-.year { margin-top: 44px; }
-.year h2 { font-family: var(--mono); font-weight: 500; font-size: .9rem; color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.group { margin-top: 44px; }
+.group h2 { font-size: .85rem; font-weight: 500; color: var(--muted); padding-bottom: 8px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
 .entries { list-style: none; margin: 0; padding: 0; }
-.entry { padding: 20px 0; border-bottom: 1px solid var(--line); display: grid; gap: 5px; }
-.entry .title { font-family: var(--display); font-weight: 700; font-size: 1.12rem; line-height: 1.4; color: var(--fg); text-decoration: none; }
+.entry { padding: 20px 0; border-bottom: 1px solid var(--line); display: grid; gap: 4px; }
+.kind { font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.kind .status { color: var(--accent); }
+.entry .title { font-weight: 600; font-size: 1.02rem; line-height: 1.45; color: var(--fg); text-decoration: none; overflow-wrap: anywhere; }
 .entry .title:hover { color: var(--accent); text-decoration: underline; }
-.authors { font-size: .95rem; }
+.authors { font-size: .9rem; }
 .authors b { font-weight: 600; }
-.venue { font-size: .9rem; color: var(--muted); }
-.venue .short { font-family: var(--mono); font-size: .8rem; color: var(--fg); }
-.meta { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; margin-top: 4px; }
+.venue { font-size: .86rem; color: var(--muted); }
+.venue .short { color: var(--fg); font-weight: 500; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; margin-top: 6px; }
 .chip {
-  font-size: .76rem; line-height: 1; padding: 5px 8px 5px 7px; border-radius: 99px; text-decoration: none;
+  font-size: .74rem; line-height: 1; padding: 5px 9px 5px 7px; border-radius: 99px; text-decoration: none;
   border: 1px solid var(--line); color: var(--muted); display: inline-flex; align-items: center; gap: 6px; background: var(--surface);
 }
 .chip i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
 .chip:hover { color: var(--fg); border-color: var(--muted); }
-.award { font-size: .76rem; font-weight: 600; padding: 4px 8px; border-radius: 3px; background: var(--award-soft); color: var(--award); }
-.links-inline { display: flex; gap: 14px; font-size: .88rem; margin-left: auto; }
+.award { font-size: .74rem; font-weight: 500; padding: 4px 8px; border-radius: 3px; background: var(--award-soft); color: var(--award); line-height: 1.4; }
+.links-inline { display: flex; gap: 14px; font-size: .85rem; margin-left: auto; }
 .empty { color: var(--muted); padding: 28px 0; }
 
-/* ---------- paper detail ---------- */
+/* detail */
 .paper { max-width: 760px; }
-.back { font-size: .92rem; text-decoration: none; display: inline-flex; gap: 6px; }
-.paper h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-top: 20px; }
-.paper .authors { margin-top: 14px; font-size: 1rem; }
-.paper .venue { margin-top: 4px; font-size: .95rem; }
+.back { font-size: .88rem; text-decoration: none; }
+.paper .kind { margin-top: 20px; }
+.paper h1 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin-top: 8px; overflow-wrap: anywhere; }
+.paper .authors { margin-top: 14px; font-size: .95rem; }
+.paper .venue { margin-top: 4px; font-size: .9rem; }
 .paper .meta { margin-top: 14px; }
 figure { margin: 32px 0 0; }
-.fig {
-  width: 100%; max-width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden;
-  background: var(--accent-soft); border: 1px solid var(--line);
-  display: grid; place-items: center; color: var(--muted); font-family: var(--mono); font-size: .8rem;
-  background-image: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--accent) 7%, transparent) 14px 15px);
-}
-.fig img { width: 100%; height: 100%; object-fit: cover; }
-figcaption { font-size: .86rem; color: var(--muted); margin-top: 10px; }
-.paper .summary { margin-top: 32px; max-width: var(--measure); }
+.fig { max-width: 100%; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.fig img { width: 100%; height: auto; display: block; }
+figcaption { font-size: .82rem; color: var(--muted); margin-top: 10px; }
+.paper .summary { margin-top: 28px; max-width: var(--measure); }
 .paper .summary p { margin: 0 0 16px; }
-.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-.btn {
-  font-size: .9rem; padding: 9px 14px; border-radius: 4px; text-decoration: none;
-  border: 1px solid var(--accent); color: var(--accent); font-weight: 500;
-}
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.btn { font-size: .86rem; padding: 8px 14px; border-radius: 4px; text-decoration: none; border: 1px solid var(--accent); color: var(--accent); font-weight: 500; }
 .btn.primary { background: var(--accent); color: var(--bg); }
 .btn:hover { background: var(--accent-soft); }
 .btn.primary:hover { background: var(--accent); opacity: .9; }
 .related { margin-top: 56px; border-top: 1px solid var(--line); padding-top: 20px; }
-.related h2 { font-family: var(--mono); font-weight: 500; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.related h2 { font-size: .72rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 860px) { .paper .back { display: none; } }
 
-footer { border-top: 1px solid var(--line); }
-footer .wrap { padding-block: 24px; font-size: .82rem; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-
-@media (prefers-reduced-motion: no-preference) {
-  main > * { animation: rise .35s ease-out both; }
-  @keyframes rise { from { transform: translateY(6px); } to { transform: none; } }
-}
-
-/* ---------- additions ---------- */
-.kind { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.kind .status { color: var(--accent); }
-.tdot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 8px; vertical-align: middle; }
-.topics a > span:first-child { min-width: 0; }
-.narrative { border-left: 3px solid var(--tc, var(--accent)); }
-.paper .kind { margin-top: 20px; }
-.paper h1 { margin-top: 8px; }
+/* artwork */
 .art-grid { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 28px 24px; }
 .art-item a { color: inherit; text-decoration: none; display: block; }
 .art-item a:hover .art-title { color: var(--accent); text-decoration: underline; }
 .art-thumb {
   aspect-ratio: 16 / 9; max-width: 100%; border-radius: 4px; overflow: hidden; border: 1px solid var(--line);
-  background: var(--accent-soft); display: grid; place-items: center;
-  color: var(--muted); font-family: var(--mono); font-size: .75rem; letter-spacing: .04em;
-  background-image: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--accent) 7%, transparent) 14px 15px);
+  background: var(--accent-soft); display: grid; place-items: center; color: var(--muted); font-size: .75rem;
 }
 .art-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.art-body { display: grid; gap: 4px; margin-top: 12px; justify-items: start; }
-.art-title { font-family: var(--display); font-weight: 700; font-size: 1.08rem; line-height: 1.35; }
-@media (max-width: 860px) { .paper .back { display: none; } }
-.proj > *, .about > * { min-width: 0; }
-.entry .title, .paper h1 { overflow-wrap: anywhere; }
+.art-body { display: grid; gap: 2px; margin-top: 12px; justify-items: start; }
+.art-title { font-weight: 600; font-size: 1rem; line-height: 1.4; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 24px; font-size: .8rem; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: no-preference) {
+  main > * { animation: rise .35s ease-out both; }
+  @keyframes rise { from { transform: translateY(6px); } to { transform: none; } }
+}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#about">Soonho Kwon<small>권순호</small></a>
+    <a class="brand" href="#about">Soonho Kwon<small>권순호 · 權純湖</small></a>
     <nav class="main" aria-label="Main">
       <a href="#about" data-nav="about">About</a>
       <a href="#publications" data-nav="publications">Publications</a>
@@ -240,75 +213,119 @@ footer .wrap { padding-block: 24px; font-size: .82rem; color: var(--muted); disp
 
 const SITE = {
   name: "Soonho Kwon",
-  nameKo: "권순호",
-  // Profile photo. To use your own file, upload it to the repo (e.g. images/profile.jpg) and put that path here.
-  photo: "profile.jpg",
+  names: "권순호 · 權純湖",
+  photo: "profile.webp",
   email: "soonho [at] gatech [dot] edu",
   cv: "/cv/",
   links: [
     { label: "Google Scholar", url: "https://scholar.google.com/citations?user=R15_L1UAAAAJ&hl=en" },
-    { label: "LinkedIn", url: "https://www.linkedin.com/in/soonhokwon/" },
-    { label: "ESC Lab", url: "http://esc-lab.org" }
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/soonhokwon/" }
   ],
-  lede: `I am a Human-Computer Interaction (HCI) and design researcher and a Ph.D. student in
+  // About page: plain paragraphs. The research-area paragraphs are generated from TOPICS below.
+  intro: `I am a Human-Computer Interaction (HCI) and design researcher, currently pursuing a Ph.D. in
     <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank" rel="noopener">Human-Centered Computing</a>
-    at the Georgia Institute of Technology. I am a member of the <a href="http://esc-lab.org" target="_blank" rel="noopener">ESC Lab</a>, advised by
-    <a href="https://shaowenbardzell.com" target="_blank" rel="noopener">Shaowen Bardzell</a>.`,
-  stance: `I do not approach technology as a means of “solving problems.” I treat technology as a way
-    of allowing people to carve out authentic ways of being within systems that are difficult to
-    escape or transform, while attending to how technologies can also make existing issues worse.`,
-  closing: `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented
-    and recognized at venues such as Ars Electronica, CHI, CSCW, and DIS, and has been supported by
-    NSF-funded research.`
+    at the Georgia Institute of Technology. I am a member of the
+    <a href="http://esc-lab.org" target="_blank" rel="noopener">ESC Lab</a>, advised by
+    <a href="https://shaowenbardzell.com" target="_blank" rel="noopener">Shaowen Bardzell</a>. My research spans the following areas:`,
+  outro: [
+    `In conducting my research, I do not approach technology as a means of “solving problems.” My work treats technology
+     as a way of allowing people the possibility to carve out authentic ways of being within systems that are difficult to
+     escape or transform (be it a social structure, technical systems, etc.), while critically attending to how
+     technologies may exacerbate existing issues at times.`,
+    `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented and recognized at
+     venues such as Ars Electronica, CHI, CSCW, and DIS, and has been supported by NSF-funded research.`
+  ]
 };
 
-/* Topics: `blurb` appears on the About page; `narrative` is the box at the top of each topic page.
-   Use a blank line (\n\n) between paragraphs in `narrative`. */
+/* Topics.
+   - name: shown in the left rail and on the About page
+   - short: the keyword shown on each publication's chip
+   - blurb: one sentence for the About page
+   - narrative: paragraphs at the top of the topic page (HTML allowed, e.g. links to #paper-... or #project-...) */
 const TOPICS = [
   {
-    id: "korean-queer",
-    name: "Korean Queer Community",
-    color: "--t2",
-    blurb: "With Korean LGBTQ+ organizations, I study how queer people and those around them “make do” under hostile socio-technical conditions, and envision technologies that support that endurance.",
-    narrative: "This work starts from the hostile socio-technical conditions that Korean queer people live with, in their families, in public discourse, and online. Working alongside Korean LGBTQ+ organizations, I look at how queer people and the people around them make do within systems they cannot easily leave or change.\n\nOur CSCW 2026 paper follows parents of LGBTQ+ children through trauma and healing, and shows how their identities and their ways of handling (mis)information change along the way. Ongoing work with queer youth looks at technology as a temporary refuge and at virtual world-building as a feminist utopian practice."
+    id: "korean-queer", name: "Korean Queer Community", short: "Korean Queer", color: "--t2",
+    blurb: "I collaborate with Korean LGBTQ+ organizations to explore how queer stakeholders “make do” under hostile socio-technical conditions through and alongside technology, while also envisioning technologies that support such endurance.",
+    narrative: [
+      `As a queer person myself, I know how deeply technology shapes queer lives. Yet many of the technologies that shape the lives of queer people in Korea are designed, and analyzed, in Western contexts. My work asks how Korean queer people, and the people connected to them, become entangled with these technologies.`,
+      `I collaborate with Korean LGBTQ+ organizations, including the parents' group for LGBTQ+ people (성소수자부모모임) and DDing Dong, a support center for LGBTQ+ youth (띵동). As a scholar, I see it as my mission to carry the stories that Korean queer people and those around them want to tell the world.`,
+      `Through this work, I have asked <a href="#paper-cscw26-parents">how parents of LGBTQ+ children navigate online misinformation</a>; <a href="#project-tethered-beings">how queer youths, tethered to situations they cannot escape, find breathing holes</a>; <a href="#project-rainbow-school">what futures we can imagine when a utopian school, dreamed up with queer youth, is built in a virtual world</a>; and <a href="#project-queer-legacy">what a platform for death and commemoration could look like for queer people who cannot form a “normative” family</a>.`
+    ]
   },
   {
-    id: "spiritual-ai",
-    name: "Human-AI Relationship through Spirituality",
-    color: "--t1",
-    blurb: "By placing AI in domains where efficiency and accuracy are less central, I examine how human agency and authenticity can be sustained in human-AI interaction.",
-    narrative: "Most AI is designed around productivity. I ask what happens when AI enters practices that resist that framing, such as prayer. A diary study of people's prayer practices led to four speculative AI systems, first presented as a design workbook at CHI 2024.\n\nOur DIS 2026 paper used those systems as provocations and found that authenticity, a genuine connection to the divine, mattered most, and that AI taking too much agency eroded it. The video work AI Fortuneteller (Honorary Mention, Prix Ars Electronica 2024) explores the same tension through art."
+    id: "spiritual-ai", name: "Human-AI Relationship through Spirituality", short: "Spiritual AI", color: "--t1",
+    blurb: "By situating AI in domains where conventional metrics such as efficiency and accuracy are less central, I critically examine and design for how human agency and authenticity can be sustained in human-AI interaction.",
+    narrative: [
+      `Most AI is designed around productivity. I ask what happens when AI enters practices that resist that framing, such as prayer. A diary study of people's prayer practices led to four speculative AI systems, first presented as a design workbook at CHI 2024.`,
+      `Our DIS 2026 paper used those systems as provocations and found that authenticity, a genuine connection to the divine, mattered most, and that AI taking too much agency eroded it. The video work <a href="#artwork">AI Fortuneteller</a> (Honorary Mention, Prix Ars Electronica 2024) explores the same tension through art.`
+    ]
   },
   {
-    id: "beyond-western",
-    name: "Beyond-Western Epistemologies in HCI",
-    color: "--t3",
+    id: "beyond-western", name: "Beyond-Western Epistemologies in HCI", short: "Beyond-Western", color: "--t3",
     blurb: "I draw on Korean and other non-Western ways of knowing to question the assumptions built into HCI theory and design.",
-    narrative: "Much of HCI's theory comes from Western philosophical traditions. As a scholar raised in Korea, I bring other ways of knowing into design research, from spiritual practice to the relational worldviews of East Asian philosophy.\n\nAt DIS 2026, I co-organized a workshop on pluriversal pathways for more-than-human design, which engages Indigenous ecological knowledge and philosophies such as Daoism. This thread also runs through my work on spirituality and on Korean queer communities."
+    narrative: [
+      `Much of HCI's theory comes from Western philosophical traditions. As a scholar raised in Korea, I bring other ways of knowing into design research, from spiritual practice to the relational worldviews of East Asian philosophy.`,
+      `At DIS 2026, I co-organized a workshop on pluriversal pathways for more-than-human design, which engages Indigenous ecological knowledge and philosophies such as Daoism. This thread also runs through my work on spirituality and on Korean queer communities.`
+    ]
   },
   {
-    id: "death",
-    name: "Death and Commemoration",
-    color: "--t4",
-    blurb: "I study and design for non-normative experiences of death, such as dying young or without family support, with a focus on digital legacy and end-of-life preparation.",
-    narrative: "Death-related technologies usually assume an older person with family to inherit what they leave. My work looks at deaths that do not fit that picture. At INTERACT 2021, we re-imagined social media as a commemorative space for remembrance and recovery.\n\nAt CHI 2025, we designed digital legacy systems for young adults, who tend to prepare legacies around their relationships and value physical artifacts. Current work extends this to Korean LGBTQ+ people, who may face death without family support."
+    id: "death", name: "Death and Commemoration", short: "Death and Computing", color: "--t4",
+    blurb: "I investigate and design for non-normative experiences of death, such as dying young or without family support (e.g., among queer individuals in Korea), focusing on digital legacy and end-of-life preparation.",
+    narrative: [
+      `Death-related technologies usually assume an older person with family to inherit what they leave. My work looks at deaths that do not fit that picture. At INTERACT 2021, we re-imagined social media as a commemorative space for remembrance and recovery.`,
+      `At CHI 2025, we designed digital legacy systems for young adults, who tend to prepare legacies around their relationships and value physical artifacts. <a href="#project-queer-legacy">Current work</a> extends this to Korean LGBTQ+ people, who may face death without legally recognized family.`
+    ]
   },
   {
-    id: "policy",
-    name: "Policy and Civic Engagement",
-    color: "--t5",
+    id: "policy", name: "Policy and Civic Engagement", short: "Policy and Civic Engagement", color: "--t5",
     blurb: "I examine how people navigate data- and technology-driven policies and civic processes to maintain and protect their ways of being.",
-    narrative: "Policies increasingly arrive as data requirements, and they reshape people's work and lives. Our CSCW 2026 paper analyzes public comments on the FDA's Food Traceability Rule and shows how it turns farmers, fishers, and retail workers into unpaid data workers.\n\nA TOCHI paper looks at the other side of civic life: how people in South Korea used information and communication technologies to stay connected as the martial law crisis unfolded."
+    narrative: [
+      `Policies increasingly arrive as data requirements, and they reshape people's work and lives. Our CSCW 2026 paper analyzes public comments on the FDA's Food Traceability Rule and shows how it turns farmers, fishers, and retail workers into unpaid data workers.`,
+      `A TOCHI paper looks at the other side of civic life: how people in South Korea used information and communication technologies to stay connected as the martial law crisis unfolded.`
+    ]
+  }
+];
+
+/* Ongoing projects. Shown above publications on the Publications and topic pages. */
+const PROJECTS = [
+  {
+    id: "tethered-beings",
+    title: "Tethered Beings in Search of Breathing Holes: Technology as Temporary Havens for Korean LGBTQ+ Youths",
+    authors: ["Soonho Kwon", "Catherine Wieczorek", "Seunghee Yoo", "Sylvia Janicki", "Shaowen Bardzell"],
+    venue: "In collaboration with DDing Dong, a support center for LGBTQ+ youth in Korea",
+    topics: ["korean-queer"],
+    summary: "Korean queer youth live within conditions they cannot easily escape, alter, or contest: schools where queerness is absent or treated as debatable, homes that call for vigilance rather than comfort, and queer communities built around adults. Working with DDing Dong, we gathered 148 stories from queer youth aged 13–24 through story prompts released every two weeks, then held a co-reading and co-design workshop with five young adults.\n\nWe describe these youths as tethered beings: people who live within conditions they cannot readily disentangle from. Within those tethers they carve out breathing holes, temporary spaces, practices, and relationships, often through dating apps and online communities, that make the present more bearable without dissolving it. We argue for designing technologies as breathing holes that respect tethers rather than trying to sever them.",
+    links: {}
+  },
+  {
+    id: "rainbow-school",
+    title: "Rainbow School: Virtual World-Building as Feminist Utopian Practice with Korean Queer Youth",
+    authors: ["Soonho Kwon", "Yuting Peng", "Catherine Wieczorek", "Seunghee Yoo", "Da Hye Yun", "Jieun Song", "Shaowen Bardzell"],
+    venue: "In collaboration with DDing Dong, a support center for LGBTQ+ youth in Korea",
+    topics: ["korean-queer"],
+    image: "rainbow-school.webp",
+    caption: "Rainbow School, a virtual school co-designed with Korean queer youth on the Zep platform.",
+    summary: "Rainbow School is a virtual school on the metaverse platform Zep, built by DDing Dong together with Korean queer youth during the COVID-19 pandemic. It began as an activity in which young people drew the school they wished to attend, and grew into a space with classrooms, a gym, a nurse's office, and bathrooms, each reimagined to be queer-friendly.\n\nReading Rainbow School as a designed artifact, we draw out three propositions: school infrastructures and cultures can make queerness mundane rather than out of the ordinary; queer resources can be embedded in everyday school infrastructure, with attention to the tensions this brings; and a virtual space can open room for collective action and solidarity through asynchronous communication. We argue that virtual world-building can work as a feminist utopian practice: not presenting a perfect future from the top down, but helping people work together toward better ones.",
+    links: {}
+  },
+  {
+    id: "queer-legacy",
+    title: "Digital Legacies and Commemoration for Korean LGBTQ+ People",
+    authors: ["Soonho Kwon"],
+    venue: "",
+    topics: ["korean-queer", "death"],
+    award: "Funded by the Lee Chang-guk Queer Research Support Program, Beyond the Rainbow Foundation",
+    summary: "Services that help people prepare for death, such as legacy contacts and memorial accounts, mostly assume a spouse or children. In Korea, many platforms let only a pre-designated proxy, or family members who can prove the relationship with official records, manage a deceased user's account. For queer people who cannot legally marry or adopt, and who may be distant from their families of origin, the questions of whom to leave things to, and what to leave, can look very different.\n\nThis project begins with an anonymous survey of Korean LGBTQ+ adults about how they imagine and prepare for their deaths and legacies, including digital ones. From their responses, I will design a death-preparation platform, or a critical design that makes their exclusion visible, and then invite Korean queer people to try it and reflect on it in interviews.",
+    links: {}
   }
 ];
 
 /* Publications. The page sorts by year (newest first).
-   - id: short, lowercase, hyphens only (becomes the page link, e.g. #paper-dis26-prayer)
    - type: "Conference", "Journal", "Workshop", or "Extended Abstract"
    - topics: zero or more topic ids from above
-   - image: a URL or a file path such as "images/dis26.jpg"; leave "" for none
-   - summary: short intro on the paper page; \n\n starts a new paragraph
-   - links: any of pdf, doi, arxiv, project, video, slides                           */
+   - image: a file in this repo (e.g. "dis26.webp") or a URL; leave "" for none
+   - summary: \n\n starts a new paragraph
+   - links: any of pdf, doi, arxiv, project, video, slides */
 const ME = "Soonho Kwon";
 const PAPERS = [
   {
@@ -330,9 +347,8 @@ const PAPERS = [
     venue: "Proceedings of the ACM on Human-Computer Interaction",
     short: "CSCW 2026", type: "Journal", year: 2026,
     topics: ["korean-queer"],
-    image: "", caption: "",
     summary: "When parents in South Korea learn that their child is queer, many experience fear, isolation, and disorientation, and some turn to queer-related misinformation to cope. Through their relationships with their children, they gradually come to understand queer lives, become more critical readers of information, and push back against misinformation to help other parents.\n\nThe paper brings parents into Queer HCI as an under-studied stakeholder, shows how trauma and healing reshape information practices, and argues that misinformation has to be addressed through its relational, cultural, and emotional dimensions, not fact-checking alone.",
-    links: { arxiv: "https://arxiv.org/abs/2605.20024" }
+    links: { doi: "https://doi.org/10.1145/3816958", arxiv: "https://arxiv.org/abs/2605.20024" }
   },
   {
     id: "cscw26-fda",
@@ -341,7 +357,6 @@ const PAPERS = [
     venue: "Proceedings of the ACM on Human-Computer Interaction",
     short: "CSCW 2026", type: "Journal", year: 2026,
     topics: ["policy"],
-    image: "", caption: "",
     summary: "From January 2026, the U.S. FDA's Food Traceability Rule requires farmers, fishers, and retail workers to keep detailed tracking records. The FDA frames this as a new era of tech-enabled traceability; we argue it turns these stakeholders into unpaid data workers.\n\nDrawing on Data Feminism, we analyzed 1,198 public comments on the proposed Rule and identified three tensions: the labor, financial, and educational burdens of becoming data workers; cases where tracking is infeasible because of infrastructure, culture, or production practices; and cases where the Rule's intended flexibility creates confusion and extra work.",
     links: { arxiv: "https://arxiv.org/abs/2606.18593" }
   },
@@ -352,7 +367,6 @@ const PAPERS = [
     venue: "ACM Transactions on Computer-Human Interaction",
     short: "TOCHI", type: "Journal", year: 2026, status: "Accepted",
     topics: ["policy"],
-    image: "", caption: "",
     summary: "This paper examines the role that information and communication technologies played as the martial law crisis unfolded in South Korea, and how people stayed connected and acted together without central leadership.",
     links: {}
   },
@@ -363,7 +377,6 @@ const PAPERS = [
     venue: "Companion Publication of the 2026 ACM Designing Interactive Systems Conference",
     short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
     topics: ["beyond-western"],
-    image: "", caption: "",
     summary: "More-than-human design has gained traction in HCI as a way to attend to our entanglements with the wider ecological world, but it draws mostly on Western philosophy. This workshop looks beyond Western ontologies, engaging Indigenous Traditional Ecological Knowledge and Eastern philosophies such as Daoism.\n\nParticipants share stories of multispecies entanglement, discuss the ethics of drawing on these knowledge systems in HCI, and imagine how situated understandings can make more-than-human design more pluralistic and culturally grounded.",
     links: { doi: "https://doi.org/10.1145/3802974.3808002" }
   },
@@ -386,7 +399,6 @@ const PAPERS = [
     venue: "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
     short: "CHI 2024", type: "Extended Abstract", year: 2024,
     topics: ["spiritual-ai", "beyond-western"],
-    image: "", caption: "",
     summary: "HCI has long discussed technologies that go beyond productivity. We extend this to human-AI interaction through prayer, a practice with few productivity goals. A diary study identified the goals and behaviors that make prayer satisfying, and we conceptualized four AI systems that celebrate them, presented as a design workbook.\n\nThe findings point to new roles AI could play in people's lives, such as provoking deep reflection or creating indirect communities.",
     links: { doi: "https://doi.org/10.1145/3613905.3650743" }
   },
@@ -397,7 +409,6 @@ const PAPERS = [
     venue: "Behaviour & Information Technology, Taylor & Francis",
     short: "BIT", type: "Journal", year: 2023,
     topics: [],
-    image: "", caption: "",
     summary: "We built a Wizard-of-Oz prototype that detects filler words while someone speaks and gives real-time feedback through a flickering screen, followed by a report with charts. After 27 participants used it, interviews and thematic analysis produced eight design implications for automated visual feedback on speech, along with links to personal informatics and self-determination theory.",
     links: { doi: "https://doi.org/10.1080/0144929X.2023.2271997" }
   },
@@ -408,7 +419,6 @@ const PAPERS = [
     venue: "Journal of the HCI Society of Korea",
     short: "JHCIK", type: "Journal", year: 2023,
     topics: [],
-    image: "", caption: "",
     summary: "This study examines how users' self-efficacy and risk perception shape their experience of AI recommendation systems.",
     links: { project: "https://scholar.kyobobook.co.kr/article/detail/4040049689415" }
   },
@@ -419,7 +429,6 @@ const PAPERS = [
     venue: "Human-Computer Interaction – INTERACT 2021",
     short: "INTERACT 2021", type: "Conference", year: 2021,
     topics: ["death"],
-    image: "", caption: "",
     summary: "Social media can be a thanatosensitive technology that supports death preparation and commemoration. Using Value-Sensitive Design, we identified three main stakeholders in online commemoration and ran interviews and observations with nine people about their online and offline commemoration practices.\n\nWe turned the findings into design requirements, a conceptual commemorative system, and a working prototype. In an informal test, six participants saw it as a way to reflect on their own existence, prepare for death, and join a community that remembers the deceased and copes with grief together.",
     links: { doi: "https://doi.org/10.1007/978-3-030-85616-8_26" }
   }
@@ -436,7 +445,7 @@ const ARTWORKS = [
   { title: "Pinocchio", medium: "Photograph", year: 2017 }
 ];
 
-/* Analytics: paste your Google Analytics measurement ID (starts with "G-") to start counting visits. */
+/* Google Analytics measurement ID (starts with "G-"). Leave "" to turn analytics off. */
 const GA_ID = "";
 
 /* =====================================================================
@@ -452,12 +461,17 @@ if (GA_ID) {
   gtag("js", new Date()); gtag("config", GA_ID);
 }
 
+PROJECTS.forEach(p => { p.kind = "project"; p.type = "Ongoing Project"; });
+PAPERS.forEach(p => { p.kind = "paper"; });
+const ALL = [...PROJECTS, ...PAPERS];
+
 const $view = document.getElementById("view");
 const topicById = Object.fromEntries(TOPICS.map(t => [t.id, t]));
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const paras = s => String(s || "").split(/\n\s*\n/).map(p => `<p>${esc(p.trim())}</p>`).join("");
 const linkLabels = { pdf: "PDF", doi: "DOI", arxiv: "arXiv", project: "Link", video: "Video", slides: "Slides" };
 const ext = `target="_blank" rel="noopener"`;
+const hrefOf = p => `#${p.kind}-${p.id}`;
 
 document.getElementById("cv-link").href = SITE.cv;
 document.getElementById("foot-name").textContent = `© ${new Date().getFullYear()} ${SITE.name}`;
@@ -468,20 +482,24 @@ function authorsHTML(list) {
 function chips(ids) {
   return ids.filter(id => topicById[id]).map(id => {
     const t = topicById[id];
-    return `<a class="chip" href="#topic-${t.id}"><i style="background:var(${t.color})"></i>${esc(t.name)}</a>`;
+    return `<a class="chip" href="#topic-${t.id}"><i style="background:var(${t.color})"></i>${esc(t.short || t.name)}</a>`;
   }).join("");
 }
 function venueHTML(p) {
-  return `${esc(p.venue)}${p.short ? ` · <span class="short">${esc(p.short)}</span>` : ""}`;
+  if (!p.venue && !p.short) return "";
+  return `<div class="venue">${esc(p.venue)}${p.short ? `${p.venue ? " · " : ""}<span class="short">${esc(p.short)}</span>` : ""}</div>`;
+}
+function kindHTML(p) {
+  return `<div class="kind">${esc(p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>`;
 }
 function entryHTML(p) {
   const quick = Object.entries(p.links || {}).filter(([, v]) => v).slice(0, 2)
     .map(([k, v]) => `<a href="${esc(v)}" ${ext}>${linkLabels[k] || esc(k)}</a>`).join("");
   return `<li class="entry">
-    <div class="kind">${esc(p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>
-    <a class="title" href="#paper-${p.id}">${esc(p.title)}</a>
+    ${kindHTML(p)}
+    <a class="title" href="${hrefOf(p)}">${esc(p.title)}</a>
     <div class="authors">${authorsHTML(p.authors)}</div>
-    <div class="venue">${venueHTML(p)}</div>
+    ${venueHTML(p)}
     <div class="meta">
       ${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}
       ${chips(p.topics)}
@@ -500,38 +518,35 @@ function figureHTML(src, alt, caption) {
 
 function renderAbout() {
   const initials = SITE.name.split(" ").map(w => w[0]).join("");
+  const areas = TOPICS.map((t, i) =>
+    `<p>(${i + 1}) <a href="#topic-${t.id}">${esc(t.name)}</a>: ${esc(t.blurb)}</p>`).join("");
   $view.innerHTML = `<div class="about">
-    <div>
-      <div class="portrait">${SITE.photo
-        ? `<img src="${esc(SITE.photo)}" alt="Portrait of ${esc(SITE.name)}" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode('${initials}'))">`
-        : initials}</div>
-      <div class="contact">
-        <span class="email">${esc(SITE.email)}</span>
-        <span class="links">${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
-          <a href="${esc(SITE.cv)}" ${ext}>CV</a></span>
-      </div>
-    </div>
+    <div class="portrait">${SITE.photo
+      ? `<img src="${esc(SITE.photo)}" alt="Portrait of ${esc(SITE.name)}" onerror="this.replaceWith(document.createTextNode('${initials}'))">`
+      : initials}</div>
     <div class="about-text">
       <h1>${esc(SITE.name)}</h1>
-      <div class="ko">${esc(SITE.nameKo)}</div>
-      <p class="lede">${SITE.lede}</p>
-      <ul class="areas" aria-label="Research topics">
-        ${TOPICS.map(t => `<li><span class="dot" style="background:var(${t.color})"></span>
-          <div><a class="t" href="#topic-${t.id}">${esc(t.name)}</a><p>${esc(t.blurb)}</p></div></li>`).join("")}
-      </ul>
-      <p class="stance">${SITE.stance}</p>
-      <p>${SITE.closing}</p>
-      <p><a href="#publications">See all publications →</a></p>
+      <div class="names">${esc(SITE.names)}</div>
+      <div class="prose">
+        <p>${SITE.intro}</p>
+        ${areas}
+        ${SITE.outro.map(p => `<p>${p}</p>`).join("")}
+      </div>
+      <div class="contact">
+        <span class="email">${esc(SITE.email)}</span>
+        ${SITE.links.map(l => `<a href="${esc(l.url)}" ${ext}>${esc(l.label)}</a>`).join("")}
+        <a href="${esc(SITE.cv)}" ${ext}>CV</a>
+      </div>
     </div>
   </div>`;
 }
 
 function railHTML(activeId) {
-  const count = id => PAPERS.filter(p => p.topics.includes(id)).length;
+  const count = id => ALL.filter(p => p.topics.includes(id)).length;
   return `<aside class="rail">
     <h2>By Topic</h2>
     <ul class="topics">
-      <li><a href="#publications" aria-current="${!activeId}"><span>All publications</span><span class="n">${PAPERS.length}</span></a></li>
+      <li><a href="#publications" aria-current="${!activeId}"><span>All work</span><span class="n">${ALL.length}</span></a></li>
       ${TOPICS.map(t => `<li><a href="#topic-${t.id}" aria-current="${activeId === t.id}">
         <span><i class="tdot" style="background:var(${t.color})"></i>${esc(t.name)}</span><span class="n">${count(t.id)}</span></a></li>`).join("")}
     </ul>
@@ -540,38 +555,41 @@ function railHTML(activeId) {
 
 function renderPublications(topicId) {
   const topic = topicId ? topicById[topicId] : null;
-  const list = PAPERS.filter(p => !topic || p.topics.includes(topic.id)).sort((a, b) => b.year - a.year);
-  const years = [...new Set(list.map(p => p.year))];
+  const inTopic = p => !topic || p.topics.includes(topic.id);
+  const projects = PROJECTS.filter(inTopic);
+  const papers = PAPERS.filter(inTopic).sort((a, b) => b.year - a.year);
+  const years = [...new Set(papers.map(p => p.year))];
   $view.innerHTML = `<div class="proj">
     ${railHTML(topic?.id)}
     <section>
       <div class="proj-head">
         <div class="eyebrow">${topic ? "Topic" : "Publications"}</div>
-        <h1>${topic ? esc(topic.name) : "All Publications"}</h1>
-        ${topic ? "" : `<p class="sub">Papers, newest first. Choose a topic to see how each line of work connects.</p>`}
+        <h1>${topic ? esc(topic.name) : "Publications and Projects"}</h1>
+        ${topic ? "" : `<p class="sub">Ongoing projects first, then papers by year. Choose a topic to see how each line of work connects.</p>`}
       </div>
-      ${topic ? `<div class="narrative" style="--tc:var(${topic.color})"><div class="eyebrow">How this work connects</div>${paras(topic.narrative)}</div>` : ""}
-      ${list.length ? years.map(y => `<div class="year"><h2>${y}</h2>
-        <ul class="entries">${list.filter(p => p.year === y).map(entryHTML).join("")}</ul></div>`).join("")
-        : `<p class="empty">No publications in this topic yet.</p>`}
+      ${topic ? `<div class="narrative" style="--tc:var(${topic.color})"><div class="eyebrow">How this work connects</div>${topic.narrative.map(p => `<p>${p}</p>`).join("")}</div>` : ""}
+      ${projects.length ? `<div class="group"><h2>Ongoing</h2><ul class="entries">${projects.map(entryHTML).join("")}</ul></div>` : ""}
+      ${years.map(y => `<div class="group"><h2>${y}</h2>
+        <ul class="entries">${papers.filter(p => p.year === y).map(entryHTML).join("")}</ul></div>`).join("")}
+      ${!projects.length && !papers.length ? `<p class="empty">Nothing in this topic yet.</p>` : ""}
     </section>
   </div>`;
 }
 
-function renderPaper(id) {
-  const p = PAPERS.find(x => x.id === id);
+function renderDetail(kind, id) {
+  const p = ALL.find(x => x.kind === kind && x.id === id);
   if (!p) return renderPublications();
-  const related = PAPERS.filter(x => x.id !== p.id && x.topics.some(t => p.topics.includes(t)));
+  const related = ALL.filter(x => x !== p && x.topics.some(t => p.topics.includes(t)));
   const btns = Object.entries(p.links || {}).filter(([, v]) => v)
     .map(([k, v], i) => `<a class="btn${i === 0 ? " primary" : ""}" href="${esc(v)}" ${ext}>${linkLabels[k] || esc(k)}</a>`).join("");
   $view.innerHTML = `<div class="proj">
     ${railHTML(p.topics[0])}
     <article class="paper">
-      <a class="back" href="#publications">← All publications</a>
-      <div class="kind">${esc(p.type)}${p.status ? ` · <span class="status">${esc(p.status)}</span>` : ""}</div>
+      <a class="back" href="#publications">← All work</a>
+      ${kindHTML(p)}
       <h1>${esc(p.title)}</h1>
       <div class="authors">${authorsHTML(p.authors)}</div>
-      <div class="venue">${venueHTML(p)}</div>
+      ${venueHTML(p)}
       <div class="meta">${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}${chips(p.topics)}</div>
       ${figureHTML(p.image, p.caption || p.title, p.caption)}
       <div class="summary">${paras(p.summary)}</div>
@@ -582,7 +600,7 @@ function renderPaper(id) {
 }
 
 function renderArtwork() {
-  $view.innerHTML = `<section class="art">
+  $view.innerHTML = `<section>
     <div class="proj-head">
       <div class="eyebrow">Artwork</div>
       <h1>Artwork</h1>
@@ -605,7 +623,8 @@ function renderArtwork() {
 function route() {
   const h = location.hash.replace(/^#/, "");
   let section = "about";
-  if (h.startsWith("paper-")) { renderPaper(h.slice(6)); section = "publications"; }
+  if (h.startsWith("paper-")) { renderDetail("paper", h.slice(6)); section = "publications"; }
+  else if (h.startsWith("project-")) { renderDetail("project", h.slice(8)); section = "publications"; }
   else if (h.startsWith("topic-")) { renderPublications(h.slice(6)); section = "publications"; }
   else if (h === "publications" || h === "projects") { renderPublications(); section = "publications"; }
   else if (h === "artwork") { renderArtwork(); section = "artwork"; }
