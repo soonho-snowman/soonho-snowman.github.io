@@ -66,8 +66,9 @@ const TOPICS = [
     id: "death", name: "Death and Commemoration", short: "Death and Computing", color: "--t4",
     blurb: "I investigate and design for non-normative experiences of death, such as dying young or without family support (e.g., among queer individuals in Korea), focusing on digital legacy and end-of-life preparation.",
     narrative: [
-      `Death-related technologies usually assume an older person with family to inherit what they leave. My work looks at deaths that do not fit that picture. At INTERACT 2021, we re-imagined social media as a commemorative space for remembrance and recovery.`,
-      `At CHI 2025, we designed digital legacy systems for young adults, who tend to prepare legacies around their relationships and value physical artifacts. <a href="#project-queer-legacy">Current work</a> extends this to Korean LGBTQ+ people, who may face death without legally recognized family.`
+      `I first became interested in death and technology during the COVID-19 pandemic. As funerals moved online, I came across a memorial website that displayed a portrait of the deceased with an interface for dragging and dropping chrysanthemums in front of it. It felt deeply wrong to me, and that made me curious: why did it feel so wrong?`,
+      `My <a href="#paper-interact21-instagram">first project, presented at INTERACT 2021</a>, explored this question. Why do we commemorate someone? What is the essence of commemoration, and what would it take to realize that essence online? Building on these questions, we designed what social media might look like as a space for commemoration.`,
+      `Along the way, I realized that technologies for death preparation and commemoration tend to assume a single “normative death”: someone with a heteronormative family who dies of old age or illness. In <a href="#paper-chi25-digital-legacy">my CHI 2025 paper</a>, I designed a death-preparation platform for untimely death at a young age. Now I am designing <a href="#project-queer-legacy">a death-preparation platform for Korean LGBTQ+ people who cannot form a heteronormative family</a>, as well as <a href="#project-daoist-death">death-preparation and commemoration platforms grounded in Daoist and Buddhist thought, which treat death as part of life</a>.`
     ]
   },
   {
