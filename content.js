@@ -90,6 +90,8 @@ const PROJECTS = [
     authors: ["Soonho Kwon", "Catherine Wieczorek", "Seunghee Yoo", "Sylvia Janicki", "Shaowen Bardzell"],
     venue: "In collaboration with DDing Dong, a support center for LGBTQ+ youth in Korea",
     topics: ["korean-queer", "beyond-western"],
+    images: ["figures/tethered-prompts.webp", "figures/tethered-workshop.webp"],
+    caption: "A story prompt sent to queer youth, and the co-design workshop board.",
     summary: "Korean queer youth live within conditions they cannot easily escape, alter, or contest: schools where queerness is absent or treated as debatable, homes that call for vigilance rather than comfort, and queer communities built around adults. Working with DDing Dong, we gathered 148 stories from queer youth aged 13–24 through story prompts released every two weeks, then held a co-reading and co-design workshop with five young adults.\n\nWe describe these youths as tethered beings: people who live within conditions they cannot readily disentangle from. Within those tethers they carve out breathing holes, temporary spaces, practices, and relationships, often through dating apps and online communities, that make the present more bearable without dissolving it. We argue for designing technologies as breathing holes that respect tethers rather than trying to sever them.",
     links: {}
   },
@@ -99,7 +101,7 @@ const PROJECTS = [
     authors: ["Soonho Kwon", "Yuting Peng", "Catherine Wieczorek", "Seunghee Yoo", "Da Hye Yun", "Jieun Song", "Shaowen Bardzell"],
     venue: "In collaboration with DDing Dong, a support center for LGBTQ+ youth in Korea",
     topics: ["korean-queer"],
-    image: "rainbow-school.webp",
+    images: ["figures/rainbow-school-map.webp"],
     caption: "Rainbow School, a virtual school co-designed with Korean queer youth on the Zep platform.",
     summary: "Rainbow School is a virtual school on the metaverse platform Zep, built by DDing Dong together with Korean queer youth during the COVID-19 pandemic. It began as an activity in which young people drew the school they wished to attend, and grew into a space with classrooms, a gym, a nurse's office, and bathrooms, each reimagined to be queer-friendly.\n\nReading Rainbow School as a designed artifact, we draw out three propositions: school infrastructures and cultures can make queerness mundane rather than out of the ordinary; queer resources can be embedded in everyday school infrastructure, with attention to the tensions this brings; and a virtual space can open room for collective action and solidarity through asynchronous communication. We argue that virtual world-building can work as a feminist utopian practice: not presenting a perfect future from the top down, but helping people work together toward better ones.",
     links: {}
@@ -135,14 +137,34 @@ const PROJECTS = [
 const ME = "Soonho Kwon";
 const PAPERS = [
   {
-    id: "dis26-workshop-mth",
-    title: "Relating Otherwise: Pluriversal Pathways for Reworlding More-than-Human Design",
-    authors: ["Sylvia Janicki", "Heidi Biggs", "Soonho Kwon", "Kristina Mah", "Cayla Key", "Yu-Ting Cheng", "Catherine Wieczorek", "Moeiini Reilly", "Josiah Hester", "Shaowen Bardzell"],
-    venue: "Companion Publication of the 2026 ACM Designing Interactive Systems Conference",
-    short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
-    topics: ["beyond-western"],
-    summary: "Amid growing environmental concerns, more-than-human (MtH) design has gained traction in HCI as a means of attending to relational entanglements between humans and the wider ecological world. This work is vitally important, but draws largely on (and is perhaps limited by) Western philosophical traditions. In this workshop, we seek to explore beyond Western ontologies in MtH design by engaging with longstanding practices and epistemologies such as Indigenous Traditional Ecological Knowledge and Eastern philosophies like Daoism. These non-Western knowledge traditions have long embodied relational worldviews grounded in lived, place-based practices of interdependence with the more-than-human world. We aim to share stories and philosophies of multispecies entanglements, discuss the ethics of drawing from these knowledge systems in HCI, and imagine new ways these situated understandings can inform design. In doing so, we seek to expand the ethical, epistemological, and design imaginaries of MtH work toward more pluralistic, culturally grounded forms of interactivity.",
-    links: { paper: "https://doi.org/10.1145/3802974.3808002", pdf: "https://dl.acm.org/doi/pdf/10.1145/3802974.3808002" }
+    id: "tochi-martial-law",
+    title: "Leaderless but Connected: Role of ICT During the Unfolding of Martial Law Crisis in South Korea",
+    authors: ["Hayoun Noh", "Soonho Kwon", "Max Van Kleek", "Shaowen Bardzell", "Younah Kang"],
+    venue: "ACM Transactions on Computer-Human Interaction",
+    short: "TOCHI Journal Article", type: "Journal", year: 2026, status: "Forthcoming",
+    topics: ["policy"],
+    summary: "This paper examined how South Korean citizens navigated the 2024 martial law crisis through everyday digital tools. Our findings show how ICTs functioned as an improvised civic infrastructure, supporting rapid sensemaking and civic response. Yet we emphasize how such leaderless movements were also grounded in intergenerational memory, digital fluency, and cultural practices of Korean citizens, offering HCI a valuable case for understanding how digital technologies become meaningful in crises through their entanglement with social, historical, and cultural conditions.\n\nWe end with a personal remark from the first and second authors, for whom this was also a crisis lived through firsthand. Like many of our participants, perhaps more acutely as members of the Korean diaspora, we turned to familiar messaging apps, feeds, and livestreams to understand what was happening, remain connected to loved ones, and follow rapidly unfolding events from far away. The technologies at the center of this paper are not new, spectacular, or especially sophisticated. They are ordinary systems — often basic, taken for granted, and even boring — that have become deeply embedded in the routines of everyday life. Yet this very ordinariness was part of what made them matter in a moment of uncertainty. In a time when political instability and conflict continue to unfold in many parts of the world, we hope this study offers one reason to keep asking how these everyday technologies might better support people not only in moments of crisis, but also in the longer work of resilience, solidarity, collective memory, and civic life.",
+    links: {}
+  },
+  {
+    id: "cscw26-fda",
+    title: "“The New Era of Tech-Enabled Traceability”: Tensions between the FDA's Data Governance Vision and the Lived Realities of Food Producers",
+    authors: ["Soonho Kwon", "Catherine Wieczorek", "Heidi Biggs", "Shellye Suttles", "Tammi Etheridge", "Annabel Rothschild", "Shaowen Bardzell"],
+    venue: "Proceedings of the ACM on Human-Computer Interaction",
+    short: "CSCW 2026 Full Paper", type: "Journal", year: 2026,
+    topics: ["policy"],
+    summary: "The U.S. Food and Drug Administration (FDA)’s Food Traceability Rule, promulgated as part of the Food Safety Modernization Act (FSMA), requires agri-food supply chain stakeholders (stakeholders)—including farmers, fishers, retail workers, and others—to maintain detailed tracking records beginning in January 2026. Through this Rule, the FDA envisions a “New Era of Tech-Enabled Traceability,” in which standardized, harmonized tracking data serve as a foundational public health infrastructure, enabling more rapid identification and removal of potentially contaminated food and ultimately reducing the risk of foodborne illness.\n\nDespite this promising vision, we observe that the Rule reconfigures agri-food stakeholders into data laborers by mandating stringent data-collection, formatting, and reporting requirements. In this paper, we examine the tensions and burdens that arise from such reconfiguration. Leveraging Data Feminism as an orientation to attend to how data-driven policy implementation disproportionately burdens smaller, under-resourced stakeholders who lack the infrastructural and financial capacity to comply, we analyze 1,198 public comments submitted to Regulations.gov in response to the proposed Rule. Our qualitative document analysis reveals three key tensions: (1) the individual labor, financial, and educational burdens stakeholders experience as they are reconfigured into data workers; (2) moments where data tracking becomes infeasible due to infrastructural limitations, cultural contexts, and situated production practices; and (3) instances where the Rule’s intended flexibility instead introduces confusion and burden due to its ambiguity.\n\nThis work contributes to CSCW by providing an empirical account of how data-driven policy reconfigures stakeholders as data producers. We demonstrate that those reconfigured as data workers under data-driven governance must be recognized as meaningful policy partners rather than merely as actors subjected to compliance obligations. We further suggest that CSCW can play a critical role in uncovering their yet invisible burdens, supporting their capacity to voice concerns through participatory democratic mechanisms, and aiding their ability to “make-do” under imposed data works.",
+    links: { paper: "https://doi.org/10.1145/3817012", pdf: "https://dl.acm.org/doi/pdf/10.1145/3817012" }
+  },
+  {
+    id: "cscw26-parents",
+    title: "Journeys of Parents with LGBTQ+ Children: How Trauma and Healing Reshape Identity and (Mis)Informating Practices",
+    authors: ["Soonho Kwon", "Dong Whi Yoo", "Koustuv Saha", "Shaowen Bardzell", "Younah Kang"],
+    venue: "Proceedings of the ACM on Human-Computer Interaction",
+    short: "CSCW 2026 Full Paper", type: "Journal", year: 2026,
+    topics: ["korean-queer"],
+    summary: "This study examines how parents of LGBTQ+ individuals in South Korea navigate the emotional rupture fueled by fear, isolation, and disorientation after learning their children’s queer identity, encounter queer-related (mis)information as a way of coping with this emotional toll, and come to listen to queer realities relationally. Through this process, we highlight how parents reconstruct their identities as supportive parents, which reshapes their informating practices, making them more critical in assessing queer-related (mis)information, developing strategies to protect themselves from harmful narratives, and actively challenging misinformation to support others navigating similar experiences.\n\nThis work contributes to CSCW by (1) foregrounding parents of LGBTQ+ individuals, an underrepresented yet critical stakeholder group in Queer HCI; (2) demonstrating how identity reconfiguration following a trauma-healing process could transform informating practices; and (3) arguing that addressing misinformation requires attention beyond individual fact-based discerning to account for its relational, cultural, and emotional dimensions. Further, we invite CSCW scholars to reconsider the balance between abstracting and humanizing information, explore future design possibilities for parents of LGBTQ+ children, and reflect on the role of researchers as participants in collective research communities fueled by care.",
+    links: { paper: "https://doi.org/10.1145/3816958", pdf: "https://dl.acm.org/doi/pdf/10.1145/3816958" }
   },
   {
     id: "dis26-prayer",
@@ -159,34 +181,14 @@ const PAPERS = [
     links: { paper: "https://doi.org/10.1145/3800645.3812920", pdf: "https://dl.acm.org/doi/pdf/10.1145/3800645.3812920" }
   },
   {
-    id: "cscw26-parents",
-    title: "Journeys of Parents with LGBTQ+ Children: How Trauma and Healing Reshape Identity and (Mis)Informating Practices",
-    authors: ["Soonho Kwon", "Dong Whi Yoo", "Koustuv Saha", "Shaowen Bardzell", "Younah Kang"],
-    venue: "Proceedings of the ACM on Human-Computer Interaction",
-    short: "CSCW 2026 Full Paper", type: "Journal", year: 2026,
-    topics: ["korean-queer"],
-    summary: "This study examines how parents of LGBTQ+ individuals in South Korea navigate the emotional rupture fueled by fear, isolation, and disorientation after learning their children’s queer identity, encounter queer-related (mis)information as a way of coping with this emotional toll, and come to listen to queer realities relationally. Through this process, we highlight how parents reconstruct their identities as supportive parents, which reshapes their informating practices, making them more critical in assessing queer-related (mis)information, developing strategies to protect themselves from harmful narratives, and actively challenging misinformation to support others navigating similar experiences.\n\nThis work contributes to CSCW by (1) foregrounding parents of LGBTQ+ individuals, an underrepresented yet critical stakeholder group in Queer HCI; (2) demonstrating how identity reconfiguration following a trauma-healing process could transform informating practices; and (3) arguing that addressing misinformation requires attention beyond individual fact-based discerning to account for its relational, cultural, and emotional dimensions. Further, we invite CSCW scholars to reconsider the balance between abstracting and humanizing information, explore future design possibilities for parents of LGBTQ+ children, and reflect on the role of researchers as participants in collective research communities fueled by care.",
-    links: { paper: "https://doi.org/10.1145/3816958", pdf: "https://dl.acm.org/doi/pdf/10.1145/3816958" }
-  },
-  {
-    id: "cscw26-fda",
-    title: "“The New Era of Tech-Enabled Traceability”: Tensions between the FDA's Data Governance Vision and the Lived Realities of Food Producers",
-    authors: ["Soonho Kwon", "Catherine Wieczorek", "Heidi Biggs", "Shellye Suttles", "Tammi Etheridge", "Annabel Rothschild", "Shaowen Bardzell"],
-    venue: "Proceedings of the ACM on Human-Computer Interaction",
-    short: "CSCW 2026 Full Paper", type: "Journal", year: 2026,
-    topics: ["policy"],
-    summary: "The U.S. Food and Drug Administration (FDA)’s Food Traceability Rule, promulgated as part of the Food Safety Modernization Act (FSMA), requires agri-food supply chain stakeholders (stakeholders)—including farmers, fishers, retail workers, and others—to maintain detailed tracking records beginning in January 2026. Through this Rule, the FDA envisions a “New Era of Tech-Enabled Traceability,” in which standardized, harmonized tracking data serve as a foundational public health infrastructure, enabling more rapid identification and removal of potentially contaminated food and ultimately reducing the risk of foodborne illness.\n\nDespite this promising vision, we observe that the Rule reconfigures agri-food stakeholders into data laborers by mandating stringent data-collection, formatting, and reporting requirements. In this paper, we examine the tensions and burdens that arise from such reconfiguration. Leveraging Data Feminism as an orientation to attend to how data-driven policy implementation disproportionately burdens smaller, under-resourced stakeholders who lack the infrastructural and financial capacity to comply, we analyze 1,198 public comments submitted to Regulations.gov in response to the proposed Rule. Our qualitative document analysis reveals three key tensions: (1) the individual labor, financial, and educational burdens stakeholders experience as they are reconfigured into data workers; (2) moments where data tracking becomes infeasible due to infrastructural limitations, cultural contexts, and situated production practices; and (3) instances where the Rule’s intended flexibility instead introduces confusion and burden due to its ambiguity.\n\nThis work contributes to CSCW by providing an empirical account of how data-driven policy reconfigures stakeholders as data producers. We demonstrate that those reconfigured as data workers under data-driven governance must be recognized as meaningful policy partners rather than merely as actors subjected to compliance obligations. We further suggest that CSCW can play a critical role in uncovering their yet invisible burdens, supporting their capacity to voice concerns through participatory democratic mechanisms, and aiding their ability to “make-do” under imposed data works.",
-    links: { paper: "https://doi.org/10.1145/3817012", pdf: "https://dl.acm.org/doi/pdf/10.1145/3817012" }
-  },
-  {
-    id: "tochi-martial-law",
-    title: "Leaderless but Connected: Role of ICT During the Unfolding of Martial Law Crisis in South Korea",
-    authors: ["Hayoun Noh", "Soonho Kwon", "Max Van Kleek", "Shaowen Bardzell", "Younah Kang"],
-    venue: "ACM Transactions on Computer-Human Interaction",
-    short: "TOCHI Journal Article", type: "Journal", year: 2026, status: "Forthcoming",
-    topics: ["policy"],
-    summary: "This paper examines the role that information and communication technologies played as the martial law crisis unfolded in South Korea, and how people stayed connected and acted together without central leadership.",
-    links: {}
+    id: "dis26-workshop-mth",
+    title: "Relating Otherwise: Pluriversal Pathways for Reworlding More-than-Human Design",
+    authors: ["Sylvia Janicki", "Heidi Biggs", "Soonho Kwon", "Kristina Mah", "Cayla Key", "Yu-Ting Cheng", "Catherine Wieczorek", "Moeiini Reilly", "Josiah Hester", "Shaowen Bardzell"],
+    venue: "Companion Publication of the 2026 ACM Designing Interactive Systems Conference",
+    short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
+    topics: ["beyond-western"],
+    summary: "Amid growing environmental concerns, more-than-human (MtH) design has gained traction in HCI as a means of attending to relational entanglements between humans and the wider ecological world. This work is vitally important, but draws largely on (and is perhaps limited by) Western philosophical traditions. In this workshop, we seek to explore beyond Western ontologies in MtH design by engaging with longstanding practices and epistemologies such as Indigenous Traditional Ecological Knowledge and Eastern philosophies like Daoism. These non-Western knowledge traditions have long embodied relational worldviews grounded in lived, place-based practices of interdependence with the more-than-human world. We aim to share stories and philosophies of multispecies entanglements, discuss the ethics of drawing from these knowledge systems in HCI, and imagine new ways these situated understandings can inform design. In doing so, we seek to expand the ethical, epistemological, and design imaginaries of MtH work toward more pluralistic, culturally grounded forms of interactivity.",
+    links: { paper: "https://doi.org/10.1145/3802974.3808002", pdf: "https://dl.acm.org/doi/pdf/10.1145/3802974.3808002" }
   },
   {
     id: "chi25-digital-legacy",
@@ -195,9 +197,9 @@ const PAPERS = [
     venue: "Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
     short: "CHI 2025 Full Paper", type: "Conference", year: 2025,
     topics: ["death"],
-    image: "https://dl.acm.org/cms/10.1145/3706598.3713764/asset/ca30a75c-e8e5-4f78-b603-afad53df6a36/assets/images/medium/chi25-678-fig1.jpg",
-    caption: "Postcards from the cultural probe kit, one mission per day. Figure from the paper (CC BY-NC 4.0).",
     video: { id: "OJDGo4T_noI", start: 55 },
+    images: ["figures/chi25-app.webp", "figures/chi25-probes.webp"],
+    caption: "Screens of the digital legacy curation app (a–f) and the five-day cultural probe sheets.",
     summary: "The death of a young person is particularly tragic, leaving a profound emotional impact on the bereaved. Moreover, their legacies often diverge from traditional ones, incorporating a range of digital artifacts. This design study investigates age-specific approaches to death-related technologies by envisioning digital legacy curation systems tailored for young adults (age 19–34). Using cultural probes, design workbooks, and prototype testing, we examine the values and preferences of young adults in preparing for an untimely death. Our findings highlight relationship-oriented legacies that focus on minimizing the emotional burden of the bereaved and the potential benefits of physical artifacts. Through this study, we: (1) underscore recognizing specific user groups in death-related technologies, (2) explore death as an existential and disorienting grounds within HCI, (3) extend post-userist concepts to consider the notion of “use” after death, and (4) identify the liminal space between physical and digital legacies as a meaningful realm to explore.",
     links: { paper: "https://doi.org/10.1145/3706598.3713764", pdf: "https://dl.acm.org/doi/pdf/10.1145/3706598.3713764", news: "https://www.techsquareatl.com/tech-square-news/how-we-can-connect-with-loved-ones-now-and-later-with-digital-legacies" }
   },
@@ -208,8 +210,8 @@ const PAPERS = [
     venue: "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
     short: "CHI 2024 Poster", type: "Poster", year: 2024,
     topics: ["spiritual-ai"],
-    images: ["figures/spiritual-ai-1.webp", "figures/spiritual-ai-2.webp", "figures/spiritual-ai-3.webp", "figures/spiritual-ai-4.webp"],
-    caption: "Storyboards of the four speculative AI systems for prayer.",
+    images: ["figures/chi24-poster.webp"],
+    caption: "Late-Breaking Work poster, CHI 2024.",
     summary: "The Human-Computer Interaction community has long endeavored to discuss technologies that go beyond productivity goals. We extend this perspective to the realm of Human-AI interaction to explore how AI could consider diverse user values, particularly in users’ prayer experiences where minimal productivity goals exist. Through diary study, our research identified user goals and behaviors that contribute to satisfying prayer experiences. Then, we conceptualized four distinct AI systems designed to celebrate the identified goals and behaviors of the users. We presented these conceptualized systems in the format of a design workbook and engaged users in evaluating them. Based on our findings, we discuss the potential of novel roles that AI could play in human lives, such as provoking deep reflections or creating indirect communities.",
     related: ["dis26-prayer"],
     links: { paper: "https://doi.org/10.1145/3613905.3650743", pdf: "https://dl.acm.org/doi/pdf/10.1145/3613905.3650743" }
@@ -222,8 +224,7 @@ const PAPERS = [
     short: "Prix Ars Electronica 2024 · Video Art", type: "Artwork", year: 2024,
     topics: ["spiritual-ai", "beyond-western"],
     award: "Honorary Mention, Prix Ars Electronica 2024",
-    image: "https://i.ytimg.com/vi/Y21DGAZQWMU/hqdefault.jpg",
-    caption: "Still from AI Fortuneteller (video).",
+    video: { id: "Y21DGAZQWMU" },
     summary: "This speculative video piece showcases participants interacting with a career counseling AI agent, unaware that the responses were actually derived from the fortunetelling of a mudang (a Korean traditional shaman). Our work captures this deception and documents participants' reactions, showcasing shifts in their initial perceptions of the agent's advice following the reveal. Notably, even after learning that the advice came from a mudang rather than an AI, participants did not change their initial attitudes toward the advice they received. This raises questions about the perceived importance of AI's explainability and accuracy. By juxtaposing scientific and pre-scientific approaches, we aim to provoke discussions on human agency in the age of AI. We argue that, regardless of AI's advancements, we continue to navigate life in fundamentally human ways -- wonderfully messy and uncertain.",
     links: { video: "https://www.youtube.com/watch?v=Y21DGAZQWMU", ars: "https://archive.aec.at/prix/290651/", arxiv: "https://arxiv.org/abs/2603.23811" }
   },
@@ -289,10 +290,10 @@ const ARTWORKS = [
       ["Exhibited", "Senior Graduation Exhibition 2023, Information and Interaction Design, Yonsei University; UIC3620 Genre Studies"]]
   },
   {
-    id: "seacrets", title: "Seacrets", medium: "Critical Design", year: 2020,
-    subtitle: "Critical Design Project on the User Experience of Secret Sharing",
+    id: "seacrets", title: "Seacrets", medium: "Speculative Design", year: 2020,
+    subtitle: "Speculative Design Project on the User Experience of Secret Sharing",
     thumb: "art/seacrets/thumb.webp",
-    summary: "Seacrets is a critical design project that provokes thought about the extension of anonymity and the experience of sharing secrets.\n\nSeacrets is a secret-sharing platform. Here, users write their deepest secrets anonymously and let them flow into a bigger ocean. The ocean, a huge screen in a public space such as a subway station, randomly surfaces bottles that contain these self-disclosures. Anyone passing by can touch a bottle, open it, and read it. You never know what kind of secret you will encounter: someone coming out of the closet, someone confessing an experience of domestic abuse, or even someone confessing a crime. The project aims to provoke discussion about the nature of anonymous online spaces and the potential benefits and problems that could arise from such communities, highlighting the act of self-disclosure.\n\nExisting research shows that sharing secrets can be cathartic, lightening emotional burdens and bringing various physical and emotional health benefits. But to what extent? Are we eager to share our deepest secrets just for catharsis?\n\nWe may also shift our focus to the viewers. Why do we want to read these stories so much? What will viewers feel as they read these secrets? Solidarity in similar secrets? Or repulsion and horror, much like watching a horror or thriller film? Will this platform become a place of healing where victims of abuse can share their experiences? A queer community where people can come out in secret? Or a dark space where criminals boast of their wicked stories? Would you put your secret into a bottle and let it float in the Seacrets? Why?",
+    summary: "Seacrets is a speculative design project that provokes thought about the extension of anonymity and the experience of sharing secrets.\n\nSeacrets is a secret-sharing platform. Here, users write their deepest secrets anonymously and let them flow into a bigger ocean. The ocean, a huge screen in a public space such as a subway station, randomly surfaces bottles that contain these self-disclosures. Anyone passing by can touch a bottle, open it, and read it. You never know what kind of secret you will encounter: someone coming out of the closet, someone confessing an experience of domestic abuse, or even someone confessing a crime. The project aims to provoke discussion about the nature of anonymous online spaces and the potential benefits and problems that could arise from such communities, highlighting the act of self-disclosure.\n\nExisting research shows that sharing secrets can be cathartic, lightening emotional burdens and bringing various physical and emotional health benefits. But to what extent? Are we eager to share our deepest secrets just for catharsis?\n\nWe may also shift our focus to the viewers. Why do we want to read these stories so much? What will viewers feel as they read these secrets? Solidarity in similar secrets? Or repulsion and horror, much like watching a horror or thriller film? Will this platform become a place of healing where victims of abuse can share their experiences? A queer community where people can come out in secret? Or a dark space where criminals boast of their wicked stories? Would you put your secret into a bottle and let it float in the Seacrets? Why?",
     images: ["art/seacrets/01.webp"],
     credits: [["A project by", "Soonho Kwon, Minkyung Kang, Yeonsu Noh, Jihong Shin, Eugene Kim"],
       ["Context", "UXIM, Yonsei University UX/HCI Academia, Fall 2020"]]
@@ -301,8 +302,8 @@ const ARTWORKS = [
   {
     id: "aristocrats", title: "The Aristocrats", medium: "Printed Calendar", year: 2020,
     subtitle: "A 12-Page Calendar of Freaks",
-    award: "1st Place, Rainbow Foundation", thumb: "art/aristocrats/thumb.webp",
-    summary: "Awarded first place by the Rainbow Foundation for outstanding design work and excellent integration of the Korean Gilbeot typeface, and successfully crowdfunded to be printed and sold.\n\nThroughout history, people who were different have often been treated as freaks and monsters. We must not forget how easy it is to monsterize someone; Asians, for instance, were exhibited in human zoos for looking strange to Western eyes. The models for this project were people who were “exhibited” for their otherness, some by choice but often with no choice at all. They were called freaks or monsters and given names designed to draw attention.\n\nSuch monsterization still takes place today. We stare at people who do not look like us and treat them differently. This project remembers those who passed away after living the life of a freak, and reminds all of us that we are only humans who can be represented through lines, dots, and colors. I chose a vivid color palette to celebrate the beauty of difference, then distorted the colors in Photoshop to create unexpected beauty, much like the models represented in this project.\n\nGilbert is a typeface named after Gilbert Baker, the creator of the iconic Rainbow Flag of the queer community. I found it fitting for this project, not only because it celebrates diversity but also for its vivid colors. Each month can be identified by the shapes used in the background: February uses lines, which connect two dots, and October uses overlapping pentagons, which together have ten angles.",
+    award: "1st Place, Gilbert Font Design Competition", thumb: "art/aristocrats/thumb.webp",
+    summary: "Awarded first place at the Gilbert Font Design Competition, and successfully crowdfunded to be printed and sold.\n\nThroughout history, people who were different have often been treated as freaks and monsters. We must not forget how easy it is to monsterize someone; Asians, for instance, were exhibited in human zoos for looking strange to Western eyes. The models for this project were people who were “exhibited” for their otherness, some by choice but often with no choice at all. They were called freaks or monsters and given names designed to draw attention.\n\nSuch monsterization still takes place today. We stare at people who do not look like us and treat them differently. This project remembers those who passed away after living the life of a freak, and reminds all of us that we are only humans who can be represented through lines, dots, and colors. I chose a vivid color palette to celebrate the beauty of difference, then distorted the colors in Photoshop to create unexpected beauty, much like the models represented in this project.\n\nGilbert is a typeface named after Gilbert Baker, the creator of the iconic Rainbow Flag of the queer community. I found it fitting for this project, not only because it celebrates diversity but also for its vivid colors. Each month can be identified by the shapes used in the background: February uses lines, which connect two dots, and October uses overlapping pentagons, which together have ten angles.",
     images: Array.from({ length: 12 }, (_, i) => `art/aristocrats/${String(i + 1).padStart(2, "0")}.webp`),
     credits: [["A project by", "Soonho Kwon"], ["Advised by", "Hyoshin Park, Katheryne Hoffmann"],
       ["Context", "IID3008 Visual Systems, Yonsei University (Fall 2020); LLEA270 Freaks and Monsters, University of Hawaiʻi at Mānoa"]]
@@ -327,7 +328,8 @@ const ARTWORKS = [
     id: "pinocchio", title: "Pinocchio", medium: "Photographic Storytelling", year: 2017,
     thumb: "art/pinocchio/thumb.webp",
     summary: "Pinocchio is a photographic storytelling project that illustrates the internal pain of being unable to disclose one's true identity despite wanting to. Through various objects, I sought to show the frustration of living as a queer person in Korean society. The quotes, taken from the classic fairy tale Pinocchio, offer an ironic point of reference, since the story is about the importance of telling the truth. For queer people, lying about one's identity may be a matter of survival. An unprepared coming out could lead to catastrophic results, especially in a conservative society and without economic independence.\n\nLying about your own identity slowly kills you. You are living, but not as your true self. You become a wooden puppet played by society, not a living, breathing person.\n\nBut then again, what choice do we have, right?",
-    images: ["art/pinocchio/01.webp", "art/pinocchio/02.webp"],
+    images: Array.from({ length: 12 }, (_, i) => `art/pinocchio/${String(i + 1).padStart(2, "0")}.webp`),
+    layout: "stack",
     credits: [["A project by", "Soonho Kwon"], ["Advised by", "Kiho Park"],
       ["Context", "IID2002 Photography Workshop, Yonsei University (Fall 2017)"]]
   }

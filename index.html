@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=21"></script>
+<script src="content.js?v=22"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -137,12 +137,8 @@ function railHTML(activeId) {
     <ul class="topics">
       <li><a href="#publications" aria-current="${!activeId}"><span>All work</span><span class="n">${ALL.length}</span></a></li>
       ${TOPICS.map(t => `<li><a href="#topic-${t.id}" aria-current="${activeId === t.id}">
-        <span><i class="tdot" style="background:var(${t.color})"></i>${esc(t.name)}</span><span class="n">${count(t.id)}</span></a></li>`).join("")}
+        <span><i class="tdot" style="background:var(${t.color})"></i><span class="t-full">${esc(t.name)}</span><span class="t-short">${esc(t.short || t.name)}</span></span><span class="n">${count(t.id)}</span></a></li>`).join("")}
     </ul>
-    <select class="rail-select" aria-label="Choose a topic" onchange="location.hash = this.value">
-      <option value="publications"${activeId ? "" : " selected"}>All work (${ALL.length})</option>
-      ${TOPICS.map(t => `<option value="topic-${t.id}"${activeId === t.id ? " selected" : ""}>${esc(t.name)} (${count(t.id)})</option>`).join("")}
-    </select>
   </aside>`;
 }
 
@@ -184,7 +180,7 @@ function renderDetail(kind, id) {
       <div class="authors">${authorsHTML(p.authors)}</div>
       ${venueHTML(p)}
       <div class="meta">${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}${chips(p.topics)}</div>
-      ${p.images ? `<figure class="stack">${p.images.map(src => `<div class="fig"><img src="${esc(src)}" alt="" loading="lazy"></div>`).join("")}${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ""}</figure>` : figureHTML(p.image, p.caption || p.title, p.caption)}
+      ${p.images ? `<figure class="stack">${p.images.map(src => `<a class="fig" href="${esc(src)}" ${ext}><img src="${esc(src)}" alt="" loading="lazy"></a>`).join("")}${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ""}</figure>` : figureHTML(p.image, p.caption || p.title, p.caption)}
       ${p.video ? `<div class="videos"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(p.video.id)}${p.video.start ? `?start=${p.video.start}` : ""}" title="${esc(p.title)} video" loading="lazy" allowfullscreen></iframe></div></div>` : ""}
       <div class="summary">${paras(p.summary)}</div>
       ${btns ? `<div class="btns">${btns}</div>` : ""}
