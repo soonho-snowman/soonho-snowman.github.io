@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Noto+Sans+KR:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=13">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
 
 <footer><div class="wrap"><span id="foot-name"></span><span>Georgia Institute of Technology · Atlanta</span></div></footer>
 
-<script src="content.js?v=17"></script>
+<script src="content.js?v=18"></script>
 <script>
 /* =====================================================================
    PAGE LOGIC — no need to edit below.
@@ -50,8 +50,8 @@ const ALL = [...PROJECTS, ...PAPERS];
 const $view = document.getElementById("view");
 const topicById = Object.fromEntries(TOPICS.map(t => [t.id, t]));
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const paras = s => String(s || "").split(/\n\s*\n/).map(p => `<p>${esc(p.trim())}</p>`).join("");
-const linkLabels = { paper: "Full Paper", pdf: "PDF", doi: "Full Paper", arxiv: "arXiv", project: "Link", video: "Video", ars: "Ars Electronica", slides: "Slides" };
+const paras = s => String(s || "").split(/\n\s*\n/).map(p => p.trim().startsWith("## ") ? `<h3>${esc(p.trim().slice(3))}</h3>` : `<p>${esc(p.trim())}</p>`).join("");
+const linkLabels = { paper: "Full Paper", pdf: "PDF", doi: "Full Paper", arxiv: "arXiv", project: "Link", video: "Video", ars: "Ars Electronica", slides: "Slides", news: "News" };
 const ext = `target="_blank" rel="noopener"`;
 const hrefOf = p => `#${p.kind}-${p.id}`;
 
@@ -100,8 +100,13 @@ function figureHTML(src, alt, caption) {
 
 function renderAbout() {
   const initials = SITE.name.split(" ").map(w => w[0]).join("");
-  const areas = TOPICS.map((t, i) =>
-    `<p>(${i + 1}) <a href="#topic-${t.id}">${esc(t.name)}</a>: ${esc(t.blurb)}</p>`).join("");
+  const count = id => ALL.filter(p => p.topics.includes(id)).length;
+  const cards = TOPICS.map(t => `<li><a class="card" href="#topic-${t.id}" style="--tc:var(${t.color})">
+      <span class="card-kw">${esc(t.short || t.name)}</span>
+      <span class="card-name">${esc(t.name)}</span>
+      <span class="card-blurb">${esc(t.blurb)}</span>
+      <span class="card-foot">${count(t.id)} works <span aria-hidden="true">→</span></span>
+    </a></li>`).join("");
   $view.innerHTML = `<div class="about">
     <div class="side">
       <div class="portrait">${SITE.photo
@@ -118,9 +123,10 @@ function renderAbout() {
       <div class="names">${esc(SITE.names)}</div>
       <div class="prose">
         <p>${SITE.intro}</p>
-        ${areas}
         ${SITE.outro.map(p => `<p>${p}</p>`).join("")}
       </div>
+      <h2 class="cards-head">Research Areas</h2>
+      <ul class="cards">${cards}</ul>
     </div>
   </div>`;
 }
@@ -175,7 +181,8 @@ function renderDetail(kind, id) {
       <div class="authors">${authorsHTML(p.authors)}</div>
       ${venueHTML(p)}
       <div class="meta">${p.award ? `<span class="award">${esc(p.award)}</span>` : ""}${chips(p.topics)}</div>
-      ${figureHTML(p.image, p.caption || p.title, p.caption)}
+      ${p.images ? `<figure class="stack">${p.images.map(src => `<div class="fig"><img src="${esc(src)}" alt="" loading="lazy"></div>`).join("")}${p.caption ? `<figcaption>${esc(p.caption)}</figcaption>` : ""}</figure>` : figureHTML(p.image, p.caption || p.title, p.caption)}
+      ${p.video ? `<div class="videos"><div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(p.video.id)}${p.video.start ? `?start=${p.video.start}` : ""}" title="${esc(p.title)} video" loading="lazy" allowfullscreen></iframe></div></div>` : ""}
       <div class="summary">${paras(p.summary)}</div>
       ${btns ? `<div class="btns">${btns}</div>` : ""}
       ${related.length ? `<div class="related"><h2>Related work</h2><ul class="entries">${related.map(entryHTML).join("")}</ul></div>` : ""}
@@ -183,25 +190,55 @@ function renderDetail(kind, id) {
   </div>`;
 }
 
+const artHref = a => a.page ? `#${a.page}` : (a.summary ? `#art-${a.id}` : (a.url || (a.youtube ? `https://www.youtube.com/watch?v=${[].concat(a.youtube)[0]}` : "")));
+const ytThumb = a => a.youtube ? `https://i.ytimg.com/vi/${[].concat(a.youtube)[0]}/hqdefault.jpg` : "";
+
 function renderArtwork() {
   $view.innerHTML = `<section>
     <div class="proj-head">
       <div class="eyebrow">Artwork</div>
       <h1>Artwork</h1>
-      <p class="sub">Video, installation, film, print, and photography.</p>
+      <p class="sub">Critical design, installation, film, print, and photography.</p>
     </div>
     <ul class="art-grid">
       ${ARTWORKS.map(a => {
-        const url = a.page ? `#${a.page}` : (a.url || (a.youtube ? `https://www.youtube.com/watch?v=${a.youtube}` : ""));
-        const thumb = a.image || (a.youtube ? `https://i.ytimg.com/vi/${a.youtube}/hqdefault.jpg` : "");
+        const url = artHref(a), internal = url.startsWith("#");
+        const thumb = a.thumb || ytThumb(a);
         const inner = `<div class="art-thumb">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<span>${esc(a.medium)}</span>`}</div>
           <div class="art-body"><div class="art-title">${esc(a.title)}</div>
           <div class="venue">${esc(a.medium)} · <span class="short">${a.year}</span></div>
           ${a.award ? `<span class="award">${esc(a.award)}</span>` : ""}</div>`;
-        return `<li class="art-item">${url ? `<a href="${esc(url)}" ${a.page ? "" : ext}>${inner}</a>` : inner}</li>`;
+        return `<li class="art-item">${url ? `<a href="${esc(url)}" ${internal ? "" : ext}>${inner}</a>` : inner}</li>`;
       }).join("")}
     </ul>
   </section>`;
+}
+
+const imgPair = list => (list && list.length) ? `<div class="gallery">${list.map(src =>
+  `<a href="${esc(src)}" ${ext}><img src="${esc(src)}" alt="" loading="lazy"></a>`).join("")}</div>` : "";
+
+function renderArt(id) {
+  const a = ARTWORKS.find(x => x.id === id);
+  if (!a || !a.summary) return renderArtwork();
+  const vids = [].concat(a.youtube || []).map(v =>
+    `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${esc(v)}" title="${esc(a.title)} video" loading="lazy" allowfullscreen></iframe></div>`).join("");
+  const sections = (a.sections || []).map(sec => `<section class="art-sec">
+      ${sec.heading ? `<h3>${esc(sec.heading)}</h3>` : ""}${paras(sec.text)}${imgPair(sec.images)}</section>`).join("");
+  const btns = Object.entries(a.links || {}).filter(([, v]) => v)
+    .map(([k, v], i) => `<a class="btn${i === 0 ? " primary" : ""}" href="${esc(v)}" ${ext}>${esc(k)}</a>`).join("");
+  $view.innerHTML = `<article class="paper art-page">
+    <a class="back" href="#artwork">← All artwork</a>
+    <div class="kind">${esc(a.medium)} · ${a.year}</div>
+    <h1>${esc(a.title)}</h1>
+    ${a.subtitle ? `<div class="venue">${esc(a.subtitle)}</div>` : ""}
+    ${a.award ? `<div class="meta"><span class="award">${esc(a.award)}</span></div>` : ""}
+    <div class="summary">${paras(a.summary)}</div>
+    ${vids ? `<div class="videos">${vids}</div>` : ""}
+    ${imgPair(a.images)}
+    ${sections}
+    ${btns ? `<div class="btns">${btns}</div>` : ""}
+    ${a.credits ? `<dl class="credits">${a.credits.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
+  </article>`;
 }
 
 function route() {
@@ -212,6 +249,7 @@ function route() {
   else if (h.startsWith("topic-")) { renderPublications(h.slice(6)); section = "publications"; }
   else if (h === "publications" || h === "projects") { renderPublications(); section = "publications"; }
   else if (h === "artwork") { renderArtwork(); section = "artwork"; }
+  else if (h.startsWith("art-")) { renderArt(h.slice(4)); section = "artwork"; }
   else renderAbout();
   document.querySelectorAll("[data-nav]").forEach(a => {
     if (a.dataset.nav === section) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");

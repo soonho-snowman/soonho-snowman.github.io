@@ -12,19 +12,19 @@ const SITE = {
     { label: "Google Scholar", url: "https://scholar.google.com/citations?user=R15_L1UAAAAJ&hl=en" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/soonhokwon/" }
   ],
-  // About page: plain paragraphs. The research-area paragraphs are generated from TOPICS below.
+  // About page: plain paragraphs, followed by one card per topic (generated from TOPICS below).
   intro: `I am a Human-Computer Interaction (HCI) and design researcher, currently pursuing a Ph.D. in
     <a href="https://www.cc.gatech.edu/degree-programs/phd-human-centered-computing" target="_blank" rel="noopener">Human-Centered Computing</a>
     at the Georgia Institute of Technology. I am a member of the
     <a href="http://esc-lab.org" target="_blank" rel="noopener">ESC Lab</a>, advised by
-    <a href="https://shaowenbardzell.com" target="_blank" rel="noopener">Shaowen Bardzell</a>. My research spans the following areas:`,
+    <a href="https://shaowenbardzell.com" target="_blank" rel="noopener">Shaowen Bardzell</a>.`,
   outro: [
     `In conducting my research, I do not approach technology as a means of “solving problems.” My work treats technology
      as a way of allowing people the possibility to carve out authentic ways of being within systems that are difficult to
      escape or transform (be it a social structure, technical systems, etc.), while critically attending to how
      technologies may exacerbate existing issues at times.`,
     `Grounded in critical, feminist, design, and qualitative approaches, my work has been presented and recognized at
-     venues such as Ars Electronica, CHI, CSCW, and DIS, and has been supported by NSF-funded research.`
+     venues such as ACM CHI, CSCW, and DIS, awarded at Prix Ars Electronica, and supported by the NSF and the Beyond the Rainbow Foundation.`
   ]
 };
 
@@ -135,15 +135,26 @@ const PROJECTS = [
 const ME = "Soonho Kwon";
 const PAPERS = [
   {
+    id: "dis26-workshop-mth",
+    title: "Relating Otherwise: Pluriversal Pathways for Reworlding More-than-Human Design",
+    authors: ["Sylvia Janicki", "Heidi Biggs", "Soonho Kwon", "Kristina Mah", "Cayla Key", "Yu-Ting Cheng", "Catherine Wieczorek", "Moeiini Reilly", "Josiah Hester", "Shaowen Bardzell"],
+    venue: "Companion Publication of the 2026 ACM Designing Interactive Systems Conference",
+    short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
+    topics: ["beyond-western"],
+    summary: "Amid growing environmental concerns, more-than-human (MtH) design has gained traction in HCI as a means of attending to relational entanglements between humans and the wider ecological world. This work is vitally important, but draws largely on (and is perhaps limited by) Western philosophical traditions. In this workshop, we seek to explore beyond Western ontologies in MtH design by engaging with longstanding practices and epistemologies such as Indigenous Traditional Ecological Knowledge and Eastern philosophies like Daoism. These non-Western knowledge traditions have long embodied relational worldviews grounded in lived, place-based practices of interdependence with the more-than-human world. We aim to share stories and philosophies of multispecies entanglements, discuss the ethics of drawing from these knowledge systems in HCI, and imagine new ways these situated understandings can inform design. In doing so, we seek to expand the ethical, epistemological, and design imaginaries of MtH work toward more pluralistic, culturally grounded forms of interactivity.",
+    links: { paper: "https://doi.org/10.1145/3802974.3808002", pdf: "https://dl.acm.org/doi/pdf/10.1145/3802974.3808002" }
+  },
+  {
     id: "dis26-prayer",
     title: "Value-Sensitive AI for Prayer: Balancing the Agencies Between Human and AI Agents in Spiritual Context",
     authors: ["Soonho Kwon", "Dong Whi Yoo", "Shaowen Bardzell", "Younah Kang"],
     venue: "Proceedings of the 2026 ACM Designing Interactive Systems Conference",
     short: "DIS 2026 Full Paper", type: "Conference", year: 2026,
     topics: ["spiritual-ai"],
-    image: "https://dl.acm.org/cms/10.1145/3800645.3812920/asset/a9e93288-972e-4d2a-88fc-13b59bdb6969/assets/images/medium/dis26-104-fig1.jpg",
-    caption: "Overview of the study process. Figure from the paper (CC BY 4.0).",
-    summary: "How could AI enter something as value-laden as prayer? Building on a diary study of prayer practices, we showed participants four speculative AI systems meant to “assist” prayer and used them as provocations for co-reflection.\n\nParticipants cared most about authenticity, a genuine connection to the divine, and often felt that the mere presence of AI diminished it, especially when AI took too much agency in guiding prayer. We argue for AI designs that leave room for users' own agency: interpretive openness, AI's inexplicability as a resource for personal meaning-making, and non-use as a legitimate design choice.",
+    images: ["figures/spiritual-ai-1.webp", "figures/spiritual-ai-2.webp", "figures/spiritual-ai-3.webp", "figures/spiritual-ai-4.webp"],
+    caption: "Storyboards of the four speculative AI systems for prayer.",
+    video: { id: "SDtiHNyOHKE", start: 493 },
+    summary: "How could AI enter a deeply value-laden realm of human lives? Drawing on key values and practices associated with praying identified through a diary study, we presented our participants with four speculative, conceptual value-sensitive AI systems to “assist” prayer practices. The conceptual designs served as provocations to co-reflect on how AI interventions might shape their praying experiences. Our findings suggest that a sense of authenticity (or a genuine connection to the divine) is a crucial value, while the mere presence of AI was often perceived as diminishing this authenticity, particularly when AI assumed too much agency in guiding prayer practices. Based on our findings, we argue for the importance of AI agent designs that recognize users’ agency in shaping their interaction with AI. We further explore how this may be possible by leveraging interpretive openness, perhaps through AI’s inexplicability as a resource for personal meaning-making, and by recognizing non-use of AI as a legitimate design choice.",
     related: ["chi24-spiritual-ai"],
     links: { paper: "https://doi.org/10.1145/3800645.3812920", pdf: "https://dl.acm.org/doi/pdf/10.1145/3800645.3812920" }
   },
@@ -154,7 +165,7 @@ const PAPERS = [
     venue: "Proceedings of the ACM on Human-Computer Interaction",
     short: "CSCW 2026 Full Paper", type: "Journal", year: 2026,
     topics: ["korean-queer"],
-    summary: "When parents in South Korea learn that their child is queer, many experience fear, isolation, and disorientation, and some turn to queer-related misinformation to cope. Through their relationships with their children, they gradually come to understand queer lives, become more critical readers of information, and push back against misinformation to help other parents.\n\nThe paper brings parents into Queer HCI as an under-studied stakeholder, shows how trauma and healing reshape information practices, and argues that misinformation has to be addressed through its relational, cultural, and emotional dimensions, not fact-checking alone.",
+    summary: "This study examines how parents of LGBTQ+ individuals in South Korea navigate the emotional rupture fueled by fear, isolation, and disorientation after learning their children’s queer identity, encounter queer-related (mis)information as a way of coping with this emotional toll, and come to listen to queer realities relationally. Through this process, we highlight how parents reconstruct their identities as supportive parents, which reshapes their informating practices, making them more critical in assessing queer-related (mis)information, developing strategies to protect themselves from harmful narratives, and actively challenging misinformation to support others navigating similar experiences.\n\nThis work contributes to CSCW by (1) foregrounding parents of LGBTQ+ individuals, an underrepresented yet critical stakeholder group in Queer HCI; (2) demonstrating how identity reconfiguration following a trauma-healing process could transform informating practices; and (3) arguing that addressing misinformation requires attention beyond individual fact-based discerning to account for its relational, cultural, and emotional dimensions. Further, we invite CSCW scholars to reconsider the balance between abstracting and humanizing information, explore future design possibilities for parents of LGBTQ+ children, and reflect on the role of researchers as participants in collective research communities fueled by care.",
     links: { paper: "https://doi.org/10.1145/3816958", pdf: "https://dl.acm.org/doi/pdf/10.1145/3816958" }
   },
   {
@@ -164,7 +175,7 @@ const PAPERS = [
     venue: "Proceedings of the ACM on Human-Computer Interaction",
     short: "CSCW 2026 Full Paper", type: "Journal", year: 2026,
     topics: ["policy"],
-    summary: "From January 2026, the U.S. FDA's Food Traceability Rule requires farmers, fishers, and retail workers to keep detailed tracking records. The FDA frames this as a new era of tech-enabled traceability; we argue it turns these stakeholders into unpaid data workers.\n\nDrawing on Data Feminism, we analyzed 1,198 public comments on the proposed Rule and identified three tensions: the labor, financial, and educational burdens of becoming data workers; cases where tracking is infeasible because of infrastructure, culture, or production practices; and cases where the Rule's intended flexibility creates confusion and extra work.",
+    summary: "The U.S. Food and Drug Administration (FDA)’s Food Traceability Rule, promulgated as part of the Food Safety Modernization Act (FSMA), requires agri-food supply chain stakeholders (stakeholders)—including farmers, fishers, retail workers, and others—to maintain detailed tracking records beginning in January 2026. Through this Rule, the FDA envisions a “New Era of Tech-Enabled Traceability,” in which standardized, harmonized tracking data serve as a foundational public health infrastructure, enabling more rapid identification and removal of potentially contaminated food and ultimately reducing the risk of foodborne illness.\n\nDespite this promising vision, we observe that the Rule reconfigures agri-food stakeholders into data laborers by mandating stringent data-collection, formatting, and reporting requirements. In this paper, we examine the tensions and burdens that arise from such reconfiguration. Leveraging Data Feminism as an orientation to attend to how data-driven policy implementation disproportionately burdens smaller, under-resourced stakeholders who lack the infrastructural and financial capacity to comply, we analyze 1,198 public comments submitted to Regulations.gov in response to the proposed Rule. Our qualitative document analysis reveals three key tensions: (1) the individual labor, financial, and educational burdens stakeholders experience as they are reconfigured into data workers; (2) moments where data tracking becomes infeasible due to infrastructural limitations, cultural contexts, and situated production practices; and (3) instances where the Rule’s intended flexibility instead introduces confusion and burden due to its ambiguity.\n\nThis work contributes to CSCW by providing an empirical account of how data-driven policy reconfigures stakeholders as data producers. We demonstrate that those reconfigured as data workers under data-driven governance must be recognized as meaningful policy partners rather than merely as actors subjected to compliance obligations. We further suggest that CSCW can play a critical role in uncovering their yet invisible burdens, supporting their capacity to voice concerns through participatory democratic mechanisms, and aiding their ability to “make-do” under imposed data works.",
     links: { paper: "https://doi.org/10.1145/3817012", pdf: "https://dl.acm.org/doi/pdf/10.1145/3817012" }
   },
   {
@@ -172,20 +183,10 @@ const PAPERS = [
     title: "Leaderless but Connected: Role of ICT During the Unfolding of Martial Law Crisis in South Korea",
     authors: ["Hayoun Noh", "Soonho Kwon", "Max Van Kleek", "Shaowen Bardzell", "Younah Kang"],
     venue: "ACM Transactions on Computer-Human Interaction",
-    short: "TOCHI Journal Article", type: "Journal", year: 2026, status: "Accepted",
+    short: "TOCHI Journal Article", type: "Journal", year: 2026, status: "Forthcoming",
     topics: ["policy"],
     summary: "This paper examines the role that information and communication technologies played as the martial law crisis unfolded in South Korea, and how people stayed connected and acted together without central leadership.",
     links: {}
-  },
-  {
-    id: "dis26-workshop-mth",
-    title: "Relating Otherwise: Pluriversal Pathways for Reworlding More-than-Human Design",
-    authors: ["Sylvia Janicki", "Heidi Biggs", "Soonho Kwon", "Kristina Mah", "Cayla Key", "Yu-Ting Cheng", "Catherine Wieczorek", "Moeiini Reilly", "Josiah Hester", "Shaowen Bardzell"],
-    venue: "Companion Publication of the 2026 ACM Designing Interactive Systems Conference",
-    short: "DIS 2026 Workshop", type: "Workshop", year: 2026,
-    topics: ["beyond-western"],
-    summary: "More-than-human design has gained traction in HCI as a way to attend to our entanglements with the wider ecological world, but it draws mostly on Western philosophy. This workshop looks beyond Western ontologies, engaging Indigenous Traditional Ecological Knowledge and Eastern philosophies such as Daoism.\n\nParticipants share stories of multispecies entanglement, discuss the ethics of drawing on these knowledge systems in HCI, and imagine how situated understandings can make more-than-human design more pluralistic and culturally grounded.",
-    links: { paper: "https://doi.org/10.1145/3802974.3808002", pdf: "https://dl.acm.org/doi/pdf/10.1145/3802974.3808002" }
   },
   {
     id: "chi25-digital-legacy",
@@ -196,8 +197,9 @@ const PAPERS = [
     topics: ["death"],
     image: "https://dl.acm.org/cms/10.1145/3706598.3713764/asset/ca30a75c-e8e5-4f78-b603-afad53df6a36/assets/images/medium/chi25-678-fig1.jpg",
     caption: "Postcards from the cultural probe kit, one mission per day. Figure from the paper (CC BY-NC 4.0).",
-    summary: "The death of a young person leaves a profound impact on the bereaved, and their legacies are often digital rather than traditional. This design study envisions digital legacy curation systems for young adults (ages 19–34), using cultural probes, design workbooks, and prototype testing.\n\nYoung adults favored relationship-oriented legacies that ease the emotional burden on the people left behind, and saw value in physical artifacts. We call for recognizing specific user groups in death-related technologies, extend post-userist ideas to “use” after death, and point to the space between physical and digital legacies as worth exploring.",
-    links: { paper: "https://doi.org/10.1145/3706598.3713764", pdf: "https://dl.acm.org/doi/pdf/10.1145/3706598.3713764" }
+    video: { id: "OJDGo4T_noI", start: 55 },
+    summary: "The death of a young person is particularly tragic, leaving a profound emotional impact on the bereaved. Moreover, their legacies often diverge from traditional ones, incorporating a range of digital artifacts. This design study investigates age-specific approaches to death-related technologies by envisioning digital legacy curation systems tailored for young adults (age 19–34). Using cultural probes, design workbooks, and prototype testing, we examine the values and preferences of young adults in preparing for an untimely death. Our findings highlight relationship-oriented legacies that focus on minimizing the emotional burden of the bereaved and the potential benefits of physical artifacts. Through this study, we: (1) underscore recognizing specific user groups in death-related technologies, (2) explore death as an existential and disorienting grounds within HCI, (3) extend post-userist concepts to consider the notion of “use” after death, and (4) identify the liminal space between physical and digital legacies as a meaningful realm to explore.",
+    links: { paper: "https://doi.org/10.1145/3706598.3713764", pdf: "https://dl.acm.org/doi/pdf/10.1145/3706598.3713764", news: "https://www.techsquareatl.com/tech-square-news/how-we-can-connect-with-loved-ones-now-and-later-with-digital-legacies" }
   },
   {
     id: "chi24-spiritual-ai",
@@ -206,7 +208,9 @@ const PAPERS = [
     venue: "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
     short: "CHI 2024 Poster", type: "Poster", year: 2024,
     topics: ["spiritual-ai"],
-    summary: "HCI has long discussed technologies that go beyond productivity. We extend this to human-AI interaction through prayer, a practice with few productivity goals. A diary study identified the goals and behaviors that make prayer satisfying, and we conceptualized four AI systems that celebrate them, presented as a design workbook.\n\nThe findings point to new roles AI could play in people's lives, such as provoking deep reflection or creating indirect communities.",
+    images: ["figures/spiritual-ai-1.webp", "figures/spiritual-ai-2.webp", "figures/spiritual-ai-3.webp", "figures/spiritual-ai-4.webp"],
+    caption: "Storyboards of the four speculative AI systems for prayer.",
+    summary: "The Human-Computer Interaction community has long endeavored to discuss technologies that go beyond productivity goals. We extend this perspective to the realm of Human-AI interaction to explore how AI could consider diverse user values, particularly in users’ prayer experiences where minimal productivity goals exist. Through diary study, our research identified user goals and behaviors that contribute to satisfying prayer experiences. Then, we conceptualized four distinct AI systems designed to celebrate the identified goals and behaviors of the users. We presented these conceptualized systems in the format of a design workbook and engaged users in evaluating them. Based on our findings, we discuss the potential of novel roles that AI could play in human lives, such as provoking deep reflections or creating indirect communities.",
     related: ["dis26-prayer"],
     links: { paper: "https://doi.org/10.1145/3613905.3650743", pdf: "https://dl.acm.org/doi/pdf/10.1145/3613905.3650743" }
   },
@@ -220,7 +224,7 @@ const PAPERS = [
     award: "Honorary Mention, Prix Ars Electronica 2024",
     image: "https://i.ytimg.com/vi/Y21DGAZQWMU/hqdefault.jpg",
     caption: "Still from AI Fortuneteller (video).",
-    summary: "Participants received career advice from what they believed was an AI counseling agent. In fact, the advice came from a mudang, a Korean traditional shaman, through fortunetelling. The video follows how participants see the advice once they learn its true source.\n\nMost kept their original attitudes toward the advice even after the reveal, which raises the question of how much people actually value AI's explainability and accuracy. By juxtaposing scientific and pre-scientific ways of seeking guidance, the work opens a conversation about human agency in the age of AI: however capable AI becomes, people will still navigate their lives in deeply human ways, untidy and uncertain.",
+    summary: "This speculative video piece showcases participants interacting with a career counseling AI agent, unaware that the responses were actually derived from the fortunetelling of a mudang (a Korean traditional shaman). Our work captures this deception and documents participants' reactions, showcasing shifts in their initial perceptions of the agent's advice following the reveal. Notably, even after learning that the advice came from a mudang rather than an AI, participants did not change their initial attitudes toward the advice they received. This raises questions about the perceived importance of AI's explainability and accuracy. By juxtaposing scientific and pre-scientific approaches, we aim to provoke discussions on human agency in the age of AI. We argue that, regardless of AI's advancements, we continue to navigate life in fundamentally human ways -- wonderfully messy and uncertain.",
     links: { video: "https://www.youtube.com/watch?v=Y21DGAZQWMU", ars: "https://archive.aec.at/prix/290651/", arxiv: "https://arxiv.org/abs/2603.23811" }
   },
   {
@@ -230,7 +234,7 @@ const PAPERS = [
     venue: "Behaviour & Information Technology, Taylor & Francis",
     short: "BIT Journal Article", type: "Journal", year: 2023,
     topics: [],
-    summary: "We built a Wizard-of-Oz prototype that detects filler words while someone speaks and gives real-time feedback through a flickering screen, followed by a report with charts. After 27 participants used it, interviews and thematic analysis produced eight design implications for automated visual feedback on speech, along with links to personal informatics and self-determination theory.",
+    summary: "At a time when diverse forms of automated visual feedback systems on speech are introduced to the Human–Computer Interaction (HCI) community, our research investigates the possible design spaces and design implications to consider when creating them. We utilised a Wizard of Oz prototype that recognises fillers during speech and sends out real-time feedback in the form of a flickering screen and a post-report with graphic charts. We let 27 participants use this prototype and interviewed them about their general experience of using such systems. Based on thematic analysis, we propose eight design implications to consider when designing an automated visual feedback system on speech. Additionally, we discuss the possible future for automated visual feedback systems on speech where they collaborate with fields such as personal informatics (quantified self), self-determination theory (SDT) and motivation, and other socio-ethnic areas.",
     links: { paper: "https://doi.org/10.1080/0144929X.2023.2271997", pdf: "papers/bit23-speech.pdf" }
   },
   {
@@ -240,7 +244,7 @@ const PAPERS = [
     venue: "Journal of the HCI Society of Korea",
     short: "JHCIK Journal Article", type: "Journal", year: 2023,
     topics: [],
-    summary: "This study examines how users' self-efficacy and risk perception shape their experience of AI recommendation systems.",
+    summary: "This research investigated how the self-efficacy of the users affects the user experience of an artificial intelligence (AI) recommendation system, focusing on the usability and the role of an AI-based recommendation system. We divided the role of self-efficacy into multiple dimensions and researched its effects by manipulating the level of risk perception following the decision-making. We experimented (N=46) through a quiz interface where an AI agent recommends a single answer. Each quiz question was provided with a varying amount of reward money which acted as an element that affects the risk perception of the participants. A pre-survey was conducted before each experiment to check each participant’s self-efficacy level. All participants were given 12 questions in total and were asked to evaluate the usability and satisfaction of the AI’s recommendation. After all experiments, a post-interview was conducted to deepen the understanding of the AI recommendation system’s role for the users. It was discovered that when risk perception increases, the satisfaction with AI recommendations decreases. Second, the perceived usability of the AI recommendation system differs according to the level of self-efficacy. Finally, users perceive the role of the AI recommendation system during a decision-making process differently according to the level of self-efficacy and risk perception. The research provides insights into the design of an AI recommendation system that considers various aspects of users' characteristics.",
     links: { paper: "https://scholar.kyobobook.co.kr/article/detail/4040049689415" }
   },
   {
@@ -250,20 +254,85 @@ const PAPERS = [
     venue: "Human-Computer Interaction – INTERACT 2021",
     short: "INTERACT 2021 Full Paper", type: "Conference", year: 2021,
     topics: ["death"],
-    summary: "Social media can be a thanatosensitive technology that supports death preparation and commemoration. Using Value-Sensitive Design, we identified three main stakeholders in online commemoration and ran interviews and observations with nine people about their online and offline commemoration practices.\n\nWe turned the findings into design requirements, a conceptual commemorative system, and a working prototype. In an informal test, six participants saw it as a way to reflect on their own existence, prepare for death, and join a community that remembers the deceased and copes with grief together.",
+    summary: "This research explores the relationship between social media and mortality, focusing on social media as a thanatosensitive technology that promotes death preparation and commemoration. Employing concepts from the Value-Sensitive Design approach, our research identifies three main stakeholders surrounding the online commemoration experience. As an exploratory study, we conducted in-depth interviews and observations (n = 9) to better understand key stakeholders’ experiences in online and offline commemorations. After analyzing the qualitative data, we extracted design requirements that were used to create a conceptual commemorative system and a functioning prototype. An informal user testing (n = 6) yielded positive feedbacks on the new system for it offers the unique opportunity to reflect existence, prepare for death, and create a community of commemoration that helps memorialize the deceased and recover from grief. The study suggests that commemoration via social media aids in maintaining user volition, induces active and interactive participation, and allows for a continuation of the digital legacy. Such findings may help deepen the understanding of humans’ perception of death and commemoration within the context of social media.",
     links: { paper: "https://doi.org/10.1007/978-3-030-85616-8_26", pdf: "papers/interact21-instagram.pdf" }
   }
 ];
 
-/* Artwork. `youtube` is the video id (the part after watch?v=); its thumbnail is shown automatically. */
+/* Artwork.
+   - thumb: tile image; youtube: one id or a list of ids (the part after watch?v=)
+   - page: link the tile to another page instead (e.g. "paper-ai-fortuneteller")
+   - summary (\n\n = new paragraph), images, sections [{heading, text, images}], links, credits [[label, value]]
+     give an artwork its own page at #art-<id>; without a summary the tile links to its video */
 const ARTWORKS = [
-  { title: "AI Fortuneteller", medium: "Video Art", year: 2024, award: "Honorary Mention, Prix Ars Electronica 2024", youtube: "Y21DGAZQWMU", page: "paper-ai-fortuneteller" },
-  { title: "Existence Effacement Service", medium: "Interactive Art", year: 2023 },
-  { title: "The Great Primitive Thinker", medium: "Speculative Novel & Media Installation", year: 2023 },
-  { title: "Purple Night", medium: "Short Documentary Film", year: 2020, youtube: "L7FiZeaj5Xc" },
-  { title: "The Aristocrats", medium: "Printed Artwork", year: 2019 },
-  { title: "Himmel and Blair", medium: "Printed Artwork", year: 2018 },
-  { title: "Pinocchio", medium: "Photograph", year: 2017 }
+  {
+    id: "ai-fortuneteller", title: "AI Fortuneteller", medium: "Video Art", year: 2024,
+    award: "Honorary Mention, Prix Ars Electronica 2024", thumb: "art/ai-fortuneteller/thumb.webp", page: "paper-ai-fortuneteller"
+  },
+  {
+    id: "existence-effacement", title: "Posthumous Existence Effacement Service", medium: "Interactive Art Installation", year: 2023,
+    subtitle: "Exploring the Motivation Behind Data Management After Death",
+    thumb: "art/existence-effacement/thumb.webp",
+    summary: "“Existence Effacement Service” is an interactive art installation that prompts audiences to reflect on their inclination toward the lasting digital footprint they will leave behind after death.\n\nUpon entering the room, participants are greeted by a receptionist who informs them that they stand at the entrance to the afterlife. The receptionist then explains the existence effacement service: before transitioning to the afterlife, individuals are offered the choice to erase the traces of their existence on Earth. These traces include not only physical remnants but also intangible ones, such as memories and digital footprints. Participants complete a form expressing their choices and briefly explaining their decisions. The completed forms are submitted to the receptionist, who confirms the choices and displays them on a wall as a reference for subsequent participants.\n\nIn a world saturated with messengers, social media posts, and photos stored on our phones, we continuously leave digital footprints. Yet we seldom consider how this data will persist after our death. The installation gives participants an opportunity to ponder what should happen to their remaining digital data: erase it entirely for privacy, leave it behind to perpetuate their existence, or preserve it as a legacy that loved ones can revisit for emotional comfort.\n\nAs a participatory installation, “Existence Effacement Service” turns audiences into co-creators of the piece. They contribute by sharing their responses and are provoked by reading the responses of others. The installation is meant to serve as a medium for discussing our diverse attitudes toward posthumous digital data.",
+    images: ["art/existence-effacement/01.webp", "art/existence-effacement/02.webp", "art/existence-effacement/03.webp", "art/existence-effacement/04.webp"],
+    links: { "Archived responses": "https://docs.google.com/spreadsheets/d/1pvCtUYWG8id_H52m0p_e76IUn4dELoCxQrULQQQw9ug/edit?usp=sharing" },
+    credits: [["A project by", "Soonho Kwon"], ["Advised by", "Younah Kang, Krys Lee"],
+      ["Exhibited", "Senior Graduation Exhibition 2023, Information and Interaction Design, Yonsei University; UIC3620 Genre Studies"]]
+  },
+  {
+    id: "great-primitive-thinker", title: "The Great Primitive Thinker", medium: "Critical Design Fiction & Media Installation", year: 2023,
+    subtitle: "Critical Design Fiction on the Relationship Between Religion, AI, and Humankind",
+    thumb: "art/great-primitive-thinker/thumb.webp",
+    youtube: ["vOf2_5A8Jbs", "TKAsI2yNhVg", "gFSZ_rX3ZQU", "zYMtMC4dC5Q"],
+    summary: "A bright circular light resembling a machine-god oddly exists in the middle of the most everyday place in our lives. The light, in a voice that sounds both human and mechanical, slowly reads out the note. As you read or listen to this story, what have you felt? Is that emotion provoked by the author? Or god? Or an AI? Or all of them? Or none of them?\n\nAs a critical design fiction, the work questions the current and desirable future forms of the human-AI relationship through the story of how the relationship between humankind, god, and AI changes over the course of history.",
+    links: { "Full text (PDF)": "https://fd10f4d9-3180-4dd3-b62b-3aa53dd4ad66.filesusr.com/ugd/0e9f2f_61eac5c5951346fa98fd3f6de49d0f57.pdf" },
+    credits: [["A project by", "Soonho Kwon"], ["Advised by", "Younah Kang, Krys Lee"],
+      ["Exhibited", "Senior Graduation Exhibition 2023, Information and Interaction Design, Yonsei University; UIC3620 Genre Studies"]]
+  },
+  {
+    id: "seacrets", title: "Seacrets", medium: "Critical Design", year: 2020,
+    subtitle: "Critical Design Project on the User Experience of Secret Sharing",
+    thumb: "art/seacrets/thumb.webp",
+    summary: "Seacrets is a critical design project that provokes thought about the extension of anonymity and the experience of sharing secrets.\n\nSeacrets is a secret-sharing platform. Here, users write their deepest secrets anonymously and let them flow into a bigger ocean. The ocean, a huge screen in a public space such as a subway station, randomly surfaces bottles that contain these self-disclosures. Anyone passing by can touch a bottle, open it, and read it. You never know what kind of secret you will encounter: someone coming out of the closet, someone confessing an experience of domestic abuse, or even someone confessing a crime. The project aims to provoke discussion about the nature of anonymous online spaces and the potential benefits and problems that could arise from such communities, highlighting the act of self-disclosure.\n\nExisting research shows that sharing secrets can be cathartic, lightening emotional burdens and bringing various physical and emotional health benefits. But to what extent? Are we eager to share our deepest secrets just for catharsis?\n\nWe may also shift our focus to the viewers. Why do we want to read these stories so much? What will viewers feel as they read these secrets? Solidarity in similar secrets? Or repulsion and horror, much like watching a horror or thriller film? Will this platform become a place of healing where victims of abuse can share their experiences? A queer community where people can come out in secret? Or a dark space where criminals boast of their wicked stories? Would you put your secret into a bottle and let it float in the Seacrets? Why?",
+    images: ["art/seacrets/01.webp"],
+    links: { "Inspired by “Secret Exhibition” (Kim Yeong Hyeon, 2018)": "https://www.instagram.com/p/Bt0HgsdH-Fb/" },
+    credits: [["A project by", "Soonho Kwon, Minkyung Kang, Yeonsu Noh, Jihong Shin, Eugene Kim"],
+      ["Context", "UXIM, Yonsei University UX/HCI Academia, Fall 2020"]]
+  },
+  { id: "purple-night", title: "Purple Night", medium: "Short Documentary Film", year: 2020, youtube: "L7FiZeaj5Xc" },
+  {
+    id: "aristocrats", title: "The Aristocrats", medium: "Printed Calendar", year: 2020,
+    subtitle: "A 12-Page Calendar of Freaks",
+    award: "1st Place, Rainbow Foundation", thumb: "art/aristocrats/thumb.webp",
+    summary: "Awarded first place by the Rainbow Foundation for outstanding design work and excellent integration of the Korean Gilbeot typeface, and successfully crowdfunded to be printed and sold.\n\nThroughout history, people who were different have often been treated as freaks and monsters. We must not forget how easy it is to monsterize someone; Asians, for instance, were exhibited in human zoos for looking strange to Western eyes. The models for this project were people who were “exhibited” for their otherness, some by choice but often with no choice at all. They were called freaks or monsters and given names designed to draw attention.\n\nSuch monsterization still takes place today. We stare at people who do not look like us and treat them differently. This project remembers those who passed away after living the life of a freak, and reminds all of us that we are only humans who can be represented through lines, dots, and colors. I chose a vivid color palette to celebrate the beauty of difference, then distorted the colors in Photoshop to create unexpected beauty, much like the models represented in this project.\n\nGilbert is a typeface named after Gilbert Baker, the creator of the iconic Rainbow Flag of the queer community. I found it fitting for this project, not only because it celebrates diversity but also for its vivid colors. Each month can be identified by the shapes used in the background: February uses lines, which connect two dots, and October uses overlapping pentagons, which together have ten angles.",
+    images: Array.from({ length: 12 }, (_, i) => `art/aristocrats/${String(i + 1).padStart(2, "0")}.webp`),
+    credits: [["A project by", "Soonho Kwon"], ["Advised by", "Hyoshin Park, Katheryne Hoffmann"],
+      ["Context", "IID3008 Visual Systems, Yonsei University (Fall 2020); LLEA270 Freaks and Monsters, University of Hawaiʻi at Mānoa"]]
+  },
+  {
+    id: "himmel-and-blair", title: "Himmel and Blair", medium: "Photo Essay", year: 2018,
+    subtitle: "A Photo Essay on the Extraordinarily Ordinary Lives of Korean Queers",
+    thumb: "art/himmel-and-blair/thumb.webp",
+    summary: "In loving memory of Blair.\n\nSexual identity is one of many aspects that can define a person. By capturing queer people in their most comfortable, everyday situations, I wanted to break stereotypes about queer people while still showing the unique concerns and styles of the models.",
+    sections: [
+      { heading: "Mask, Blair", text: "A photo becomes permanent evidence of your queer identity. Taking pictures while holding hands with a same-sex partner, or while attending pride events, is a fear for all queers in the digital age. For this reason, the Seoul Pride Festival still does not allow photography during the event.", images: ["art/himmel-and-blair/01.webp", "art/himmel-and-blair/02.webp"] },
+      { heading: "Mask, Himmel", text: "Itaewon is one of the few places where queer people can openly show themselves. Here, in one of the gay clubs, is where Himmel first gladly accepted his queer identity. He no longer had to hide who he was.", images: ["art/himmel-and-blair/03.webp", "art/himmel-and-blair/04.webp"] },
+      { heading: "God", text: "Many religions doubt our existence in the name of love; yet people of faith around me tell me their god taught them to love everyone and help those in need.\n\n“I know that there is a reason why God created me gay. If I had been born a straight man, I never would have understood what it means to be a minority. Because God made me gay, I had the chance to be more sympathetic and perhaps change people's hatred to love. For that, I thank God.”", images: ["art/himmel-and-blair/05.webp", "art/himmel-and-blair/06.webp"] },
+      { heading: "Solidarity", text: "Queer friendship is something else. While I was blessed with friends and family who love me for who I am, there is something non-queer folks cannot understand. The life of a queer person is not something you can express through words; you have to live it. Talking about discrimination or teenage years in the closet is merely a story to someone who is not queer.\n\nTo have someone who shares that experience, someone I can rely on through this journey, warms my heart.", images: ["art/himmel-and-blair/07.webp", "art/himmel-and-blair/08.webp"] },
+      { heading: "Home", text: "She wanted to start an online fashion store. She was the kind of person who would dye her hair Harley Quinn–style simply because she wanted to. Her house, much like her, was a treasure box. You never knew what you would find there, from 8-inch zebra-striped heels to a Cruella de Vil–like vegan fur shawl, or even a smoking pipe.", images: ["art/himmel-and-blair/09.webp", "art/himmel-and-blair/10.webp"] },
+      { heading: "Life", text: "The life of a queer person is ordinary. Special, but ordinary.\n\nNot all queer people dress flamboyantly, nor do we spray glitter everywhere we go. We have breakfast, we drink shots, we smoke, we go to Taco Bell, we use coupons to get discounts, we gossip about our exes, we talk about that date last night.\n\nOur lives are special, but not just because we are queer. Just as each of our lives is special in its own way, queer people, too, have extraordinary stories within the most ordinary lives.", images: ["art/himmel-and-blair/11.webp", "art/himmel-and-blair/12.webp"] }
+    ],
+    credits: [["A project by", "Soonho Kwon"], ["Advised by", "Kiho Park"],
+      ["Context", "IID2002 Photography Workshop (Fall 2017) and IID4003 Photo and Book (Spring 2018), Yonsei University"]]
+  },
+  {
+    id: "pinocchio", title: "Pinocchio", medium: "Photographic Storytelling", year: 2017,
+    thumb: "art/pinocchio/thumb.webp",
+    summary: "Pinocchio is a photographic storytelling project that illustrates the internal pain of being unable to disclose one's true identity despite wanting to. Through various objects, I sought to show the frustration of living as a queer person in Korean society. The quotes, taken from the classic fairy tale Pinocchio, offer an ironic point of reference, since the story is about the importance of telling the truth. For queer people, lying about one's identity may be a matter of survival. An unprepared coming out could lead to catastrophic results, especially in a conservative society and without economic independence.\n\nLying about your own identity slowly kills you. You are living, but not as your true self. You become a wooden puppet played by society, not a living, breathing person.\n\nBut then again, what choice do we have, right?",
+    images: ["art/pinocchio/01.webp", "art/pinocchio/02.webp"],
+    credits: [["A project by", "Soonho Kwon"], ["Advised by", "Kiho Park"],
+      ["Context", "IID2002 Photography Workshop, Yonsei University (Fall 2017)"]]
+  }
 ];
 
 /* Google Analytics measurement ID (starts with "G-"). Leave "" to turn analytics off. */
