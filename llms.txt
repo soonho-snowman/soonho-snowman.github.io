@@ -107,6 +107,7 @@ We end with a personal remark from the first and second authors, for whom this w
 - Topics: Policy and Civic Engagement
 - paper: https://doi.org/10.1145/3817012
 - pdf: https://dl.acm.org/doi/pdf/10.1145/3817012
+- Video: https://www.youtube.com/watch?v=XgWoYbYbYko
 - Page: https://kwonsoonho.com/#paper-cscw26-fda
 
 The U.S. Food and Drug Administration (FDA)’s Food Traceability Rule, promulgated as part of the Food Safety Modernization Act (FSMA), requires agri-food supply chain stakeholders (stakeholders)—including farmers, fishers, retail workers, and others—to maintain detailed tracking records beginning in January 2026. Through this Rule, the FDA envisions a “New Era of Tech-Enabled Traceability,” in which standardized, harmonized tracking data serve as a foundational public health infrastructure, enabling more rapid identification and removal of potentially contaminated food and ultimately reducing the risk of foodborne illness.
@@ -124,6 +125,7 @@ This work contributes to CSCW by providing an empirical account of how data-driv
 - Topics: Korean Queer Community
 - paper: https://doi.org/10.1145/3816958
 - pdf: https://dl.acm.org/doi/pdf/10.1145/3816958
+- Video: https://www.youtube.com/watch?v=eAyzh0PUArU
 - Page: https://kwonsoonho.com/#paper-cscw26-parents
 
 This study examines how parents of LGBTQ+ individuals in South Korea navigate the emotional rupture fueled by fear, isolation, and disorientation after learning their children’s queer identity, encounter queer-related (mis)information as a way of coping with this emotional toll, and come to listen to queer realities relationally. Through this process, we highlight how parents reconstruct their identities as supportive parents, which reshapes their informating practices, making them more critical in assessing queer-related (mis)information, developing strategies to protect themselves from harmful narratives, and actively challenging misinformation to support others navigating similar experiences.
