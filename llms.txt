@@ -107,6 +107,7 @@ We end with a personal remark from the first and second authors, for whom this w
 - Topics: Policy and Civic Engagement
 - paper: https://doi.org/10.1145/3817012
 - pdf: https://dl.acm.org/doi/pdf/10.1145/3817012
+- news: https://www.cc.gatech.edu/news/small-farmers-being-weighed-down-food-traceability-rule-new-paper-finds
 - Video: https://www.youtube.com/watch?v=XgWoYbYbYko
 - Page: https://kwonsoonho.com/#paper-cscw26-fda
 
@@ -435,6 +436,8 @@ Soonho also sings and directs a cappella with YAYAN, Yonsei University's a cappe
 
 ## News
 
+- 2026-10: Our [CSCW paper on the FDA's Food Traceability Rule](https://kwonsoonho.com/#paper-cscw26-fda) was featured by the Georgia Tech College of Computing: "[Small Farmers Being Weighed Down by Food Traceability Rule, New Paper Finds](https://www.cc.gatech.edu/news/small-farmers-being-weighed-down-food-traceability-rule-new-paper-finds)."
+- 2026-10: Quoted in Tech Square ATL's story on the lasting influence of Shaowen Bardzell's foundational Feminist HCI paper: "[Shaping a Path Forward](https://www.techsquareatl.com/tech-square-news/2026/10/13/shaping-a-path-forward-ongoing-influence-of-bardzells-foundational-feminist-hci-paper)."
 - 2026-10: At CSCW 2026 in Salt Lake City, presenting two papers: one on [parents of LGBTQ+ children](https://kwonsoonho.com/#paper-cscw26-parents) and one on [the FDA's Food Traceability Rule](https://kwonsoonho.com/#paper-cscw26-fda).
 - 2026-09: Named a finalist for the GVU Foley Scholar Award at Georgia Tech.
 - 2026-08: Selected for the Lee Chang-guk Queer Research Support Program by the Beyond the Rainbow Foundation.
